@@ -23,17 +23,12 @@ namespace LastIsekai
             if (inventoryEnabled)
             {
                 EnableCursor();
-                hud.alpha = 0f;
-                inventory.alpha = 1f;
-                hud.blocksRaycasts = false;
-                inventory.blocksRaycasts = true;
+                ShowCanvas(inventory);
+                HideCanvas(hud);
                 return;
             }
-
-            hud.alpha = 1f;
-            inventory.alpha = 0f;
-            inventory.blocksRaycasts = false;
-            hud.blocksRaycasts = true;
+            ShowCanvas(hud);
+            HideCanvas(inventory);
             DisableCursor();
         }
 
@@ -44,6 +39,18 @@ namespace LastIsekai
         private void DisableCursor()
         {
             Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        public void ShowCanvas(CanvasGroup canvas)
+        {
+            canvas.alpha = 1f;
+            canvas.blocksRaycasts = true;
+        }
+
+        public void HideCanvas(CanvasGroup canvas)
+        {
+            canvas.alpha = 0f;
+            canvas.blocksRaycasts = false;
         }
     }
 }

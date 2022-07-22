@@ -7,8 +7,8 @@ namespace LastIsekai
     [CreateAssetMenu(fileName = "Weapon", menuName = "Inventory/Weapons", order = 1)]
     public class Weapon : Item
     {
-        [Header("Weapon Attributes")]
         WeaponManager weaponManager;
+        [Header("Weapon Attributes")]
         public GameObject prefab;
         public AnimatorOverrideController animatorOverrideController;
         [TextArea]

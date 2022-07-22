@@ -8,7 +8,7 @@ namespace LastIsekai
     public class PlayerPicker : MonoBehaviour
     {
         public BoxCollider collider;
-        bool input;
+        public bool input;
 
         #region Input
         private void Update()
@@ -21,15 +21,20 @@ namespace LastIsekai
         #endregion
         private void OnTriggerStay(Collider other)
         {
-           Interactable interactable = other.GetComponent<Interactable>();  
-           if (interactable != null)
-           {
-                if (input)
+            if (input)
+            {
+                print("Doing stuff");
+                Interactable interactable = other.GetComponent<Interactable>();
+                if (interactable != null)
                 {
                     interactable.Interact();
                     input = false;
-                }                
-           }
+                }
+                else
+                {
+                    input = false;
+                }
+            }
         }
     }
 }

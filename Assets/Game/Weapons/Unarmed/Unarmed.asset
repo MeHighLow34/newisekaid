@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e8850a6f8612a04a8dec74bf922713f, type: 3}
-  m_Name: Cruger
+  m_Name: Unarmed
   m_EditorClassIdentifier: 
-  name: Cruger
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 7437975554289156417, guid: 4276882de2d276441b0a055565a3a500, type: 3}
-  animatorOverrideController: {fileID: 22100000, guid: ffedd7243cdd9a64e8e3582a7576ae3e,
+  name: Unarmed
+  icon: {fileID: 0}
+  prefab: {fileID: 0}
+  animatorOverrideController: {fileID: 22100000, guid: 8fbf0970ac8d9794faa6a5bac4d59361,
     type: 2}
-  description: 'This sword was passed down to the people of Trum LOLOLOLO Slratbrodem
-
-'
+  description: Unarmed version...special case for everything
