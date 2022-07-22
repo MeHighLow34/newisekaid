@@ -197,7 +197,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 836222662687932450}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2007020947073474168}
+        m_TargetAssemblyTypeName: LastIsekai.InventorySlot, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &836222662954886769
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +330,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 836222662954886782}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2007020947073474168}
+        m_TargetAssemblyTypeName: LastIsekai.InventorySlot, Assembly-CSharp
+        m_MethodName: OnRemoveButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &836222663448800644
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,3 +395,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 836222661675792457}
+  removeButton: {fileID: 836222662954886783}

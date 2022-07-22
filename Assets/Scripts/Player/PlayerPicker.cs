@@ -8,14 +8,26 @@ namespace LastIsekai
     public class PlayerPicker : MonoBehaviour
     {
         public BoxCollider collider;
+        bool input;
+
+        #region Input
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                input = true;
+            }
+        }
+        #endregion
         private void OnTriggerStay(Collider other)
         {
            Interactable interactable = other.GetComponent<Interactable>();  
            if (interactable != null)
            {
-                if (Input.GetKeyDown(KeyCode.T))
+                if (input)
                 {
                     interactable.Interact();
+                    input = false;
                 }                
            }
         }

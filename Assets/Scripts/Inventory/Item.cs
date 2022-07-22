@@ -11,5 +11,10 @@ namespace LastIsekai
     {
         new public string name = "New Item";
         public Sprite icon;
+
+        public virtual void Use()
+        {
+            Debug.Log("Using " + name);
+        }
     }
 }
