@@ -23,17 +23,16 @@ namespace LastIsekai
         {
             if (input)
             {
-                print("Doing stuff");
                 Interactable interactable = other.GetComponent<Interactable>();
                 if (interactable != null)
                 {
                     interactable.Interact();
                     input = false;
                 }
-                else
-                {
-                    input = false;
-                }
+                //else
+                //{
+                //    input = false;
+                //}
             }
         }
     }
