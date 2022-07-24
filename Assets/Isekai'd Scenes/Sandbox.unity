@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2112.784, g: 2224.5066, b: 3238.6196, a: 1}
+  m_IndirectSpecularColor: {r: 2112.7295, g: 2222.5693, b: 3231.3223, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2312,6 +2312,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 5476606949924950478, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
     type: 3}
   spawnPosition: {fileID: 1462030237}
+  hud: {fileID: 708980799}
+  inventory: {fileID: 855404893}
 --- !u!4 &487015219
 Transform:
   m_ObjectHideFlags: 0
@@ -3401,25 +3403,6 @@ Transform:
   m_Father: {fileID: 1170259383}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &762032933 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4666213895677441933, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5476606949424971601}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &762032935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762032933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SmoothingDelay: 5
 --- !u!1001 &794803100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8907,7 +8890,7 @@ PrefabInstance:
     - target: {fileID: 5476606949924950512, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
         type: 3}
       propertyPath: sceneViewId
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5476606949924950513, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
         type: 3}
@@ -8964,13 +8947,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8796388366323465250, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
+    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
         type: 3}
-      propertyPath: sceneViewId
+      propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5024508967044895499, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e, type: 3}
+    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[3].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[4].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[5].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[6].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e, type: 3}
 --- !u!1001 &7761237210253368138
 PrefabInstance:

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 
 namespace LastIsekai
 {
     public class InputManager : MonoBehaviour
     {
+        PhotonView view;
         PlayerActions playerActions;
         [Header("Bools")]
         public bool lightAttack;
@@ -17,6 +18,7 @@ namespace LastIsekai
 
         private void Awake()
         {
+            view = GetComponentInParent<PhotonView>();
             playerAttacker = GetComponent<PlayerAttacker>();
             playerManager = GetComponent<PlayerManager>();  
         }
@@ -39,7 +41,10 @@ namespace LastIsekai
 
         public void HandleAllInput()
         {
-            HandleAttackInput();
+            if (view.IsMine)
+            {
+                HandleAttackInput();
+            }
         }
 
         private void HandleAttackInput()

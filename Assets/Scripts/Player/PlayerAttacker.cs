@@ -18,6 +18,7 @@ namespace LastIsekai
 
         public void HandleLightAttack()
         {
+            animationManager.animator.SetBool("network", true);
             animationManager.PlayTargetAnimation("Attack1", true);
             lastAttack = "Attack1";
         }

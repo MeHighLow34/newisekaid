@@ -31,5 +31,14 @@ namespace LastIsekai
         {
             animator.SetBool("noInteracting", false);
         }
+
+        public void EnableNetwork()
+        {
+            animator.SetBool("network", true);
+        }
+        public void DisableNetwork()
+        {
+            animator.SetBool("network", false);
+        }
     }
 }
