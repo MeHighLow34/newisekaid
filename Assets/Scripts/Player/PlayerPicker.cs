@@ -29,11 +29,12 @@ namespace LastIsekai
                     interactable.Interact();
                     input = false;
                 }
-                //else
-                //{
-                //    input = false;
-                //}
             }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            input = false;
         }
     }
 }

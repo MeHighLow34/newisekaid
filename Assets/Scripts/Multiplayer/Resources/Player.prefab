@@ -2858,6 +2858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 0}
   camera: {fileID: 0}
+  audioListener: {fileID: 0}
 --- !u!1 &5476606949939291127
 GameObject:
   m_ObjectHideFlags: 0
@@ -4967,7 +4968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db910924aa47488478038705ba13d0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeapon: {fileID: 11400000, guid: f59fbc712ac43794c9638b73c3ae416c, type: 2}
+  currentWeapon: {fileID: 0}
   animator: {fileID: 5476606951104058847}
   handTransform: {fileID: 6175980776664773908}
   unarmedWeapon: {fileID: 11400000, guid: 179a125706353044ebcda3f25ad06196, type: 2}

@@ -1,20 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 namespace LastIsekai
 {
     public class Inventory : MonoBehaviour
     {
         #region Singleton
+        PhotonView view;
         public static Inventory instance;
         private void Awake()
         {
-            if(instance != null)
+            view = GetComponentInParent<PhotonView>();
+            if (!view.IsMine)
             {
-                Debug.LogWarning("More than one instance of Inventory");
+                print("Destroyed inventory of other player");
+                Destroy(this);
             }
-            instance = this;
+            if (view.IsMine)
+            {
+                if (instance != null)
+                {
+                    Debug.LogWarning("More than one instance of Inventory");
+                }
+                instance = this;
+            }
+        }
+
+        private void Start()
+        {
+            if (view.IsMine)
+            {
+                instance = this;
+            }
         }
         #endregion
         public delegate void OnItemChanged();

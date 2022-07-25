@@ -16,7 +16,7 @@ namespace LastIsekai
         void PickUp()
         {
             bool wasPickedUp = Inventory.instance.Add(item);
-            if(wasPickedUp) Destroy(gameObject);
+            if (wasPickedUp) { Destroy(gameObject); } 
         }
     }
 }
