@@ -20,6 +20,10 @@ namespace LastIsekai
             {
                 EquipWeapon(unarmedWeapon);
             }
+            else
+            {
+                EquipWeapon(currentWeapon);
+            }
         }
         public void EquipWeapon(Weapon weapon)
         {

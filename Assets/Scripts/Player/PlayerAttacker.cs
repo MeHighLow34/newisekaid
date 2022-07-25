@@ -18,8 +18,9 @@ namespace LastIsekai
 
         public void HandleLightAttack()
         {
-            animationManager.animator.SetBool("network", true);
-            animationManager.PlayTargetAnimation("Attack1", true);
+            animationManager.animator.SetBool("attack", true);
+            animationManager.animator.SetBool("isInteracting", true);
+            animationManager.animator.applyRootMotion = true;
             lastAttack = "Attack1";
         }
 
@@ -29,7 +30,10 @@ namespace LastIsekai
             {
                 if(lastAttack == "Attack1")
                 {
-                    animationManager.PlayTargetAnimation("Attack2", true);
+                    //animationManager.PlayTargetAnimation("Attack2", true);
+                    animationManager.animator.SetBool("doCombo", true);
+                    animationManager.animator.SetBool("isInteracting", true);
+                    animationManager.animator.applyRootMotion = true;
                     lastAttack = "Attack2";
                 }
             }

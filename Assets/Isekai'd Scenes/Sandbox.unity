@@ -8947,41 +8947,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[3].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[4].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[5].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605579096388901574, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[6].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7aa7fadeb4e97b4398fa9c199e2fd0e, type: 3}
 --- !u!1001 &7761237210253368138
