@@ -14,7 +14,6 @@ namespace LastIsekai
             view = GetComponentInParent<PhotonView>();
             if (!view.IsMine)
             {
-                print("Destroyed inventory of other player");
                 Destroy(this);
             }
             if (view.IsMine)

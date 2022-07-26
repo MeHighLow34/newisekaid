@@ -8,7 +8,6 @@ namespace LastIsekai
     {
         Inventory inventory;
         public Transform itemsParent;
-
         InventorySlot[] slots;
         private void Start()
         {

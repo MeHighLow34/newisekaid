@@ -20,7 +20,11 @@ namespace LastIsekai
            UIManager ui = Player.GetComponentInChildren<UIManager>();
            ui.hud = hud;
            ui.inventory = inventory;
-            onPlayerSpawn?.Invoke();
+           onPlayerSpawn?.Invoke();
+          if (Player.GetPhotonView().IsMine)
+          {
+                Player.GetComponentInChildren<WeaponManager>().gameObject.name = "LocalPlayerStructure";
+          }
         }
 
     }

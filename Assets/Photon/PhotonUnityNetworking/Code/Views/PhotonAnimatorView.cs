@@ -121,9 +121,22 @@ namespace Photon.Pun
 
         private void Awake()
         {
-            this.m_Animator = GetComponent<Animator>();
+            this.m_Animator = GetAnimator();
         }
 
+        public Animator GetAnimator()
+        {
+            return GetComponent<Animator>(); 
+        }
+        public void Resetting()
+        {
+            this.m_StreamQueue.Reset(); 
+        }
+        public void ChangeRunTimeController(RuntimeAnimatorController newRunTimeController)
+        {
+            print("I was called CHANGINGNGGNNGNG");
+            this.m_Animator.runtimeAnimatorController = newRunTimeController;
+        }
         private void Update()
         {
             if (this.m_Animator.applyRootMotion && this.photonView.IsMine == false && PhotonNetwork.IsConnected == true)

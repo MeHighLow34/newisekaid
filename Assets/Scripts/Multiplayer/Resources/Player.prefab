@@ -4972,6 +4972,8 @@ MonoBehaviour:
   animator: {fileID: 5476606951104058847}
   handTransform: {fileID: 6175980776664773908}
   unarmedWeapon: {fileID: 11400000, guid: 179a125706353044ebcda3f25ad06196, type: 2}
+  networkUnarmed: {fileID: 11400000, guid: 179a125706353044ebcda3f25ad06196, type: 2}
+  networkCruger: {fileID: 11400000, guid: f59fbc712ac43794c9638b73c3ae416c, type: 2}
 --- !u!1 &8188754140214786161
 GameObject:
   m_ObjectHideFlags: 0
