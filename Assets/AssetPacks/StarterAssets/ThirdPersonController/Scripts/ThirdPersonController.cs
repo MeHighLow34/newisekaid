@@ -3,7 +3,7 @@
 using UnityEngine.InputSystem;
 #endif
 using Photon.Pun;
-
+using LastIsekai;
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
 
@@ -15,6 +15,8 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        [Header("Custom Properties")]
+        public PlayerManager playerManager;
         [Header("Network")]
         public PhotonView view;
         [Header("Player")]
@@ -129,6 +131,7 @@ namespace StarterAssets
 
         private void Awake()
         {
+            playerManager = GetComponent<PlayerManager>();  
             // get a reference to our main camera
             if (_mainCamera == null)
             {
@@ -160,6 +163,10 @@ namespace StarterAssets
 
         private void Update()
         {
+            if (playerManager.isInteracting) {
+                _input.jump = false;
+                return;
+            } // when playing a root motion animation we cannot move
             // _hasAnimator = TryGetComponent(out _animator);
             if (view.IsMine)
             {

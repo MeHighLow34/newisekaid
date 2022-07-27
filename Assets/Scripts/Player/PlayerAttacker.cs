@@ -22,6 +22,16 @@ namespace LastIsekai
             animationManager.animator.SetBool("isInteracting", true);
             animationManager.animator.applyRootMotion = true;
             lastAttack = "Attack1";
+            animationManager.animator.SetBool("attack", true);
+            animationManager.animator.SetBool("attack", true);
+            animationManager.animator.SetBool("attack", true);
+            animationManager.animator.SetBool("attack", true);
+            animationManager.animator.SetBool("attack", true);
+            animationManager.animator.SetBool("attack", true);
+            animationManager.animator.SetBool("attack", true);
+            animationManager.animator.SetBool("attack", true);
+            animationManager.animator.SetBool("attack", true);
+
         }
 
         public void HandleLightAttackCombo()

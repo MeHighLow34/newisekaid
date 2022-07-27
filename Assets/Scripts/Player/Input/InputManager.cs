@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using StarterAssets;
 
 namespace LastIsekai
 {
     public class InputManager : MonoBehaviour
     {
+        ThirdPersonController thirdPersonController;
         PhotonView view;
         PlayerActions playerActions;
         [Header("Bools")]
@@ -18,6 +20,7 @@ namespace LastIsekai
 
         private void Awake()
         {
+            thirdPersonController = GetComponent<ThirdPersonController>();
             view = GetComponentInParent<PhotonView>();
             playerAttacker = GetComponent<PlayerAttacker>();
             playerManager = GetComponent<PlayerManager>();  
@@ -59,7 +62,7 @@ namespace LastIsekai
                 }
                 else
                 {
-                    if (playerManager.isInteracting || playerManager.noInteracting)
+                    if (playerManager.isInteracting || playerManager.noInteracting || !thirdPersonController.Grounded)
                     {
                         lightAttack = false;
                         return;

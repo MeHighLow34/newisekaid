@@ -2307,6 +2307,7 @@ GameObject:
   - component: {fileID: 6096108452760279710}
   - component: {fileID: 5605579096388901574}
   - component: {fileID: 5476606949424971607}
+  - component: {fileID: 5476606949424971604}
   m_Layer: 0
   m_Name: PROBNI_MC
   m_TagString: Untagged
@@ -2527,6 +2528,20 @@ MonoBehaviour:
   maxPositionDifferenceForVelocitySyncing: 10
   ownerChangeIndicator: 1
   receivedStatesCounter: 0
+--- !u!114 &5476606949424971604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666213895677441933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56467706b0ebd2845b542e5150f47d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  stats: {fileID: 3955115513185800306}
 --- !u!1 &4786974528224715689
 GameObject:
   m_ObjectHideFlags: 0
@@ -4614,7 +4629,6 @@ GameObject:
   - component: {fileID: 3235624846316503397}
   - component: {fileID: 3235624846316503396}
   - component: {fileID: 3955115513185800306}
-  - component: {fileID: 3955115513185800309}
   - component: {fileID: 3955115513185800257}
   - component: {fileID: 3955115513185800256}
   - component: {fileID: 964672893961259246}
@@ -4914,19 +4928,6 @@ MonoBehaviour:
   level: 1
   characterClass: 0
   progression: {fileID: 11400000, guid: b14b437f936835a418b7c5ad0742b883, type: 2}
---- !u!114 &3955115513185800309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164115589356454305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56467706b0ebd2845b542e5150f47d9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
 --- !u!114 &3955115513185800257
 MonoBehaviour:
   m_ObjectHideFlags: 0

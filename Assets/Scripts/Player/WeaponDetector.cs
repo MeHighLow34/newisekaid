@@ -9,7 +9,7 @@ namespace LastIsekai
     {
         private void OnTriggerEnter(Collider other)
         {
-          //  print(other.gameObject.name + " I HIT THAT ");
+            print(other.gameObject.name + " I HIT THAT ");
         }
     }
 }

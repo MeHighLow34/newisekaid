@@ -16,7 +16,7 @@ namespace LastIsekai
             animator.applyRootMotion = isInteracting;
             animator.CrossFade(Animation, 0.2f);
         }
-
+        #region Root Animation
         private void OnAnimatorMove()
         {
             if(animator.applyRootMotion == true)
@@ -33,5 +33,7 @@ namespace LastIsekai
                 rootMotion = Vector3.zero;
             }
         }
+
+        #endregion
     }
 }

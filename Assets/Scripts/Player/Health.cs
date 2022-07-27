@@ -5,15 +5,14 @@ using UnityEngine;
 
 namespace LastIsekai
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, IDamageable
     {
         public float health;
         float maxHealth;
-        BaseStats stats;
+        public BaseStats stats;
 
         private void Awake()
         {
-            stats = GetComponent<BaseStats>();  
             maxHealth = stats.GetStat(Stat.Health);
             health = maxHealth;
         }
@@ -22,6 +21,11 @@ namespace LastIsekai
         {
             return health / maxHealth;
         }
+        public void HandleDeath()
+        {
+            print("Dead boih");
+        }
+
         public void TakeDamage(float damage)
         {
             health -= damage;
@@ -29,10 +33,6 @@ namespace LastIsekai
             {
                 HandleDeath();
             }
-        }
-        public void HandleDeath()
-        {
-            print("Dead boih");
         }
     }
 }

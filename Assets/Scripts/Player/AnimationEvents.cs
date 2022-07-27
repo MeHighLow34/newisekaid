@@ -18,7 +18,11 @@ namespace LastIsekai
         {
             animator.SetBool("canDoCombo", true);
         }
-
+        public void ResetToDefault()
+        {
+            animator.applyRootMotion = false;
+            animator.SetBool("isInteracting", false);
+        }
         public void DisableCombo()
         {
             animator.SetBool("canDoCombo", false);
@@ -32,13 +36,13 @@ namespace LastIsekai
             animator.SetBool("noInteracting", false);
         }
 
-        public void EnableNetwork()
+        public void EnableAttack()
         {
-            animator.SetBool("network", true);
+            animator.SetBool("attack", true);
         }
-        public void DisableNetwork()
+        public void DisableAttack()
         {
-            animator.SetBool("network", false);
+            animator.SetBool("attack", false);
         }
     }
 }
