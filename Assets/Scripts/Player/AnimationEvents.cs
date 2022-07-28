@@ -8,12 +8,18 @@ namespace LastIsekai
     public class AnimationEvents : MonoBehaviour
     {
         public Animator animator;
+        WeaponManager weaponManager;
+        WeaponManager[] allWeaponManagers;
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
         }
 
+        private void Start()
+        {
+            FindLocalWeaponManager();
+        }
         public void EnableCombo()
         {
             animator.SetBool("canDoCombo", true);
@@ -43,6 +49,33 @@ namespace LastIsekai
         public void DisableAttack()
         {
             animator.SetBool("attack", false);
+        }
+
+
+        public void EnableWeaponCollider()
+        {
+            var weaponCollider = weaponManager.rightHandWeaponHolder.GetComponentInChildren<BoxCollider>();
+            weaponCollider.enabled = true;
+        }
+
+        public void DisableWeaponCollider()
+        {
+            var weaponCollider = weaponManager.rightHandWeaponHolder.GetComponentInChildren<BoxCollider>();
+            weaponCollider.enabled = false;
+        }
+
+
+
+        private void FindLocalWeaponManager()
+        {
+            allWeaponManagers = FindObjectsOfType<WeaponManager>();
+            foreach (var manager in allWeaponManagers)
+            {
+                if (manager.gameObject.name == "LocalPlayerStructure")
+                {
+                    weaponManager = manager;
+                }
+            }
         }
     }
 }

@@ -20,6 +20,8 @@ namespace LastIsekai
         [Header("All Network Weapons")]
         public Weapon networkUnarmed;
         public Weapon networkCruger;
+        [Header("Transform")]
+        public Transform rightHandWeaponHolder;
         private void Awake()
         {
             view = GetComponentInParent<PhotonView>();

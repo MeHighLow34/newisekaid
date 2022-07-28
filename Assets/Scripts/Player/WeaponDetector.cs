@@ -9,7 +9,9 @@ namespace LastIsekai
     {
         private void OnTriggerEnter(Collider other)
         {
-            print(other.gameObject.name + " I HIT THAT ");
+            var victim = other.GetComponent<IDamageable>();
+            if (victim == null) return;
+            print("I hit that bitch " + victim);
         }
     }
 }
