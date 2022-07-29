@@ -7,11 +7,12 @@ namespace LastIsekai
 {
     public class WeaponDetector : MonoBehaviour
     {
+        public float damage = 7.5f;
         private void OnTriggerEnter(Collider other)
         {
             var victim = other.GetComponent<IDamageable>();
             if (victim == null) return;
-            print("I hit that bitch " + victim);
+            victim.TakeDamage(damage);
         }
     }
 }
