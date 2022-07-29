@@ -11,12 +11,24 @@ namespace LastIsekai
         public PhotonView view;
         public CinemachineVirtualCamera camera;
         public AudioListener audioListener;
+        public GameObject worldSpaceUI;
+        public Camera mainCamera;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
             camera = GetComponentInChildren<CinemachineVirtualCamera>();
             audioListener = GetComponentInChildren<AudioListener>();
+            if (view.IsMine)
+            {
+                Destroy(worldSpaceUI);
+            }
+            if(view.IsMine == false)
+            {
+                Destroy(mainCamera.gameObject);
+            }
         }
+
+
         private void Start()
         {
             if (!view.IsMine)
