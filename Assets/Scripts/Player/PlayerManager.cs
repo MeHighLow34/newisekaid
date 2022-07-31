@@ -12,6 +12,7 @@ namespace LastIsekai
         public bool isInteracting;
         public bool canDoCombo;
         public bool noInteracting;
+        public bool attack;
         private void Awake()
         {
             inputManager = GetComponent<InputManager>();
@@ -27,6 +28,7 @@ namespace LastIsekai
             isInteracting = animator.GetBool("isInteracting");
             canDoCombo = animator.GetBool("canDoCombo");
             noInteracting = animator.GetBool("noInteracting");
+            attack = animator.GetBool("attack");
         }
     }
 }

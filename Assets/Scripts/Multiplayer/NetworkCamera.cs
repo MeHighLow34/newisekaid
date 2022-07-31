@@ -9,15 +9,18 @@ namespace LastIsekai
     public class NetworkCamera : MonoBehaviour
     {
         public PhotonView view;
+        [Header("Destroying/Disabling Objects")]
         public CinemachineVirtualCamera camera;
         public AudioListener audioListener;
         public GameObject worldSpaceUI;
         public Camera mainCamera;
+        public GameObject itemInfo;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
             camera = GetComponentInChildren<CinemachineVirtualCamera>();
             audioListener = GetComponentInChildren<AudioListener>();
+            #region Destruction
             if (view.IsMine)
             {
                 Destroy(worldSpaceUI);
@@ -25,6 +28,7 @@ namespace LastIsekai
             if(view.IsMine == false)
             {
                 Destroy(mainCamera.gameObject);
+                Destroy(itemInfo);
             }
         }
 
@@ -37,5 +41,6 @@ namespace LastIsekai
                 Destroy(audioListener);
             }
         }
+        #endregion
     }
 }

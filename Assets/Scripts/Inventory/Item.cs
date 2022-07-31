@@ -11,6 +11,8 @@ namespace LastIsekai
     {
         new public string name = "New Item";
         public Sprite icon;
+        [TextArea]
+        public string description;
 
         public virtual void Use()
         {

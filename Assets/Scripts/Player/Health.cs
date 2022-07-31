@@ -12,12 +12,11 @@ namespace LastIsekai
         public float health;
         float maxHealth;
         public BaseStats stats;
-        PhotonView view;
+        public PhotonView view;
         private void Awake()
         {
             maxHealth = stats.GetStat(Stat.Health);
             health = maxHealth;
-          //  view = FindPhotonView();
             view = GetComponent<PhotonView>();
         }
 

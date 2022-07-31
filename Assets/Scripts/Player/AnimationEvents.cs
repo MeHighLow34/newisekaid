@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 
 namespace LastIsekai
 {
@@ -10,7 +10,7 @@ namespace LastIsekai
         public Animator animator;
         WeaponManager weaponManager;
         WeaponManager[] allWeaponManagers;
-
+        PhotonView photonView;
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -18,6 +18,7 @@ namespace LastIsekai
 
         private void Start()
         {
+            photonView = GetLocalPhotonView();
             FindLocalWeaponManager();
         }
         public void EnableCombo()
@@ -54,14 +55,20 @@ namespace LastIsekai
 
         public void EnableWeaponCollider()
         {
-            var weaponCollider = weaponManager.rightHandWeaponHolder.GetComponentInChildren<BoxCollider>();
-            weaponCollider.enabled = true;
+            if (photonView.IsMine)
+            {
+                var weaponCollider = weaponManager.rightHandWeaponHolder.GetComponentInChildren<BoxCollider>();
+                weaponCollider.enabled = true;
+            }
         }
 
         public void DisableWeaponCollider()
         {
-            var weaponCollider = weaponManager.rightHandWeaponHolder.GetComponentInChildren<BoxCollider>();
-            weaponCollider.enabled = false;
+            if (photonView.IsMine)
+            {
+                var weaponCollider = weaponManager.rightHandWeaponHolder.GetComponentInChildren<BoxCollider>();
+                weaponCollider.enabled = false;
+            }
         }
 
 
@@ -76,6 +83,19 @@ namespace LastIsekai
                     weaponManager = manager;
                 }
             }
+        }
+
+        private PhotonView GetLocalPhotonView()
+        {
+            WeaponManager[] wholeWM = FindObjectsOfType<WeaponManager>();
+            foreach (var manager in wholeWM)
+            {
+                if (manager.gameObject.name == "LocalPlayerStructure")
+                {
+                    return manager.gameObject.GetComponentInParent<PhotonView>();
+                }
+            }
+            return null;
         }
     }
 }

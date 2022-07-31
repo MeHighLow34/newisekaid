@@ -13,8 +13,7 @@ using LastIsekai;
         [Header("Weapon Attributes")]
         public GameObject prefab;
         public AnimatorOverrideController animatorOverrideController;
-        [TextArea]
-        public string description;
+
         public override void Use()
         {
             FindLocalWeaponManager();

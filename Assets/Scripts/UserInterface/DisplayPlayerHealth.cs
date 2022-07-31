@@ -19,7 +19,6 @@ namespace LastIsekai
         private void FindSpawnedPlayer()
         {
             playerHealth = FindObjectOfType<Health>();
-            print(playerHealth);
         }
 
         private void Update()

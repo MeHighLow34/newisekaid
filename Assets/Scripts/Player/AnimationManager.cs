@@ -10,7 +10,7 @@ namespace LastIsekai
         public Animator animator;
         public CharacterController characterController;
         Vector3 rootMotion;
-        public void PlayTargetAnimation(string Animation, bool isInteracting)
+        public void PlayTargetAnimation(string Animation, bool isInteracting)  // outdated/doesn't work with Photon
         {
             animator.SetBool("isInteracting", isInteracting);
             animator.applyRootMotion = isInteracting;

@@ -34,7 +34,7 @@ namespace LastIsekai {
         {
             if(item != null)
             {
-                item.Use();
+              FindObjectOfType<ItemInfo>().ShowItem(item);
             }
         }
     }

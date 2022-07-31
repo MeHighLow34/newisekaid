@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 namespace LastIsekai
 {
@@ -15,8 +16,12 @@ namespace LastIsekai
 
         void PickUp()
         {
+           // base.photonView.RequestOwnership();
             bool wasPickedUp = Inventory.instance.Add(item);
-            if (wasPickedUp) { Destroy(gameObject); } 
+            if (wasPickedUp) {
+             //   PhotonNetwork.Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 }

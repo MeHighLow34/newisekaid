@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 
 namespace LastIsekai
 {
-    public class Interactable : MonoBehaviour
+    public class Interactable : MonoBehaviourPun
     {
         public float radius = 2.5f;
 
