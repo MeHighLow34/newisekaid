@@ -154,7 +154,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.0,"g":0.39116278290748598,"b":38.9371452331543,"a":0.0}'
+      m_SerializableObject: '{"r":3.362426519393921,"g":25.68893814086914,"b":2.5554442405700685,"a":0.0}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -3399,7 +3399,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.0,"g":0.39116278290748598,"b":38.9371452331543,"a":0.0}'
+      m_SerializableObject: '{"r":3.362426519393921,"g":25.68893814086914,"b":2.5554442405700685,"a":0.0}'
     m_Space: 2147483647
   m_Property:
     name: o
@@ -3861,7 +3861,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -7039,7 +7039,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":1.0,"y":3.0,"z":1.0}'
+      m_SerializableObject: '{"x":0.6000000238418579,"y":3.0,"z":1.0}'
     m_Space: 2147483647
   m_Property:
     name: Scale

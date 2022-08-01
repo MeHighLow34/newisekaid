@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LastIsekai;
-
+using Photon.Pun;
 
 
     [CreateAssetMenu(fileName = "Weapon", menuName = "Inventory/Weapons", order = 1)]
@@ -12,6 +12,7 @@ using LastIsekai;
         WeaponManager weaponManager;
         [Header("Weapon Attributes")]
         public GameObject prefab;
+        public GameObject pickUpPrefab;
         public AnimatorOverrideController animatorOverrideController;
        
 
@@ -22,7 +23,12 @@ using LastIsekai;
             weaponManager.EquipWeapon(this);
         }
 
-        private void FindLocalWeaponManager()
+    public override void Drop()
+    {
+        FindLocalWeaponManager();
+        PhotonNetwork.Instantiate(pickUpPrefab.name, weaponManager.dropPosition.position, Quaternion.identity);
+    }
+    private void FindLocalWeaponManager()
         {
            allWeaponManagers = FindObjectsOfType<WeaponManager>();
            foreach (var manager in allWeaponManagers)

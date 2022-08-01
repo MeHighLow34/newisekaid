@@ -18,5 +18,6 @@ namespace LastIsekai
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, radius);
         }
+
     }
 }

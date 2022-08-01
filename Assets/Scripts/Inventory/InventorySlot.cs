@@ -23,7 +23,14 @@ namespace LastIsekai {
             item = newItem;
             icon.sprite = item.icon;
             icon.enabled = true;
-            removeButton.interactable = true;
+            if (newItem.isEssential == false)
+            {
+                removeButton.interactable = true;
+            }
+            if(newItem.isEssential == true)
+            {
+                removeButton.interactable = false;
+            }
         }
 
         public void ClearSlot()
@@ -36,7 +43,6 @@ namespace LastIsekai {
 
         public void OnRemoveButton()
         {
-            //  Inventory.instance.Remove(item);
             warning.Show(item);
         }
 
@@ -44,7 +50,7 @@ namespace LastIsekai {
         {
             if(item != null)
             {
-               itemInfo.ShowItem(item);
+              itemInfo.ShowItem(item);
             }
         }
     }

@@ -13,10 +13,16 @@ namespace LastIsekai
         public Sprite icon;
         [TextArea]
         public string description;
+        public bool isEssential;
 
         public virtual void Use()
         {
             Debug.Log("Using " + name);
+        }
+
+        public virtual void Drop()
+        {
+            Debug.Log("I should be dropped");
         }
     }
 }

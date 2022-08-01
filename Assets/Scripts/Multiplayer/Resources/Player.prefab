@@ -556,6 +556,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collider: {fileID: 1421017363}
   input: 0
+--- !u!1 &1932049637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932049638}
+  m_Layer: 6
+  m_Name: Item Drop Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1932049638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932049637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.83, z: 5.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5443277982949453111}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &177299714613311539
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,6 +3111,7 @@ Transform:
   - {fileID: 1167907645}
   - {fileID: 278630053}
   - {fileID: 624116653}
+  - {fileID: 1932049638}
   m_Father: {fileID: 2525692924086116297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4138,7 +4170,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7791262, y: 1}
+    m_SensorSize: {x: 1.777193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -5581,6 +5613,7 @@ MonoBehaviour:
   networkUnarmed: {fileID: 11400000, guid: 179a125706353044ebcda3f25ad06196, type: 2}
   networkCruger: {fileID: 11400000, guid: f59fbc712ac43794c9638b73c3ae416c, type: 2}
   rightHandWeaponHolder: {fileID: 6175980776664773908}
+  dropPosition: {fileID: 1932049638}
 --- !u!114 &4788247494833747468
 MonoBehaviour:
   m_ObjectHideFlags: 0

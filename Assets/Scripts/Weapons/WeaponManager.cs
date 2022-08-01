@@ -22,6 +22,7 @@ namespace LastIsekai
         public Weapon networkCruger;
         [Header("Transform")]
         public Transform rightHandWeaponHolder;
+        public Transform dropPosition;
         private void Awake()
         {
             view = GetComponentInParent<PhotonView>();

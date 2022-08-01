@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Unarmede
   icon: {fileID: 21300000, guid: 44ebd8e6f42cae445ab4b22f0a9b48a0, type: 3}
   description: Unarmed version...special case for everything
+  isEssential: 1
   prefab: {fileID: 0}
   animatorOverrideController: {fileID: 22100000, guid: 8fbf0970ac8d9794faa6a5bac4d59361,
     type: 2}

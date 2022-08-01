@@ -13,6 +13,7 @@ namespace LastIsekai
         public Item currentItem;
         public CanvasGroup canvasGroup;
         public WeaponManager weaponManager;
+        public Button dropButton;
         private void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();  
@@ -25,6 +26,14 @@ namespace LastIsekai
             if(currentItem.icon != null) itemIcon.sprite = currentItem.icon;
             itemName.text = currentItem.name;
             itemDescription.text = currentItem.description;
+            if (item.isEssential)
+            {
+                dropButton.interactable = false;
+            }
+            else
+            {
+                dropButton.interactable = true;
+            }
         }
 
 
@@ -52,10 +61,9 @@ namespace LastIsekai
 
         public void Drop()
         {
-            if (currentItem.GetType() == typeof(Weapon))
-            {
-                 
-            }
+            Inventory.instance.Remove(currentItem);
+            currentItem.Drop();
+            Hide();
         }
 
         private WeaponManager GetLocalWeaponManager()

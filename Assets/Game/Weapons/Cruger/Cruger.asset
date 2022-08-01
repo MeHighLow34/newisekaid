@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Cruger
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 7437975554289156417, guid: 4276882de2d276441b0a055565a3a500, type: 3}
-  animatorOverrideController: {fileID: 22100000, guid: ffedd7243cdd9a64e8e3582a7576ae3e,
-    type: 2}
   description: 'This sword was passed down to the people of Trum LOLOLOLO Slratbrodem
 
 '
+  isEssential: 0
+  prefab: {fileID: 7437975554289156417, guid: 4276882de2d276441b0a055565a3a500, type: 3}
+  pickUpPrefab: {fileID: 7761237209478627780, guid: 63596b6640f5fee498deb52718f09db1,
+    type: 3}
+  animatorOverrideController: {fileID: 22100000, guid: ffedd7243cdd9a64e8e3582a7576ae3e,
+    type: 2}
