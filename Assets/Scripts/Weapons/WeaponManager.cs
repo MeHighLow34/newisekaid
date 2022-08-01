@@ -41,6 +41,7 @@ namespace LastIsekai
         }
         public void EquipWeapon(Weapon weapon)
         {
+            if (currentWeapon != null) UnequipWeapon();
             currentWeapon = weapon;
             if (weapon.animatorOverrideController != null) {
                 animator.runtimeAnimatorController = currentWeapon.animatorOverrideController;        
@@ -89,7 +90,16 @@ namespace LastIsekai
         }
         public void UnequipWeapon()
         {
-
+        //    Inventory.instance.Add(currentWeapon); // when we unequip the weapon we should add it back to the inventory
+            WeaponDetector currentWeaponPrefab = handTransform.GetComponentInChildren<WeaponDetector>();
+            if(currentWeaponPrefab == null)
+            {
+                print("There is no prefab to delete ");
+            }
+            if (currentWeaponPrefab != null) Destroy(currentWeaponPrefab.gameObject);
         }
+
+
+        
     }
 }

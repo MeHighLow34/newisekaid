@@ -13,6 +13,7 @@ using LastIsekai;
         [Header("Weapon Attributes")]
         public GameObject prefab;
         public AnimatorOverrideController animatorOverrideController;
+       
 
         public override void Use()
         {

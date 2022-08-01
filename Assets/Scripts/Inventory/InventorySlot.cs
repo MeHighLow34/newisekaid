@@ -9,6 +9,15 @@ namespace LastIsekai {
         Item item;
         public Image icon;
         public Button removeButton;
+        ItemInfo itemInfo;
+        RemoveWarning warning;
+
+        private void Start()
+        {
+            itemInfo = FindObjectOfType<ItemInfo>();
+            warning = FindObjectOfType<RemoveWarning>();
+        }
+
         public void AddItem(Item newItem)
         {
             item = newItem;
@@ -27,14 +36,15 @@ namespace LastIsekai {
 
         public void OnRemoveButton()
         {
-            Inventory.instance.Remove(item);
+            //  Inventory.instance.Remove(item);
+            warning.Show(item);
         }
 
         public void UseItem()
         {
             if(item != null)
             {
-              FindObjectOfType<ItemInfo>().ShowItem(item);
+               itemInfo.ShowItem(item);
             }
         }
     }

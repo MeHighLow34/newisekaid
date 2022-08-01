@@ -15,6 +15,7 @@ namespace LastIsekai
         public GameObject worldSpaceUI;
         public Camera mainCamera;
         public GameObject itemInfo;
+        public GameObject removeWarning;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
@@ -29,6 +30,7 @@ namespace LastIsekai
             {
                 Destroy(mainCamera.gameObject);
                 Destroy(itemInfo);
+                Destroy(removeWarning);
             }
         }
 
