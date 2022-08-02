@@ -14,16 +14,18 @@ namespace LastIsekai
         [Header("Bools")]
         public bool lightAttack;
         public bool comboFlag;
+        public bool dodgeFlag;
         // Dependencies
         PlayerAttacker playerAttacker;
         PlayerManager playerManager;
-
+        PlayerLocomotion playerLocomotion;
         private void Awake()
         {
             thirdPersonController = GetComponent<ThirdPersonController>();
             view = GetComponentInParent<PhotonView>();
             playerAttacker = GetComponent<PlayerAttacker>();
             playerManager = GetComponent<PlayerManager>();  
+            playerLocomotion = GetComponent<PlayerLocomotion>();
         }
         private void OnEnable()
         {
@@ -31,6 +33,7 @@ namespace LastIsekai
             {
                 playerActions = new PlayerActions();
                 playerActions.Action.Attack.performed += ctx => lightAttack = true;
+                playerActions.Action.Movement.performed += ctx => dodgeFlag = true;
 
             }
             playerActions.Enable();
@@ -47,6 +50,7 @@ namespace LastIsekai
             if (view.IsMine)
             {
                 HandleAttackInput();
+                HandleDodgeInput();
             }
         }
 
@@ -71,6 +75,22 @@ namespace LastIsekai
                 }
             }
             
+        }
+
+        private void HandleDodgeInput()
+        {
+            if (dodgeFlag)
+            {
+                if (playerManager.noInteracting)
+                {
+                    dodgeFlag = false;
+                    return;
+                }
+
+                playerLocomotion.HandleDodge();
+                Debug.Log("I should dodge right fucking now");
+                dodgeFlag = false;
+            }
         }
     }
 }

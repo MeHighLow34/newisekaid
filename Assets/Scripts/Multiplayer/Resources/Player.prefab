@@ -579,14 +579,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932049637}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.6422737, w: 0.76647544}
   m_LocalPosition: {x: 0, y: 2.83, z: 5.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5443277982949453111}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 79.923}
 --- !u!1 &177299714613311539
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,6 +3227,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: doCombo
+  - Type: 4
+    SynchronizeType: 2
+    Name: stepBack
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -5267,6 +5270,7 @@ GameObject:
   - component: {fileID: 3955115513185800256}
   - component: {fileID: 964672893961259246}
   - component: {fileID: 4788247494833747468}
+  - component: {fileID: 7701920326100837791}
   m_Layer: 8
   m_Name: PlayerStructure
   m_TagString: Player
@@ -5507,6 +5511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAttack: 0
   comboFlag: 0
+  dodgeFlag: 0
 --- !u!114 &3235624846316503394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5628,6 +5633,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 5476606951104058844}
   characterBlockCollider: {fileID: 5935003836457002299}
+--- !u!114 &7701920326100837791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164115589356454305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99052afe592b1e428fcdb10e243c0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8188754140214786161
 GameObject:
   m_ObjectHideFlags: 0
