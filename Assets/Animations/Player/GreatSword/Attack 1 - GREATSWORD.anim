@@ -49515,14 +49515,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.2666667
-    functionName: DisableAttack
+    functionName: ResetToDefault
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.2666667
-    functionName: ResetToDefault
+    functionName: DisableAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
