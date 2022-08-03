@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 278630055}
   - component: {fileID: 278630054}
   - component: {fileID: 8659925636448810953}
+  - component: {fileID: 5476606949424971605}
   m_Layer: 6
   m_Name: World Canvas
   m_TagString: Untagged
@@ -116,6 +117,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
+--- !u!114 &5476606949424971605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278630052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d38071ad41663446b3ea2e367ea65e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPV: {fileID: 5476606949924950512}
+  text: {fileID: 1151283255}
 --- !u!1 &624116648
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,8 +324,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38, y: 368}
-  m_SizeDelta: {x: 1960, y: 887}
+  m_AnchoredPosition: {x: 37, y: 320}
+  m_SizeDelta: {x: 3112, y: 1299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1151283256
 CanvasRenderer:
@@ -368,8 +383,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 450
-  m_fontSizeBase: 450
+  m_fontSize: 400
+  m_fontSizeBase: 400
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4173,7 +4188,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.777193, y: 1}
+    m_SensorSize: {x: 1.7787056, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
