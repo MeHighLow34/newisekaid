@@ -8,6 +8,8 @@ namespace LastIsekai
     {
         PlayerManager playerManager;
         public float damage = 1.5f;
+        [Header("VFX")]
+        public GameObject bloodVFX;
 
         private void Start()
         {
@@ -20,6 +22,13 @@ namespace LastIsekai
             if (victim == null) return;
             PhotonView victimPhotonView = other.GetComponent<PhotonView>();
             if (victimPhotonView.IsMine == false)  victim.TakeDamage(damage);
+            if (bloodVFX != null)
+            {
+                //   Instantiate(bloodVFX, other.transform.position, Quaternion.identity);
+                  Instantiate(bloodVFX, other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position), Quaternion.identity);
+                 //Instantiate(bloodVFX, other.c, Quaternion.identity);
+
+            }
         }
         private PlayerManager GetLocalPlayerManager()
         {

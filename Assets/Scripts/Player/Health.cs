@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Realtime;
+using MoreMountains.Feedbacks;
 
 namespace LastIsekai
 {
@@ -13,11 +14,13 @@ namespace LastIsekai
         float maxHealth;
         public BaseStats stats;
         public PhotonView view;
+        public MMFeedbacks hitFeedback;
         private void Awake()
         {
             maxHealth = stats.GetStat(Stat.Health);
             health = maxHealth;
             view = GetComponent<PhotonView>();
+            hitFeedback = GetComponentInChildren<MMFeedbacks>();
         }
 
         public float GetDecimal()
@@ -31,6 +34,7 @@ namespace LastIsekai
 
         public void TakeDamage(float damage)
         {
+            if(hitFeedback != null) hitFeedback.PlayFeedbacks();
             view.RPC("RPC_TakeDamage", RpcTarget.All, damage);
         }
         [PunRPC]
