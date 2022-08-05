@@ -16,6 +16,8 @@ namespace LastIsekai
         public Camera mainCamera;
         public GameObject itemInfo;
         public GameObject removeWarning;
+        public Hotbar hotbar;
+        public HotbarUI hotbarUI;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
@@ -31,6 +33,8 @@ namespace LastIsekai
                 Destroy(mainCamera.gameObject);
                 Destroy(itemInfo);
                 Destroy(removeWarning);
+                Destroy(hotbar);
+                Destroy(hotbarUI);
             }
         }
 

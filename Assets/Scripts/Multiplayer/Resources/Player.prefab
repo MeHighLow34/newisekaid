@@ -3847,6 +3847,8 @@ MonoBehaviour:
   mainCamera: {fileID: 5476606951227553859}
   itemInfo: {fileID: 0}
   removeWarning: {fileID: 0}
+  hotbar: {fileID: 3028116132304216446}
+  hotbarUI: {fileID: 0}
 --- !u!1 &5476606951108479378
 GameObject:
   m_ObjectHideFlags: 0
@@ -5541,6 +5543,7 @@ GameObject:
   - component: {fileID: 4788247494833747468}
   - component: {fileID: 7701920326100837791}
   - component: {fileID: 6296150274709639692}
+  - component: {fileID: 3028116132304216446}
   m_Layer: 8
   m_Name: PlayerStructure
   m_TagString: Player
@@ -5930,6 +5933,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats: {fileID: 0}
   experiencePoints: 0
+--- !u!114 &3028116132304216446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164115589356454305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18d50efd7dd9e34aad63989b6274b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities: []
 --- !u!1 &8188754140214786161
 GameObject:
   m_ObjectHideFlags: 0
