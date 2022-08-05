@@ -10,8 +10,8 @@ namespace LastIsekai
     {
         public Ability ability;
         public Hotbar hotbar;
-        PhotonView photonView;
-        bool wasPickedUp;
+        public PhotonView photonView;
+        public bool wasPickedUp;
         private void Awake()
         {
             photonView = GetComponent<PhotonView>();    
@@ -40,12 +40,12 @@ namespace LastIsekai
 
         public void OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
         {
-            throw new System.NotImplementedException();
+            PhotonNetwork.Destroy(gameObject);
         }
 
         public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
         {
-            throw new System.NotImplementedException();
+            PhotonNetwork.Destroy(gameObject);
         }
 
         public void OnOwnershipTransferFailed(PhotonView targetView, Player senderOfFailedRequest)
