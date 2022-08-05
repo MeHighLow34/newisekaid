@@ -23,7 +23,8 @@ namespace LastIsekai
 
         private void Update()
         {
-            image.fillAmount = playerHealth.GetDecimal();
+            float speed = 10f;
+            image.fillAmount = Mathf.Lerp(image.fillAmount, playerHealth.GetDecimal(), Time.deltaTime * speed);
         }
     }
 }
