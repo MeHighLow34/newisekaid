@@ -14,7 +14,6 @@ using Photon.Pun;
         public GameObject prefab;
         public GameObject pickUpPrefab;
         public AnimatorOverrideController animatorOverrideController;
-       
 
         public override void Use()
         {
@@ -39,6 +38,5 @@ using Photon.Pun;
             }
            }
         }
-       
-    }
+}
 

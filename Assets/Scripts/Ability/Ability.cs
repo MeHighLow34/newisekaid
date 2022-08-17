@@ -11,6 +11,7 @@ namespace LastIsekai
         [TextArea]
         public string description;
         public Sprite icon;
+        public PlayerClass playerClass;
 
         public virtual void UseAbility()
         {

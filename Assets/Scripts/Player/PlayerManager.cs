@@ -13,6 +13,8 @@ namespace LastIsekai
         public bool canDoCombo;
         public bool noInteracting;
         public bool attack;
+        [Header("Stats")]
+        public PlayerClass playerClass;
         private void Awake()
         {
             inputManager = GetComponent<InputManager>();

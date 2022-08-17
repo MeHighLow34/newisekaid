@@ -93,7 +93,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"f9ee76701d44b7442b536b47f6bf1004","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"c5311ec3c8544b24698138de86bfb145","type":3}}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -1224,8 +1224,7 @@ MonoBehaviour:
   castShadows: 0
   useExposureWeight: 0
   flipbookLayout: 0
-  shaderGraph: {fileID: -5475051401550479605, guid: 8ebbe4acff62d61479a146f5b50c5e84,
-    type: 3}
+  shaderGraph: {fileID: -5475051401550479605, guid: 8ebbe4acff62d61479a146f5b50c5e84, type: 3}
   materialSettings:
     m_PropertyNames: []
     m_PropertyValues: []
@@ -1616,7 +1615,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614607}
       inputSlot: {fileID: 8926484042661614613}
-    position: {x: 681, y: 907}
+    position: {x: 683, y: 907}
     expandedSlots: []
     expanded: 0
   - m_Id: 1
@@ -3430,8 +3429,7 @@ MonoBehaviour:
   castShadows: 0
   useExposureWeight: 0
   flipbookLayout: 0
-  shaderGraph: {fileID: -5475051401550479605, guid: 8ebbe4acff62d61479a146f5b50c5e84,
-    type: 3}
+  shaderGraph: {fileID: -5475051401550479605, guid: 8ebbe4acff62d61479a146f5b50c5e84, type: 3}
   materialSettings:
     m_PropertyNames: []
     m_PropertyValues: []
@@ -4836,7 +4834,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-0.10000000149011612,"y":1.600000023841858,"z":-0.10000000149011612}}'
+      m_SerializableObject: '{"vector":{"x":-0.10000000149011612,"y":1.0,"z":-0.10000000149011612}}'
     m_Space: 0
   m_Property:
     name: B
@@ -5033,7 +5031,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.6
+      m_SerializableObject: 1.2
     m_Space: 2147483647
   m_Property:
     name: A
@@ -5067,7 +5065,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
+      m_SerializableObject: 1.4
     m_Space: 2147483647
   m_Property:
     name: B
@@ -5133,8 +5131,7 @@ MonoBehaviour:
   castShadows: 0
   useExposureWeight: 0
   flipbookLayout: 0
-  shaderGraph: {fileID: -5475051401550479605, guid: 8ebbe4acff62d61479a146f5b50c5e84,
-    type: 3}
+  shaderGraph: {fileID: -5475051401550479605, guid: 8ebbe4acff62d61479a146f5b50c5e84, type: 3}
   materialSettings:
     m_PropertyNames: []
     m_PropertyValues: []

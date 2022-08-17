@@ -14,6 +14,7 @@ namespace LastIsekai
         [TextArea]
         public string description;
         public bool isEssential;
+        public PlayerClass playerClass;
 
         public virtual void Use()
         {

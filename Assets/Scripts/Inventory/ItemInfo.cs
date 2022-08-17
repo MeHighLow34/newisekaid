@@ -49,7 +49,12 @@ namespace LastIsekai
 
         public void Use()
         {
-            if(currentItem.GetType() == typeof(Weapon) && currentItem != null)
+            if (currentItem.isEssential == false && MeetsClassRequirments() == false)
+            {
+                Debug.Log("You do not meet the reqs");
+                return;
+            }
+            if (currentItem.GetType() == typeof(Weapon) && currentItem != null)
             {
                 weaponManager = GetLocalWeaponManager();
                 Inventory.instance.Add(weaponManager.currentWeapon);
@@ -78,6 +83,18 @@ namespace LastIsekai
             }
             return null;
         }
-
+        private bool MeetsClassRequirments()
+        {
+            WeaponManager[] allWeaponManagers = FindObjectsOfType<WeaponManager>();
+            foreach (var manager in allWeaponManagers)
+            {
+                if (manager.gameObject.name == "LocalPlayerStructure")
+                {
+                    PlayerManager localPlayerManager = manager.gameObject.GetComponent<PlayerManager>();
+                    if (localPlayerManager.playerClass == currentItem.playerClass) return true;
+                }
+            }
+            return false;
+        }
     }
 }
