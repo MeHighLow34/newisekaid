@@ -20,6 +20,7 @@ namespace LastIsekai
         [Header("All Network Weapons")]
         public Weapon networkUnarmed;
         public Weapon networkCruger;
+        public Weapon networkNuno;
         [Header("Transform")]
         public Transform rightHandWeaponHolder;
         public Transform dropPosition;
@@ -81,6 +82,10 @@ namespace LastIsekai
                 if (weaponName == networkUnarmed.name)
                 {
                     EquipWeapon(networkUnarmed);
+                }
+                if(weaponName == networkNuno.name)
+                {
+                    EquipWeapon(networkNuno);
                 }
             }
         }

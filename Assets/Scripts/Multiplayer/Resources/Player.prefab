@@ -4545,7 +4545,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7779783, y: 1}
+    m_SensorSize: {x: 1.7770035, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -6035,6 +6035,7 @@ MonoBehaviour:
   unarmedWeapon: {fileID: 11400000, guid: 179a125706353044ebcda3f25ad06196, type: 2}
   networkUnarmed: {fileID: 11400000, guid: 179a125706353044ebcda3f25ad06196, type: 2}
   networkCruger: {fileID: 11400000, guid: f59fbc712ac43794c9638b73c3ae416c, type: 2}
+  networkNuno: {fileID: 11400000, guid: 08bd3678c2212994e995d58dcb83a322, type: 2}
   rightHandWeaponHolder: {fileID: 6175980776664773908}
   dropPosition: {fileID: 1932049638}
 --- !u!114 &4788247494833747468
