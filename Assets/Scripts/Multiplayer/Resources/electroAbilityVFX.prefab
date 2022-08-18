@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1858814964712984957}
   - component: {fileID: 1858814964712984958}
   - component: {fileID: 5643901285075789443}
+  - component: {fileID: 6437323809868663002}
+  - component: {fileID: 4054664151334131755}
   m_Layer: 0
   m_Name: electroAbilityVFX
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858814964712984959}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -50,7 +52,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 0.5
+        m_Name: Delay
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -133,3 +138,33 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!135 &6437323809868663002
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858814964712984959}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.57
+  m_Center: {x: -0.12414336, y: 1.4014187, z: -0.018482447}
+--- !u!114 &4054664151334131755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858814964712984959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7def064e80460542991a08279904df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  delay: 0.5
+  damageEnemies: 0
+  bloodVFX: {fileID: 2355062433781806246, guid: 557a1f35926fc1e4891c5f9e0d914418,
+    type: 3}

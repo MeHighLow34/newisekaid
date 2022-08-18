@@ -4029,6 +4029,7 @@ MonoBehaviour:
   removeWarning: {fileID: 0}
   hotbar: {fileID: 3028116132304216446}
   hotbarUI: {fileID: 0}
+  damageDetector: {fileID: 1167907644}
 --- !u!1 &5476606951108479378
 GameObject:
   m_ObjectHideFlags: 0

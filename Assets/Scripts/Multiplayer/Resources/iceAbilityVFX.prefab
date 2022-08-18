@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6556078646813786395}
   - component: {fileID: 8126635287564905023}
   - component: {fileID: -5673066623718089849}
+  - component: {fileID: 929319106751684381}
+  - component: {fileID: 1422297517115611617}
   m_Layer: 0
   m_Name: iceAbilityVFX
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2654199791015036905}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -133,3 +135,33 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!135 &929319106751684381
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654199791015036905}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.162125
+  m_Center: {x: -0.12414336, y: 1.4014187, z: -0.018482447}
+--- !u!114 &1422297517115611617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654199791015036905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7def064e80460542991a08279904df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
+  delay: 0.5
+  damageEnemies: 0
+  bloodVFX: {fileID: 2355062433781806246, guid: 557a1f35926fc1e4891c5f9e0d914418,
+    type: 3}

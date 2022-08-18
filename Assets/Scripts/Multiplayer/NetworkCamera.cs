@@ -18,6 +18,7 @@ namespace LastIsekai
         public GameObject removeWarning;
         public Hotbar hotbar;
         public HotbarUI hotbarUI;
+        public GameObject damageDetector;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
@@ -26,6 +27,7 @@ namespace LastIsekai
             #region Destruction
             if (view.IsMine)
             {
+                damageDetector.gameObject.name = "LocalCharacterDamageDetector";
                 Destroy(worldSpaceUI);
             }
             if(view.IsMine == false)
