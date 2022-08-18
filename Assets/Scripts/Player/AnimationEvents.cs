@@ -11,6 +11,10 @@ namespace LastIsekai
         WeaponManager weaponManager;
         WeaponManager[] allWeaponManagers;
         PhotonView photonView;
+        [Header("Event Objects")]
+        public GameObject testOrb;
+        public Transform instantiationTransform;
+        public string aoeName;
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -72,6 +76,15 @@ namespace LastIsekai
         }
 
 
+        public void ThrowOrb()
+        {
+           PhotonNetwork.Instantiate("Test Orb", instantiationTransform.position, Quaternion.identity);
+        }
+
+        public void AOEAttack()
+        {
+            PhotonNetwork.Instantiate(aoeName, transform.position, Quaternion.identity);
+        }
 
         private void FindLocalWeaponManager()
         {
@@ -85,6 +98,8 @@ namespace LastIsekai
             }
         }
 
+  
+ 
         private PhotonView GetLocalPhotonView()
         {
             WeaponManager[] wholeWM = FindObjectsOfType<WeaponManager>();

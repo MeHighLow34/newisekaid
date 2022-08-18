@@ -62,7 +62,6 @@ namespace LastIsekai
 
         private bool MeetsClassRequirments()
         {
-            WeaponManager weaponManager;
             WeaponManager[] allWeaponManagers = FindObjectsOfType<WeaponManager>();
             foreach (var manager in allWeaponManagers)
             {

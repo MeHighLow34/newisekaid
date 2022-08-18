@@ -20,5 +20,7 @@ namespace LastIsekai
             animationManager.animator.SetBool("isInteracting", true);
             animationManager.animator.applyRootMotion = true;
         }
+
+       
     }
 }

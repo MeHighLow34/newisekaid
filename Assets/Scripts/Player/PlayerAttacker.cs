@@ -7,6 +7,7 @@ namespace LastIsekai
 {
     public class PlayerAttacker : MonoBehaviour
     {
+        public AnimationEvents animationEvents;
         InputManager inputManager;
         AnimationManager animationManager;
         public string lastAttack;
@@ -23,7 +24,6 @@ namespace LastIsekai
             animationManager.animator.applyRootMotion = true;
             lastAttack = "Attack1";
         }
-
         public void HandleLightAttackCombo()
         {
             if (inputManager.comboFlag)
@@ -36,6 +36,14 @@ namespace LastIsekai
                     lastAttack = "Attack2";
                 }
             }
+        }
+
+        public void HandleAOE(string aoeName)
+        {
+            animationEvents.aoeName = aoeName;
+            animationManager.animator.SetBool("aoeAttack", true);
+            animationManager.animator.SetBool("isInteracting", true);
+            animationManager.animator.applyRootMotion = true;
         }
     }
 }

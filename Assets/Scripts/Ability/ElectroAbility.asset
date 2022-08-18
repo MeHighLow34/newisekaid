@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f6d878c76eee5458cd71236c63c6f3, type: 3}
+  m_Name: ElectroAbility
+  m_EditorClassIdentifier: 
+  name: Electro
+  description: Sprinke that electric goodness babyyyyyy
+  icon: {fileID: 21300034, guid: 9bd9265533309304db171aa9f916554a, type: 3}
+  playerClass: 0

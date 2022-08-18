@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6463036131024900439}
   - component: {fileID: 9103365117383402909}
   - component: {fileID: 1946151391543126720}
+  - component: {fileID: 6028276986944181184}
   m_Layer: 0
   m_Name: NunoBracelet_Prefab
   m_TagString: Untagged
@@ -201,3 +202,17 @@ TrailRenderer:
   m_MinVertexDistance: 0.01
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &6028276986944181184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7301841496632607816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5c9331e7b36874b9432c34ace090de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1.5
+  bloodVFX: {fileID: 0}

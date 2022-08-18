@@ -26,6 +26,7 @@ using Photon.Pun;
     {
         FindLocalWeaponManager();
         PhotonNetwork.Instantiate(pickUpPrefab.name, weaponManager.dropPosition.position, Quaternion.identity);
+        Debug.Log("I have printed already");
     }
     private void FindLocalWeaponManager()
         {
