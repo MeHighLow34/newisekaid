@@ -75,6 +75,10 @@ namespace LastIsekai
             }
         }
 
+        public void DisableHit()
+        {
+            animator.SetBool("hit", false);
+        }
 
         public void ThrowOrb()
         {

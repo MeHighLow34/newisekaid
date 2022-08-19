@@ -15,14 +15,41 @@ namespace LastIsekai
         public BaseStats stats;
         public PhotonView view;
         public MMFeedbacks hitFeedback;
+        public AnimationManager animationManager;
+        private float privateHealth;
         private void Awake()
         {
             maxHealth = stats.GetStat(Stat.Health);
             health = maxHealth;
+            privateHealth = health;
             view = GetComponent<PhotonView>();
             hitFeedback = GetComponentInChildren<MMFeedbacks>();
+            animationManager = GetAnimationManager();
+
         }
 
+
+        void Start()
+        {
+            animationManager = GetAnimationManager();
+        }
+        void LateUpdate()
+        {
+            if (view.IsMine)
+            {
+                if (health != privateHealth)
+                {
+                    print("I got hit");
+                    HitReaction();
+                    privateHealth = health;
+                }
+            }
+        }
+
+        private void HitReaction()
+        {
+            animationManager.animator.SetBool("hit", true);
+        }
         public float GetDecimal()
         {
             return health / maxHealth;
@@ -42,22 +69,21 @@ namespace LastIsekai
         {
             if (view.IsMine == false) return;
             health -= damage;
-            if(health <= 0)
+            if (health <= 0)
             {
                 HandleDeath();
             }
         }
         
-        private PhotonView FindPhotonView()
+        public AnimationManager GetAnimationManager()
         {
-            WeaponManager weaponManager;
             WeaponManager[] allWeaponManagers = FindObjectsOfType<WeaponManager>();
             foreach (var manager in allWeaponManagers)
             {
                 if (manager.gameObject.name == "LocalPlayerStructure")
                 {
-                    weaponManager = manager;
-                    return weaponManager.gameObject.GetComponentInParent<PhotonView>();
+                    print("I found it");
+                    return manager.gameObject.GetComponent<AnimationManager>();
                 }
             }
             return null;

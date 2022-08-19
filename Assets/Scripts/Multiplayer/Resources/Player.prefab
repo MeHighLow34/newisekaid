@@ -913,6 +913,7 @@ MonoBehaviour:
   stats: {fileID: 3955115513185800306}
   view: {fileID: 0}
   hitFeedback: {fileID: 571972982}
+  animationManager: {fileID: 0}
 --- !u!136 &1167907646
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3844,6 +3845,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: aoeAttack
+  - Type: 4
+    SynchronizeType: 2
+    Name: hit
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -4742,6 +4746,7 @@ GameObject:
   - component: {fileID: 5818007189267746958}
   - component: {fileID: 8165075994848606695}
   - component: {fileID: 8674956632882646621}
+  - component: {fileID: 3578963470310095297}
   m_Layer: 0
   m_Name: PlayerFollowCamera
   m_TagString: Untagged
@@ -4852,6 +4857,18 @@ MonoBehaviour:
   LerpTimescale: 1
   LerpSpeed: 0
   TestButton: 0
+--- !u!114 &3578963470310095297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818007189267747184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d45df74ce384ab4c8f47eb3054119b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5848686182475799685
 GameObject:
   m_ObjectHideFlags: 0
