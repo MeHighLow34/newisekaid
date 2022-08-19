@@ -78,12 +78,20 @@ namespace LastIsekai
 
         public void ThrowOrb()
         {
-           PhotonNetwork.Instantiate("Test Orb", instantiationTransform.position, Quaternion.identity);
+           PhotonNetwork.Instantiate("Orb", instantiationTransform.position, Quaternion.identity);
         }
 
         public void AOEAttack()
         {
-            PhotonNetwork.Instantiate(aoeName, transform.position, Quaternion.identity);
+            if (aoeName == "electroAbilityVFX")
+            {
+                PhotonNetwork.Instantiate(aoeName, transform.position + new Vector3(0, 3.5f, 0), Quaternion.identity);
+
+            }
+            else
+            {
+                PhotonNetwork.Instantiate(aoeName, transform.position, Quaternion.identity);
+            }
         }
 
         private void FindLocalWeaponManager()

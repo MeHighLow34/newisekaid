@@ -702,16 +702,16 @@ Material:
         a: 0}
     - DiffusionProfile_bfbe0deb8ec4428a9cfcdb968651903c_Asset: {r: 0, g: 0, b: 0,
         a: 0}
-    - _1st_ShadeColor: {r: 0.7264151, g: 0.59554523, b: 0.26383942, a: 1}
-    - _2nd_ShadeColor: {r: 0.8018868, g: 0.6291307, b: 0.22316661, a: 1}
+    - _1st_ShadeColor: {r: 0.38089806, g: 0.3097188, b: 0.754717, a: 1}
+    - _2nd_ShadeColor: {r: 0.2786165, g: 0.23331259, b: 0.46226418, a: 1}
     - _AngelRingMaskColor: {r: 0, g: 1, b: 0, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 1, g: 0.9190924, b: 0, a: 1}
+    - _BaseColor: {r: 0.10617638, g: 0, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColorMaskColor: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 1, g: 0.9190924, b: 0, a: 1}
+    - _Color: {r: 0.106176354, g: 0, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _DiffuseColor: {r: 1, g: 0, b: 0, a: 1}

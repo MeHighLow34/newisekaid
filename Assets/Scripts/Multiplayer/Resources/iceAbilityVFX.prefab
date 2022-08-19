@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   delay: 0.5
+  duration: 3
   damageEnemies: 0
   bloodVFX: {fileID: 2355062433781806246, guid: 557a1f35926fc1e4891c5f9e0d914418,
     type: 3}

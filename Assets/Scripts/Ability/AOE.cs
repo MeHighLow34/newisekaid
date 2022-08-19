@@ -12,6 +12,7 @@ namespace LastIsekai
         SphereCollider sphereCollider;
         public float damage = 15f;
         public float delay = 0.5f;
+        public float duration = 3.5f;
         public bool damageEnemies = false;
         [Header("VFX")]
         public GameObject bloodVFX;
@@ -57,7 +58,7 @@ namespace LastIsekai
         {
             delay -= Time.deltaTime;
             if(delay <= 0) damageEnemies=true;
-            if(delay <= -2.5f)
+            if(delay <= -duration)
             {
                 PhotonNetwork.Destroy(gameObject);
             }

@@ -15,6 +15,7 @@ namespace LastIsekai
         public bool lightAttack;
         public bool comboFlag;
         public bool dodgeFlag;
+        public bool aimFlag;
         // Dependencies
         PlayerAttacker playerAttacker;
         PlayerManager playerManager;
@@ -34,6 +35,8 @@ namespace LastIsekai
                 playerActions = new PlayerActions();
                 playerActions.Action.Attack.performed += ctx => lightAttack = true;
                 playerActions.Action.Movement.performed += ctx => dodgeFlag = true;
+                playerActions.Action.Aim.performed += ctx => aimFlag = true;
+                playerActions.Action.Aim.canceled += ctx => aimFlag = false;
 
             }
             playerActions.Enable();
