@@ -45,5 +45,12 @@ namespace LastIsekai
             animationManager.animator.SetBool("isInteracting", true);
             animationManager.animator.applyRootMotion = true;
         }
+
+        public void HandleGainEffects(string effectName)
+        {
+            animationManager.animator.SetBool("effectGain", true);
+            animationManager.animator.SetBool("isInteracting", true);
+            animationManager.animator.applyRootMotion = true;
+        }
     }
 }

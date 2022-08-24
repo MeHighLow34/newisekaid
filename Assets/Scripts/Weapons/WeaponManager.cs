@@ -21,8 +21,10 @@ namespace LastIsekai
         public Weapon networkUnarmed;
         public Weapon networkCruger;
         public Weapon networkNuno;
+        public Weapon networkHolySet;
         [Header("Transform")]
         public Transform rightHandWeaponHolder;
+        public Transform leftHandWeaponHolder;
         public Transform dropPosition;
         private void Awake()
         {
@@ -49,6 +51,7 @@ namespace LastIsekai
                 animator.runtimeAnimatorController = currentWeapon.animatorOverrideController;        
             }
             if (weapon.prefab != null) Instantiate(weapon.prefab, handTransform);
+            if (weapon.secondaryPrefab != null) Instantiate(weapon.secondaryPrefab, leftHandWeaponHolder);
             if (view.IsMine)
             {
                 Hashtable hash = new Hashtable();
@@ -87,6 +90,10 @@ namespace LastIsekai
                 {
                     EquipWeapon(networkNuno);
                 }
+                if(weaponName == networkHolySet.name)
+                {
+                    EquipWeapon(networkHolySet);
+                }
             }
         }
         [PunRPC]
@@ -98,11 +105,17 @@ namespace LastIsekai
         {
         //    Inventory.instance.Add(currentWeapon); // when we unequip the weapon we should add it back to the inventory
             WeaponDetector currentWeaponPrefab = handTransform.GetComponentInChildren<WeaponDetector>();
+            WeaponDetector secondaryCurrentWeaponPrefab = leftHandWeaponHolder.GetComponentInChildren<WeaponDetector>();
             if(currentWeaponPrefab == null)
             {
                 print("There is no prefab to delete ");
             }
             if (currentWeaponPrefab != null) Destroy(currentWeaponPrefab.gameObject);
+            if (secondaryCurrentWeaponPrefab)
+            {
+                print("There is no secondary prefab to delete");
+            }
+            if (secondaryCurrentWeaponPrefab != null) Destroy(secondaryCurrentWeaponPrefab.gameObject);
         }
 
 

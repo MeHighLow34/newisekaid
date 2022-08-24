@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using MoreMountains.Feedbacks;
 namespace LastIsekai
 {
     public class WeaponDetector : MonoBehaviour
@@ -9,10 +10,11 @@ namespace LastIsekai
         PlayerManager playerManager;
         public float damage = 1.5f;
         [Header("VFX")]
-        public GameObject bloodVFX;
+        public MMFeedbacks hitFeedback;
 
         private void Start()
         {
+            hitFeedback = GameObject.FindGameObjectWithTag("HitFEEDBACK").GetComponent<MMFeedbacks>();
             playerManager = GetLocalPlayerManager(); 
         }
         private void OnTriggerEnter(Collider other)
@@ -21,13 +23,9 @@ namespace LastIsekai
             var victim = other.GetComponent<IDamageable>();
             if (victim == null) return;
             PhotonView victimPhotonView = other.GetComponent<PhotonView>();
-            if (victimPhotonView.IsMine == false)  victim.TakeDamage(damage);
-            if (bloodVFX != null)
-            {
-                //   Instantiate(bloodVFX, other.transform.position, Quaternion.identity);
-                  Instantiate(bloodVFX, other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position), Quaternion.identity);
-                 //Instantiate(bloodVFX, other.c, Quaternion.identity);
-
+            if (victimPhotonView.IsMine == false) { 
+                victim.TakeDamage(damage); 
+                hitFeedback.PlayFeedbacks();
             }
         }
         private PlayerManager GetLocalPlayerManager()

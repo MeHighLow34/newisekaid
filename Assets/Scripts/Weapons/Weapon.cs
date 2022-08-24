@@ -12,6 +12,7 @@ using Photon.Pun;
         WeaponManager weaponManager;
         [Header("Weapon Attributes")]
         public GameObject prefab;
+        public GameObject secondaryPrefab;
         public GameObject pickUpPrefab;
         public AnimatorOverrideController animatorOverrideController;
 

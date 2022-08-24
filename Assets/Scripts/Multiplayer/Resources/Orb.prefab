@@ -179,5 +179,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 200
   minViewable: 5
-  maxViewable: 100
+  maxViewable: 120
   joke: {fileID: 0}

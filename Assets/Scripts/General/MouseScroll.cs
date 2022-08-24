@@ -29,9 +29,9 @@ namespace LastIsekai
             {
                 mainCamera.m_Lens.FieldOfView = 55;
             }
-            if(mainCamera.m_Lens.FieldOfView >= 105)
+            if(mainCamera.m_Lens.FieldOfView >= 95)
             {
-                mainCamera.m_Lens.FieldOfView = 105;
+                mainCamera.m_Lens.FieldOfView = 95;
             }
         }
     }

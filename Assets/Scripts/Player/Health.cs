@@ -5,6 +5,8 @@ using Photon.Pun;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Realtime;
 using MoreMountains.Feedbacks;
+using UnityEngine.Rendering;
+using Photon.Pun;
 
 namespace LastIsekai
 {
@@ -16,16 +18,20 @@ namespace LastIsekai
         public PhotonView view;
         public MMFeedbacks hitFeedback;
         public AnimationManager animationManager;
+        private bool isDead;
         private float privateHealth;
+        [Header("Visual Effects")]
+        public Volume hurtVisual;
+        public Transform bloodInstantiationPoint;
         private void Awake()
         {
+            hurtVisual = GameObject.FindGameObjectWithTag("HurtVISUAL").GetComponent<Volume>();
             maxHealth = stats.GetStat(Stat.Health);
             health = maxHealth;
             privateHealth = health;
             view = GetComponent<PhotonView>();
             hitFeedback = GetComponentInChildren<MMFeedbacks>();
             animationManager = GetAnimationManager();
-
         }
 
 
@@ -39,16 +45,34 @@ namespace LastIsekai
             {
                 if (health != privateHealth)
                 {
-                    print("I got hit");
                     HitReaction();
                     privateHealth = health;
                 }
+                VisualEffects();
+                if(privateHealth<=0 && isDead==false)
+                {
+                    animationManager.animator.SetBool("isDead", true);
+                    animationManager.animator.SetBool("isInteracting", true);
+                    isDead = true;
+                }
             }
         }
-
+        private void VisualEffects()
+        {
+            if (GetDecimal() <= 0.35)
+            {
+                hurtVisual.weight = 1f;
+            }
+            else
+            {
+                hurtVisual.weight = 0f;
+            }
+        }
         private void HitReaction()
         {
             animationManager.animator.SetBool("hit", true);
+            PhotonNetwork.Instantiate("BloodVFX", bloodInstantiationPoint.position, Quaternion.identity);   
+
         }
         public float GetDecimal()
         {
@@ -61,7 +85,7 @@ namespace LastIsekai
 
         public void TakeDamage(float damage)
         {
-            if(hitFeedback != null) hitFeedback.PlayFeedbacks();
+           // if(hitFeedback != null) hitFeedback.PlayFeedbacks();
             view.RPC("RPC_TakeDamage", RpcTarget.All, damage);
         }
         [PunRPC]
@@ -74,7 +98,7 @@ namespace LastIsekai
                 HandleDeath();
             }
         }
-        
+         
         public AnimationManager GetAnimationManager()
         {
             WeaponManager[] allWeaponManagers = FindObjectsOfType<WeaponManager>();

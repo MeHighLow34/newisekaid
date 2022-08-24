@@ -6,9 +6,10 @@ namespace LastIsekai
 {
     public class DisplayPlayerHealth : MonoBehaviour
     {
+        public Image effectImage;
         public Image image;
         public Health playerHealth;
-
+        [SerializeField] float hurtSpeed = 0.005f;
 
         private void Awake()
         {
@@ -25,6 +26,14 @@ namespace LastIsekai
         {
             float speed = 10f;
             image.fillAmount = Mathf.Lerp(image.fillAmount, playerHealth.GetDecimal(), Time.deltaTime * speed);
+            if(effectImage.fillAmount > image.fillAmount)
+            {
+                effectImage.fillAmount -= hurtSpeed;
+            }
+            else
+            {
+                effectImage.fillAmount = image.fillAmount;
+            }
         }
     }
 }

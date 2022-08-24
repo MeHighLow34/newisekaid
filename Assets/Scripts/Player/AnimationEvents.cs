@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.Rendering;
 
 namespace LastIsekai
 {
@@ -15,6 +16,7 @@ namespace LastIsekai
         public GameObject testOrb;
         public Transform instantiationTransform;
         public string aoeName;
+        public PlayerBehaviour playerBehaviour;
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -24,6 +26,7 @@ namespace LastIsekai
         {
             photonView = GetLocalPhotonView();
             FindLocalWeaponManager();
+            playerBehaviour = GetPlayerBehaviour(); 
         }
         public void EnableCombo()
         {
@@ -79,6 +82,10 @@ namespace LastIsekai
         {
             animator.SetBool("hit", false);
         }
+        public void DisableDeath()
+        {
+            animator.SetBool("isDead", false);
+        }
 
         public void ThrowOrb()
         {
@@ -98,6 +105,10 @@ namespace LastIsekai
             }
         }
 
+        public void EffectGain()
+        {
+            playerBehaviour.RageEnabled();
+        }
         private void FindLocalWeaponManager()
         {
             allWeaponManagers = FindObjectsOfType<WeaponManager>();
@@ -120,6 +131,19 @@ namespace LastIsekai
                 if (manager.gameObject.name == "LocalPlayerStructure")
                 {
                     return manager.gameObject.GetComponentInParent<PhotonView>();
+                }
+            }
+            return null;
+        }
+
+        private PlayerBehaviour GetPlayerBehaviour()
+        {
+            WeaponManager[] wholeWM = FindObjectsOfType<WeaponManager>();
+            foreach (var manager in wholeWM)
+            {
+                if (manager.gameObject.name == "LocalPlayerStructure")
+                {
+                    return manager.gameObject.GetComponentInParent<PlayerBehaviour>();
                 }
             }
             return null;

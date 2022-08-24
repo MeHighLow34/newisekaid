@@ -7,6 +7,10 @@ TagManager:
   - CinemachineTarget
   - Bullet
   - Crosshair
+  - HurtVISUAL
+  - RageVISUAL
+  - RageVFX
+  - HitFEEDBACK
   layers:
   - Default
   - TransparentFX

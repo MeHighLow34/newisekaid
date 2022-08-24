@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2355062433781806251}
   - component: {fileID: 2355062433781806244}
   - component: {fileID: 2355062433781806245}
+  - component: {fileID: 2211665111878465660}
   m_Layer: 0
-  m_Name: Blood VFX
+  m_Name: BloodVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2355062433781806246}
-  m_LocalRotation: {x: -0, y: 0.7162495, z: -0, w: 0.6978443}
+  m_LocalRotation: {x: 0, y: 0.71624714, z: 0, w: 0.6978467}
   m_LocalPosition: {x: 6.15, y: 1.27, z: -3.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -50,17 +51,17 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1500
+      - m_Value: 150
         m_Name: rate
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 3, y: 0.5, z: 10}
+      - m_Value: {x: 7, y: 0.5, z: 14}
         m_Name: blood_velocity
         m_Overridden: 1
-      - m_Value: {x: 1, y: 1, z: 1}
+      - m_Value: {x: 0.2, y: 0.2, z: 1}
         m_Name: blood_size
         m_Overridden: 1
     m_Vector4f:
@@ -122,3 +123,25 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2211665111878465660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355062433781806246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 1
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

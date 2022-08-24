@@ -20,6 +20,7 @@ namespace LastIsekai
         public HotbarUI hotbarUI;
         public GameObject damageDetector;
         public GameObject aimCamera;
+        public GameObject rageEffect;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
@@ -39,6 +40,7 @@ namespace LastIsekai
                 Destroy(hotbar);
                 Destroy(hotbarUI);
                 Destroy(aimCamera);
+                Destroy(rageEffect);
             }
         }
 

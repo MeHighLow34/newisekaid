@@ -13,6 +13,7 @@ namespace LastIsekai
         public bool canDoCombo;
         public bool noInteracting;
         public bool attack;
+        public bool block;
         [Header("Stats")]
         public PlayerClass playerClass;
         private void Awake()
@@ -31,6 +32,7 @@ namespace LastIsekai
             canDoCombo = animator.GetBool("canDoCombo");
             noInteracting = animator.GetBool("noInteracting");
             attack = animator.GetBool("attack");
+            block = animator.GetBool("block");
         }
     }
 }

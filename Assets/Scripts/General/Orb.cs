@@ -24,10 +24,19 @@ namespace LastIsekai
 
         private void Start()
         {
+            Vector3 targetDirection;
             Transform player = GetInstantiationTransform();
-            Vector3 targetDirection = cam.transform.forward;
+            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                targetDirection = hit.point;
+            }
+            else
+            {
+                targetDirection = cam.transform.forward;
+            }
             float viewAbleAngle = Vector3.Angle(targetDirection, player.forward);
-            print("viewableangle is  " + viewAbleAngle);
             if (viewAbleAngle >= minViewable && viewAbleAngle <= maxViewable)
             {
                 direction = cam.transform.forward;
