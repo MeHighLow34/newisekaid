@@ -709,6 +709,7 @@ MonoBehaviour:
   animationManager: {fileID: 0}
   hurtVisual: {fileID: 0}
   bloodInstantiationPoint: {fileID: 8804640016787378238}
+  blockInvicibility: 1
 --- !u!136 &1167907646
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1825,6 +1826,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2297394023533798789}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1569981995790955607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548101867770401136}
+  m_Layer: 6
+  m_Name: TornadoInstantionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &548101867770401136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569981995790955607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 9.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5443277982949453111}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1570445312898283338
 GameObject:
@@ -3806,6 +3838,7 @@ Transform:
   - {fileID: 1932049638}
   - {fileID: 754287851}
   - {fileID: 8804640016787378238}
+  - {fileID: 548101867770401136}
   m_Father: {fileID: 2525692924086116297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3864,6 +3897,9 @@ MonoBehaviour:
   instantiationTransform: {fileID: 7914526485551443114}
   aoeName: 
   playerBehaviour: {fileID: 0}
+  tornadoInstantiationTransform: {fileID: 548101867770401136}
+  knightAttack1Slash: {fileID: 3886716532637236300, guid: f3512ad74bd3e6e41a6b6db3bf730e8b,
+    type: 3}
 --- !u!114 &6096108452760279710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3940,6 +3976,12 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: isDead
+  - Type: 4
+    SynchronizeType: 2
+    Name: block
+  - Type: 4
+    SynchronizeType: 2
+    Name: blockImpact
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -4338,6 +4380,7 @@ MonoBehaviour:
   damageDetector: {fileID: 1167907644}
   aimCamera: {fileID: 1298409522}
   rageEffect: {fileID: 3765992423397235815}
+  playerBody: {fileID: 4666213895677441933}
 --- !u!1 &5476606951108479378
 GameObject:
   m_ObjectHideFlags: 0
@@ -4892,7 +4935,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772194, y: 1}
+    m_SensorSize: {x: 1.7775736, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -6305,6 +6348,7 @@ MonoBehaviour:
   canDoCombo: 0
   noInteracting: 0
   attack: 0
+  block: 0
   playerClass: 0
 --- !u!114 &3235624846316503392
 MonoBehaviour:
@@ -6551,6 +6595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1602355500613623583}
+  - component: {fileID: 9202192232038369261}
   m_Layer: 6
   m_Name: mixamorig:LeftHand
   m_TagString: Untagged
@@ -6578,6 +6623,21 @@ Transform:
   m_Father: {fileID: 3087095960845120549}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9202192232038369261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242027350367126288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f472953b440bb0842a7f2bde1dcaaae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 3235624846316503395}
+  playerPhotonView: {fileID: 5476606949924950512}
+  myHealth: {fileID: 1167907647}
 --- !u!1 &8270221122200057341
 GameObject:
   m_ObjectHideFlags: 0

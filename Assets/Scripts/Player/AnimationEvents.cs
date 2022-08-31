@@ -17,6 +17,9 @@ namespace LastIsekai
         public Transform instantiationTransform;
         public string aoeName;
         public PlayerBehaviour playerBehaviour;
+        public Transform tornadoInstantiationTransform;
+
+        public GameObject knightAttack1Slash;
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -75,12 +78,36 @@ namespace LastIsekai
             {
                 var weaponCollider = weaponManager.rightHandWeaponHolder.GetComponentInChildren<BoxCollider>();
                 weaponCollider.enabled = false;
+                DisableBlocked();
+            }
+        }
+
+        public void Slash()
+        {
+            if (photonView.IsMine)
+            {
+                GameObject slash =  Instantiate(knightAttack1Slash, weaponManager.rightHandWeaponHolder.position, Quaternion.identity);
+                slash.transform.Rotate(new Vector3(knightAttack1Slash.transform.rotation.x, knightAttack1Slash.transform.rotation.y, knightAttack1Slash.transform.rotation.z));
+                slash.transform.rotation = Quaternion.Euler(52.344f, -42.043f, -43.774f);
+            }
+        }
+        public void DisableBlocked() // this goes directly on the DisableWeaponCollider because when we detect the shield we turn on blocked but at some point we will have to turn it off so this is the moment when the collider is disabled
+        {
+            if (photonView.IsMine)
+            {
+                var weaponDect = weaponManager.rightHandWeaponHolder.GetComponentInChildren<WeaponDetector>();
+                weaponDect.blocked = false;
             }
         }
 
         public void DisableHit()
         {
             animator.SetBool("hit", false);
+        }
+
+        public void DisableImpact()
+        {
+            animator.SetBool("blockImpact", false); 
         }
         public void DisableDeath()
         {
@@ -94,7 +121,12 @@ namespace LastIsekai
 
         public void AOEAttack()
         {
-            if (aoeName == "electroAbilityVFX")
+
+            if(aoeName == "Tornado")
+            {
+                PhotonNetwork.Instantiate(aoeName, tornadoInstantiationTransform.position, Quaternion.identity);
+            }
+            else if (aoeName == "electroAbilityVFX")
             {
                 PhotonNetwork.Instantiate(aoeName, transform.position + new Vector3(0, 3.5f, 0), Quaternion.identity);
 

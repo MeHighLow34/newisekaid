@@ -6,7 +6,6 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Realtime;
 using MoreMountains.Feedbacks;
 using UnityEngine.Rendering;
-using Photon.Pun;
 
 namespace LastIsekai
 {
@@ -23,6 +22,9 @@ namespace LastIsekai
         [Header("Visual Effects")]
         public Volume hurtVisual;
         public Transform bloodInstantiationPoint;
+        public float blockInvicibility = 0.75f;
+        private float blockTimer;
+        private bool hitRecently;
         private void Awake()
         {
             hurtVisual = GameObject.FindGameObjectWithTag("HurtVISUAL").GetComponent<Volume>();
@@ -38,14 +40,34 @@ namespace LastIsekai
         void Start()
         {
             animationManager = GetAnimationManager();
+            blockTimer = blockInvicibility;
+        }
+
+
+        void Update()
+        {
+            //testing
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                PhotonNetwork.Instantiate("FloatingDamage", bloodInstantiationPoint.position, Quaternion.identity);
+            }
         }
         void LateUpdate()
         {
             if (view.IsMine)
             {
+                BlockInvicibilityTimer();
                 if (health != privateHealth)
                 {
-                    HitReaction();
+                    float damage = privateHealth - health;
+                    if (damage == 0.5)
+                    {
+                        BlockReaction();
+                    }
+                    else
+                    {
+                        HitReaction();
+                    }
                     privateHealth = health;
                 }
                 VisualEffects();
@@ -54,6 +76,18 @@ namespace LastIsekai
                     animationManager.animator.SetBool("isDead", true);
                     animationManager.animator.SetBool("isInteracting", true);
                     isDead = true;
+                }
+            }
+        }
+        private void BlockInvicibilityTimer()
+        {
+            if (hitRecently)
+            {
+                blockTimer -= Time.deltaTime;
+                if(blockTimer <= 0)
+                {
+                    blockTimer = blockInvicibility;
+                    hitRecently = false;
                 }
             }
         }
@@ -70,9 +104,11 @@ namespace LastIsekai
         }
         private void HitReaction()
         {
+            hitRecently = true;
             animationManager.animator.SetBool("hit", true);
-            PhotonNetwork.Instantiate("BloodVFX", bloodInstantiationPoint.position, Quaternion.identity);   
-
+            PhotonNetwork.Instantiate("BloodVFX", bloodInstantiationPoint.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("Spark", bloodInstantiationPoint.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("FloatingDamage", bloodInstantiationPoint.position, Quaternion.identity);
         }
         public float GetDecimal()
         {
@@ -85,7 +121,6 @@ namespace LastIsekai
 
         public void TakeDamage(float damage)
         {
-           // if(hitFeedback != null) hitFeedback.PlayFeedbacks();
             view.RPC("RPC_TakeDamage", RpcTarget.All, damage);
         }
         [PunRPC]
@@ -98,7 +133,16 @@ namespace LastIsekai
                 HandleDeath();
             }
         }
-         
+        
+        private void BlockReaction()
+        {
+            if (hitRecently == false)
+            {
+                animationManager.animator.SetBool("blockImpact", true);
+                var blockedText = PhotonNetwork.Instantiate("FloatingText", bloodInstantiationPoint.position, Quaternion.identity);
+                blockedText.GetComponent<FloatingDamage>().SetText("Blocked!");
+            }
+        }
         public AnimationManager GetAnimationManager()
         {
             WeaponManager[] allWeaponManagers = FindObjectsOfType<WeaponManager>();

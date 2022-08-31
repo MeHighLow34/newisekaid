@@ -91,7 +91,6 @@ namespace LastIsekai
                 }
 
                 playerLocomotion.HandleDodge();
-                Debug.Log("I should dodge right fucking now");
                 dodgeFlag = false;
             }
         }

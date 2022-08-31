@@ -21,6 +21,7 @@ namespace LastIsekai
         public GameObject damageDetector;
         public GameObject aimCamera;
         public GameObject rageEffect;
+        public GameObject playerBody;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
@@ -30,6 +31,7 @@ namespace LastIsekai
             if (view.IsMine)
             {
                 damageDetector.gameObject.name = "LocalCharacterDamageDetector";
+                playerBody.gameObject.name = "LocalBody";
                 Destroy(worldSpaceUI);
             }
             if(view.IsMine == false)

@@ -11,6 +11,7 @@ namespace LastIsekai
         public float damage = 1.5f;
         [Header("VFX")]
         public MMFeedbacks hitFeedback;
+        public bool blocked;
 
         private void Start()
         {
@@ -20,14 +21,29 @@ namespace LastIsekai
         private void OnTriggerEnter(Collider other)
         {
             if (playerManager.attack == false) return; // if we are not attacking we don't take other players damage
-            var victim = other.GetComponent<IDamageable>();
-            if (victim == null) return;
-            PhotonView victimPhotonView = other.GetComponent<PhotonView>();
-            if (victimPhotonView.IsMine == false) { 
-                victim.TakeDamage(damage); 
-                hitFeedback.PlayFeedbacks();
+            var blockCheck = other.GetComponent<Shield>();
+            if(blockCheck != null)
+            {
+                if (blockCheck.blocking)
+                {
+                    blockCheck.BlockingReaction();
+                    blocked = true;
+                    return;
+                }
+            }
+            if (blocked == false)
+            {
+                var victim = other.GetComponent<IDamageable>();
+                if (victim == null) return;
+                PhotonView victimPhotonView = other.GetComponent<PhotonView>();
+                if (victimPhotonView.IsMine == false)
+                {
+                    victim.TakeDamage(damage);
+                    hitFeedback.PlayFeedbacks();
+                }
             }
         }
+
         private PlayerManager GetLocalPlayerManager()
         {
             WeaponManager[] wholeWM = FindObjectsOfType<WeaponManager>();

@@ -16,9 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 8efb9c5cb7c29a7409a78be182c20b05, type: 3}
   description: From his highness you have the HOLY SET
   isEssential: 0
-  playerClass: 0
+  playerClass: 3
   prefab: {fileID: 7896728572586138157, guid: d2140eff085d269418dd1fa9a1352581, type: 3}
-  secondaryPrefab: {fileID: 221247473472651149, guid: 5d4cc880e22817346a69939a227b95f7,
+  secondaryPrefab: {fileID: 5298110520529008949, guid: c614e288124d2d244b59bf873e8ced6a,
     type: 3}
   pickUpPrefab: {fileID: 0}
   animatorOverrideController: {fileID: 22100000, guid: f144a436d3e9f8242a36c8225765f1f0,
