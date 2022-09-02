@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 
 namespace LastIsekai
 {
@@ -9,19 +9,28 @@ namespace LastIsekai
     {
         public BoxCollider collider;
         public bool input;
+        [SerializeField] PhotonView photonView;
+
+        private void Awake()
+        {
+            photonView = GetComponent<PhotonView>();
+        }
 
         #region Input
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.T))
+            if (photonView.IsMine)
             {
-                input = true;
+                if (Input.GetKeyDown(KeyCode.T))
+                {
+                    input = true;
+                }
             }
         }
         #endregion
         private void OnTriggerStay(Collider other)
         {
-            if (input)
+            if (input && photonView.IsMine)
             {
                 Interactable interactable = other.GetComponent<Interactable>();
                 if (interactable != null)

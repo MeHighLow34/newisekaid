@@ -8,6 +8,7 @@ namespace LastIsekai
 {
     public class AnimationEvents : MonoBehaviour
     {
+        public PhotonView realPhotonView;
         public Animator animator;
         WeaponManager weaponManager;
         WeaponManager[] allWeaponManagers;
@@ -139,7 +140,10 @@ namespace LastIsekai
 
         public void EffectGain()
         {
-            playerBehaviour.RageEnabled();
+            if (realPhotonView.IsMine)
+            {
+                playerBehaviour.RageEnabled();
+            }
         }
         private void FindLocalWeaponManager()
         {

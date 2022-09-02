@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 
 namespace LastIsekai
 {
     public class PlayerAttacker : MonoBehaviour
     {
+        PhotonView photonView;
         public AnimationEvents animationEvents;
         InputManager inputManager;
         AnimationManager animationManager;
         public string lastAttack;
         private void Awake()
         {
+            photonView = GetComponentInParent<PhotonView>();    
             inputManager = GetComponent<InputManager>();
             animationManager = GetComponent<AnimationManager>();
         }
@@ -48,9 +50,12 @@ namespace LastIsekai
 
         public void HandleGainEffects(string effectName)
         {
-            animationManager.animator.SetBool("effectGain", true);
-            animationManager.animator.SetBool("isInteracting", true);
-            animationManager.animator.applyRootMotion = true;
+            if (photonView.IsMine)
+            {
+                animationManager.animator.SetBool("effectGain", true);
+                animationManager.animator.SetBool("isInteracting", true);
+                animationManager.animator.applyRootMotion = true;
+            }
         }
     }
 }

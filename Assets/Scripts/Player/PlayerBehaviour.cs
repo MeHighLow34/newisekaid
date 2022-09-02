@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.VFX;
 using StarterAssets;
+using Photon.Pun;
 
 namespace LastIsekai
 {
     public class PlayerBehaviour : MonoBehaviour
     {
+        PhotonView myLocalPhotonView;
         ThirdPersonController thirdPersonController;
         InputManager inputManager;
         PlayerManager playerManager;
@@ -28,6 +30,7 @@ namespace LastIsekai
         [SerializeField] float rageSprint;  
         private void Awake()
         {
+            myLocalPhotonView = GetComponentInParent<PhotonView>();
             thirdPersonController = GetComponent<ThirdPersonController>();
             inputManager = GetComponent<InputManager>();
             crosshair = GameObject.FindGameObjectWithTag("Crosshair");
@@ -71,6 +74,7 @@ namespace LastIsekai
                 if (inputManager.aimFlag)
                 {
                     animationManager.animator.SetBool("block", true);
+                    animationManager.animator.SetBool("isInteracting", true);
                 }
                 else
                 {
@@ -82,11 +86,11 @@ namespace LastIsekai
 
         public void RageEnabled()
         {
-            rageEnabled = true;
-            rageVisuals.weight = 1f;
-            thirdPersonController.MoveSpeed = rageMove;
-            thirdPersonController.SprintSpeed = rageSprint;
-            rageVFX.enabled = true;
+                rageEnabled = true;
+                rageVisuals.weight = 1f;
+                thirdPersonController.MoveSpeed = rageMove;
+                thirdPersonController.SprintSpeed = rageSprint;
+                rageVFX.enabled = true;       
         }
 
         private void DisableRage()

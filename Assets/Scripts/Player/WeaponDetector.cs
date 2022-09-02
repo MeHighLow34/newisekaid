@@ -7,6 +7,7 @@ namespace LastIsekai
 {
     public class WeaponDetector : MonoBehaviour
     {
+        // todo Actually we cannot since this is local instance which would defeat the whole purpose
         PlayerManager playerManager;
         public float damage = 1.5f;
         [Header("VFX")]

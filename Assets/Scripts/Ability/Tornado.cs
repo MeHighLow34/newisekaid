@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 namespace LastIsekai
 {
@@ -8,22 +9,26 @@ namespace LastIsekai
     {
         public float speed = 15f;
         public Vector3 playerDirection;
+        public PhotonView tornadoPhotonView;
+        public PhotonView playerPV;
 
-
+        private void Awake()
+        {
+            tornadoPhotonView = GetComponent<PhotonView>();
+        }
         private void Start()
         {
-            var player = GameObject.Find("LocalBody");
-            playerDirection = player.transform.forward;
+            playerPV = GameObject.Find("LocalBody").GetComponent<Mediary>().mainPhotonView;
+            if (tornadoPhotonView.IsMine == playerPV.IsMine)
+            {
+                var playerBody = playerPV.gameObject.GetComponent<Mediary>().playerBody;
+                playerDirection = playerBody.transform.forward;
+            }
         }
 
         private void Update()
         {
             transform.position += playerDirection * speed * Time.deltaTime;
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            
         }
     }
 }

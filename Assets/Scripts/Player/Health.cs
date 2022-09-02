@@ -22,9 +22,7 @@ namespace LastIsekai
         [Header("Visual Effects")]
         public Volume hurtVisual;
         public Transform bloodInstantiationPoint;
-        public float blockInvicibility = 0.75f;
-        private float blockTimer;
-        private bool hitRecently;
+
         private void Awake()
         {
             hurtVisual = GameObject.FindGameObjectWithTag("HurtVISUAL").GetComponent<Volume>();
@@ -40,7 +38,6 @@ namespace LastIsekai
         void Start()
         {
             animationManager = GetAnimationManager();
-            blockTimer = blockInvicibility;
         }
 
 
@@ -56,7 +53,7 @@ namespace LastIsekai
         {
             if (view.IsMine)
             {
-                BlockInvicibilityTimer();
+                
                 if (health != privateHealth)
                 {
                     float damage = privateHealth - health;
@@ -73,24 +70,14 @@ namespace LastIsekai
                 VisualEffects();
                 if(privateHealth<=0 && isDead==false)
                 {
-                    animationManager.animator.SetBool("isDead", true);
-                    animationManager.animator.SetBool("isInteracting", true);
+                  //  animationManager.animator.SetBool("isDead", true);
+                  //  animationManager.animator.SetBool("isInteracting", true);
                     isDead = true;
                 }
             }
         }
-        private void BlockInvicibilityTimer()
-        {
-            if (hitRecently)
-            {
-                blockTimer -= Time.deltaTime;
-                if(blockTimer <= 0)
-                {
-                    blockTimer = blockInvicibility;
-                    hitRecently = false;
-                }
-            }
-        }
+
+        
         private void VisualEffects()
         {
             if (GetDecimal() <= 0.35)
@@ -104,8 +91,10 @@ namespace LastIsekai
         }
         private void HitReaction()
         {
-            hitRecently = true;
+            animationManager.animator.SetInteger("hitIndex", Random.Range(0, 6));
             animationManager.animator.SetBool("hit", true);
+            animationManager.animator.SetBool("isInteracting", true);
+            animationManager.animator.applyRootMotion = true;
             PhotonNetwork.Instantiate("BloodVFX", bloodInstantiationPoint.position, Quaternion.identity);
             PhotonNetwork.Instantiate("Spark", bloodInstantiationPoint.position, Quaternion.identity);
             PhotonNetwork.Instantiate("FloatingDamage", bloodInstantiationPoint.position, Quaternion.identity);
@@ -136,12 +125,9 @@ namespace LastIsekai
         
         private void BlockReaction()
         {
-            if (hitRecently == false)
-            {
                 animationManager.animator.SetBool("blockImpact", true);
                 var blockedText = PhotonNetwork.Instantiate("FloatingText", bloodInstantiationPoint.position, Quaternion.identity);
                 blockedText.GetComponent<FloatingDamage>().SetText("Blocked!");
-            }
         }
         public AnimationManager GetAnimationManager()
         {

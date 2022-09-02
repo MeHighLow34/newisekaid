@@ -709,7 +709,6 @@ MonoBehaviour:
   animationManager: {fileID: 0}
   hurtVisual: {fileID: 0}
   bloodInstantiationPoint: {fileID: 8804640016787378238}
-  blockInvicibility: 1
 --- !u!136 &1167907646
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -880,6 +879,7 @@ GameObject:
   - component: {fileID: 1421017362}
   - component: {fileID: 1421017363}
   - component: {fileID: 1374098301589773565}
+  - component: {fileID: 2623769360680168259}
   m_Layer: 6
   m_Name: Player Picker
   m_TagString: Untagged
@@ -929,6 +929,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collider: {fileID: 1421017363}
   input: 0
+  photonView: {fileID: 0}
+--- !u!114 &2623769360680168259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421017361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1932049637
 GameObject:
   m_ObjectHideFlags: 0
@@ -3809,6 +3832,7 @@ GameObject:
   - component: {fileID: 6096108452760279710}
   - component: {fileID: 5605579096388901574}
   - component: {fileID: 5476606949424971607}
+  - component: {fileID: 296319620342249552}
   m_Layer: 6
   m_Name: PROBNI_MC
   m_TagString: Untagged
@@ -3892,6 +3916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba5c2fbea2a3a947b9e98bbd09e383e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  realPhotonView: {fileID: 5476606949924950512}
   animator: {fileID: 0}
   testOrb: {fileID: 0}
   instantiationTransform: {fileID: 7914526485551443114}
@@ -3982,6 +4007,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: blockImpact
+  - Type: 3
+    SynchronizeType: 2
+    Name: hitIndex
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -4038,6 +4066,20 @@ MonoBehaviour:
   maxPositionDifferenceForVelocitySyncing: 10
   ownerChangeIndicator: 1
   receivedStatesCounter: 0
+--- !u!114 &296319620342249552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666213895677441933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073cbc58be3f9264d96c62b08e041131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPhotonView: {fileID: 5476606949924950512}
+  playerBody: {fileID: 0}
 --- !u!1 &4786974528224715689
 GameObject:
   m_ObjectHideFlags: 0
@@ -4305,6 +4347,7 @@ GameObject:
   - component: {fileID: 5476606949924950513}
   - component: {fileID: 5476606949924950512}
   - component: {fileID: 5476606949424971603}
+  - component: {fileID: 3496831554797455043}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4380,6 +4423,21 @@ MonoBehaviour:
   damageDetector: {fileID: 1167907644}
   aimCamera: {fileID: 1298409522}
   rageEffect: {fileID: 3765992423397235815}
+  playerBody: {fileID: 4666213895677441933}
+  playerBehaviour: {fileID: 2572569581882745003}
+--- !u!114 &3496831554797455043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476606949924950478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073cbc58be3f9264d96c62b08e041131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPhotonView: {fileID: 0}
   playerBody: {fileID: 4666213895677441933}
 --- !u!1 &5476606951108479378
 GameObject:
