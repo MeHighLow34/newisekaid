@@ -324,7 +324,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StepBack
-  m_Speed: 1.5
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5461605272651220674}
@@ -1703,7 +1703,7 @@ AnimatorStateMachine:
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: -8639937792802958894}
-    m_Position: {x: -60, y: -220, z: 0}
+    m_Position: {x: -40, y: -220, z: 0}
   m_AnyStateTransitions:
   - {fileID: -2151167271637933382}
   - {fileID: 6306348195525861612}
@@ -1770,7 +1770,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Attack1
-  m_Speed: 1.45
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -870497471657935877}
@@ -1912,7 +1912,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Attack2
-  m_Speed: 1.45
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4065803816384046037}
