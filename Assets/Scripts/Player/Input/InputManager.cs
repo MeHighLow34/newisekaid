@@ -84,7 +84,7 @@ namespace LastIsekai
         {
             if (dodgeFlag)
             {
-                if (playerManager.noInteracting)
+                if (playerManager.noInteracting || playerManager.block)
                 {
                     dodgeFlag = false;
                     return;

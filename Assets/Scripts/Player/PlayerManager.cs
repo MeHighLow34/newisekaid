@@ -14,6 +14,7 @@ namespace LastIsekai
         public bool noInteracting;
         public bool attack;
         public bool block;
+        public bool stepBack;
         [Header("Stats")]
         public PlayerClass playerClass;
         private void Awake()
@@ -33,6 +34,7 @@ namespace LastIsekai
             noInteracting = animator.GetBool("noInteracting");
             attack = animator.GetBool("attack");
             block = animator.GetBool("block");
+            stepBack = animator.GetBool("stepBack");
         }
     }
 }

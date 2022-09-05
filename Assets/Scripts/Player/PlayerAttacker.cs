@@ -48,6 +48,25 @@ namespace LastIsekai
             animationManager.animator.applyRootMotion = true;
         }
 
+        public void HandleThrowEffects()
+        {
+            if (photonView.IsMine)
+            {
+                animationManager.animator.SetBool("throw", true);
+                animationManager.animator.SetBool("isInteracting", true);
+                animationManager.animator.applyRootMotion = true;
+            }
+        }
+
+        public void HandleBeamEffects()
+        {
+            if (photonView.IsMine)
+            {
+                animationManager.animator.SetBool("beam", true);
+                animationManager.animator.SetBool("isInteracting", true);
+                animationManager.animator.applyRootMotion = true;
+            }
+        }
         public void HandleGainEffects(string effectName)
         {
             if (photonView.IsMine)
@@ -57,5 +76,7 @@ namespace LastIsekai
                 animationManager.animator.applyRootMotion = true;
             }
         }
+
+      
     }
 }

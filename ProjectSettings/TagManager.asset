@@ -11,6 +11,7 @@ TagManager:
   - RageVISUAL
   - RageVFX
   - HitFEEDBACK
+  - hook
   layers:
   - Default
   - TransparentFX

@@ -24,10 +24,15 @@ namespace LastIsekai
         [Header("Rage - Properties")]
         public Volume rageVisuals;
         public VisualEffect rageVFX;
+        public float maxRageDuration = 5f;
         public float rageDuration = 5f;
         public bool rageEnabled;
         [SerializeField] float rageMove;
-        [SerializeField] float rageSprint;  
+        [SerializeField] float rageSprint;
+        [Header("Beam - Properties")]
+        public bool beamEnabled;
+        public float beamDuration;
+        private float beamTimeElapsed;
         private void Awake()
         {
             myLocalPhotonView = GetComponentInParent<PhotonView>();
@@ -42,6 +47,16 @@ namespace LastIsekai
 
         private void Update()
         {
+            if (beamEnabled)
+            {
+                EnableAim();
+                beamTimeElapsed += Time.deltaTime;
+                if(beamTimeElapsed >= beamDuration)
+                {
+                    beamTimeElapsed = 0f;
+                    DisableBeam();
+                }
+            }
             #region Rage
             if (rageEnabled)
             {
@@ -49,27 +64,26 @@ namespace LastIsekai
                 if(rageDuration <= 0)
                 {
                     DisableRage();
-                    rageDuration = 5f;
+                    rageDuration = maxRageDuration;
                     rageEnabled = false;
                 }
             }
             #endregion
             #region Aiming
-            if (playerManager.playerClass == PlayerClass.Mage)
+            if (playerManager.playerClass == PlayerClass.Mage && !beamEnabled)
             {
                 if (inputManager.aimFlag)
                 {
-                    mainCamera.SetActive(false);
-                    aimCamera.SetActive(true);
-                    crosshair.SetActive(true);
+                    EnableAim();
                 }
                 else
                 {
-                    mainCamera.SetActive(true);
-                    aimCamera.SetActive(false);
-                    crosshair.SetActive(false);
+                    DisableAim();
                 }
-            }else if(playerManager.playerClass == PlayerClass.Tank)
+            }
+            #endregion
+            #region Blocking
+            else if (playerManager.playerClass == PlayerClass.Tank)
             {
                 if (inputManager.aimFlag)
                 {
@@ -82,6 +96,20 @@ namespace LastIsekai
                 }
             }
             #endregion
+        }
+
+        private void DisableAim()
+        {
+            mainCamera.SetActive(true);
+            aimCamera.SetActive(false);
+            crosshair.SetActive(false);
+        }
+
+        private void EnableAim()
+        {
+            mainCamera.SetActive(false);
+            aimCamera.SetActive(true);
+            crosshair.SetActive(true);
         }
 
         public void RageEnabled()
@@ -99,6 +127,18 @@ namespace LastIsekai
             thirdPersonController.MoveSpeed = defaultMove;
             thirdPersonController.SprintSpeed = defaultSprint;  
             rageVisuals.weight = 0f;
+        }
+
+        public void BeamEnabled()
+        {
+            beamEnabled = true;
+        }
+
+        private void DisableBeam()
+        {
+            beamEnabled = false;
+            animationManager.animator.SetBool("beam", false);
+            DisableAim();
         }
 
     }

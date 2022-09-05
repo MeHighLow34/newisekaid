@@ -2008,6 +2008,51 @@ Transform:
   m_Father: {fileID: 7029880278290712937}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1793988201985688066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6316268077135130809}
+  - component: {fileID: 6278054838138167336}
+  m_Layer: 6
+  m_Name: Hook Detector
+  m_TagString: hook
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6316268077135130809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793988201985688066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5443277982949453111}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6278054838138167336
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793988201985688066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.4, y: 7.3, z: 1}
+  m_Center: {x: 0, y: 3.74, z: 0}
 --- !u!1 &1796786301318143528
 GameObject:
   m_ObjectHideFlags: 0
@@ -3755,6 +3800,37 @@ MonoBehaviour:
   image: {fileID: 4307302311856716240}
   playerHealth: {fileID: 1167907647}
   hurtSpeed: 0.003
+--- !u!1 &4478193227808645224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8925292068255256349}
+  m_Layer: 6
+  m_Name: Beam Instantiation Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8925292068255256349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478193227808645224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.21, z: 6.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5443277982949453111}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4592221271133518074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,6 +3939,9 @@ Transform:
   - {fileID: 754287851}
   - {fileID: 8804640016787378238}
   - {fileID: 548101867770401136}
+  - {fileID: 6316268077135130809}
+  - {fileID: 4453491810854996566}
+  - {fileID: 8925292068255256349}
   m_Father: {fileID: 2525692924086116297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3925,6 +4004,7 @@ MonoBehaviour:
   tornadoInstantiationTransform: {fileID: 548101867770401136}
   knightAttack1Slash: {fileID: 3886716532637236300, guid: f3512ad74bd3e6e41a6b6db3bf730e8b,
     type: 3}
+  beamInstantiationTransform: {fileID: 8925292068255256349}
 --- !u!114 &6096108452760279710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4010,6 +4090,12 @@ MonoBehaviour:
   - Type: 3
     SynchronizeType: 2
     Name: hitIndex
+  - Type: 4
+    SynchronizeType: 2
+    Name: throw
+  - Type: 4
+    SynchronizeType: 2
+    Name: beam
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -4993,7 +5079,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775736, y: 1}
+    m_SensorSize: {x: 1.777972, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -6407,6 +6493,7 @@ MonoBehaviour:
   noInteracting: 0
   attack: 0
   block: 0
+  stepBack: 0
   playerClass: 0
 --- !u!114 &3235624846316503392
 MonoBehaviour:
@@ -6608,10 +6695,13 @@ MonoBehaviour:
   crosshair: {fileID: 0}
   rageVisuals: {fileID: 0}
   rageVFX: {fileID: 0}
+  maxRageDuration: 5
   rageDuration: 10
   rageEnabled: 0
   rageMove: 4
   rageSprint: 8
+  beamEnabled: 0
+  beamDuration: 10
 --- !u!1 &8188754140214786161
 GameObject:
   m_ObjectHideFlags: 0
@@ -6951,6 +7041,37 @@ Transform:
   - {fileID: 3348665924860893756}
   m_Father: {fileID: 5749140533116102018}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8626258989524716562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4453491810854996566}
+  m_Layer: 6
+  m_Name: Hook Destination Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4453491810854996566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8626258989524716562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.08, z: 5.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5443277982949453111}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8648631991039914724
 GameObject:

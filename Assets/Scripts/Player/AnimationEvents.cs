@@ -19,8 +19,8 @@ namespace LastIsekai
         public string aoeName;
         public PlayerBehaviour playerBehaviour;
         public Transform tornadoInstantiationTransform;
-
         public GameObject knightAttack1Slash;
+        public Transform beamInstantiationTransform;
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -143,6 +143,21 @@ namespace LastIsekai
             if (realPhotonView.IsMine)
             {
                 playerBehaviour.RageEnabled();
+            }
+        }
+
+        public void ThrowEffect()
+        {
+            var hook =   PhotonNetwork.Instantiate("HookOBJ", tornadoInstantiationTransform.position + new Vector3(0, 1f, 0), Quaternion.identity);
+            hook.GetComponent<Hook>().caster = transform;
+        }
+
+        public void BeamEffect()
+        {
+            if (realPhotonView.IsMine)
+            {
+                PhotonNetwork.Instantiate("Beam", beamInstantiationTransform.position, Quaternion.identity);
+                playerBehaviour.BeamEnabled();
             }
         }
         private void FindLocalWeaponManager()
