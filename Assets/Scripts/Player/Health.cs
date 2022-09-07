@@ -43,14 +43,6 @@ namespace LastIsekai
 
         void Update()
         {
-            //testing
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                PhotonNetwork.Instantiate("FloatingDamage", bloodInstantiationPoint.position, Quaternion.identity);
-            }
-        }
-        void LateUpdate()
-        {
             if (view.IsMine)
             {
                 

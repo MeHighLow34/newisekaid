@@ -9,5 +9,7 @@ namespace LastIsekai
     {
         public PhotonView mainPhotonView;
         public GameObject playerBody;
+        public Health healther;
+        public AnimationManager animMan;
     }
 }

@@ -10,11 +10,11 @@ namespace LastIsekai
         public Vector3 playerDirection;
         public PhotonView beamPhotonView;
         public PhotonView playerPV;
-        public float minViewable = 45f;
-        public float maxViewable = 75f;
         Vector3 direction;
         private Camera cam;
         GameObject playerBody;
+        public float minViewAbleAngle = 75f;
+        public float maxViewAbleAngle = 115f;
         private void Awake()
         {
             beamPhotonView = GetComponent<PhotonView>();
@@ -33,33 +33,14 @@ namespace LastIsekai
 
         private void Update()
         {
-         
+            float viewAbleAngle = Vector3.Angle(cam.transform.forward, playerDirection);
             if(beamPhotonView.IsMine == cam.GetComponentInParent<PhotonView>())
             {
-                transform.rotation = Quaternion.LookRotation(cam.transform.forward);
+                if (viewAbleAngle <= maxViewAbleAngle && viewAbleAngle >= minViewAbleAngle)
+                {
+                    transform.rotation = Quaternion.LookRotation(cam.transform.forward);
+                }
             }
-/*            Vector3 targetDirection;
-            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                targetDirection = hit.point;
-            }
-            else
-            {
-                targetDirection = cam.transform.forward;
-            }
-            float viewAbleAngle = Vector3.Angle(targetDirection, playerBody.transform.forward);
-            if (viewAbleAngle >= minViewable && viewAbleAngle <= maxViewable)
-            {
-                direction = cam.transform.forward;
-            }
-            else
-            {
-                direction = playerBody.transform.forward;
-            }
-
-            transform.rotation = Quaternion.LookRotation(direction);*/
 
         }
     }

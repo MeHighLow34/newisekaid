@@ -12,7 +12,7 @@ namespace LastIsekai
         public AnimationManager animationManager;
         public PlayerManager playerManager;
         public bool blocking;
-
+        public bool abilityShield;
 
         private void Awake()
         {
@@ -40,7 +40,14 @@ namespace LastIsekai
 
         private void Update()
         {
-            blocking = playerManager.block;
+            if (abilityShield)
+            {
+                blocking = true;
+            }
+            else
+            {
+                blocking = playerManager.block;
+            }
         }
 
         public void BlockReaction()

@@ -37,6 +37,13 @@ namespace LastIsekai
                     animationManager.animator.applyRootMotion = true;
                     lastAttack = "Attack2";
                 }
+                if (lastAttack == "Attack2")
+                {
+                    animationManager.animator.SetBool("doCombo", true);
+                    animationManager.animator.SetBool("isInteracting", true);
+                    animationManager.animator.applyRootMotion = true;
+                    //lastAttack = "Attack3";
+                }
             }
         }
 

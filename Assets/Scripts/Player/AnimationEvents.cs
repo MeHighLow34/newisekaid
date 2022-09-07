@@ -21,6 +21,8 @@ namespace LastIsekai
         public Transform tornadoInstantiationTransform;
         public GameObject knightAttack1Slash;
         public Transform beamInstantiationTransform;
+        public Transform groundSlashInstantiationTransform;
+        public Transform greatShieldInstantiationTransform;
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -44,6 +46,11 @@ namespace LastIsekai
         public void DisableCombo()
         {
             animator.SetBool("canDoCombo", false);
+        }
+
+        public void DisableDoCombo()
+        {
+            animator.SetBool("doCombo", false);
         }
         public void EnableNoInteracting()
         {
@@ -122,8 +129,18 @@ namespace LastIsekai
 
         public void AOEAttack()
         {
-
-            if(aoeName == "Tornado")
+            if(aoeName == "GreatShield")
+            {
+                if (realPhotonView.IsMine)
+                {
+                   var aoeGO = PhotonNetwork.Instantiate(aoeName, greatShieldInstantiationTransform.position, Quaternion.identity);   
+                }
+            }
+            else if (aoeName == "GroundSlash")
+            {
+                PhotonNetwork.Instantiate(aoeName, groundSlashInstantiationTransform.position, Quaternion.identity);
+            }
+            else if(aoeName == "Tornado")
             {
                 PhotonNetwork.Instantiate(aoeName, tornadoInstantiationTransform.position, Quaternion.identity);
             }
