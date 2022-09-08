@@ -15,7 +15,10 @@ using Photon.Pun;
         public GameObject secondaryPrefab;
         public GameObject pickUpPrefab;
         public AnimatorOverrideController animatorOverrideController;
-
+        [Header("Stamina Costs")]
+        public float attack1Cost;
+        public float attack2Cost;   
+        public float attack3Cost;
         public override void Use()
         {
             FindLocalWeaponManager();

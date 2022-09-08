@@ -14,6 +14,7 @@ namespace LastIsekai
         private void Awake()
         {
             baseStats = GetComponent<BaseStats>();
+            maxStamina = baseStats.GetStat(Stat.Stamina);   
             stamina = maxStamina;
         }
 
@@ -28,6 +29,14 @@ namespace LastIsekai
             {
                 stamina -= staminaCost;
                 return true;
+            }
+        }
+
+        private void Update()
+        {
+            if (GetDecimalValue() < 1)
+            {
+                stamina += Time.deltaTime * 4;
             }
         }
 

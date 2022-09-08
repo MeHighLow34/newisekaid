@@ -4580,6 +4580,7 @@ MonoBehaviour:
   playerBody: {fileID: 4666213895677441933}
   playerBehaviour: {fileID: 2572569581882745003}
   mana: {fileID: 6460767275813908265}
+  stamina: {fileID: 1340708883044252619}
 --- !u!114 &3496831554797455043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6338,6 +6339,7 @@ GameObject:
   - component: {fileID: 3028116132304216446}
   - component: {fileID: 2572569581882745003}
   - component: {fileID: 6460767275813908265}
+  - component: {fileID: 1340708883044252619}
   m_Layer: 8
   m_Name: PlayerStructure
   m_TagString: Player
@@ -6721,6 +6723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99052afe592b1e428fcdb10e243c0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodgeStaminaCost: 25
 --- !u!114 &6296150274709639692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6787,6 +6790,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mana: 0
+--- !u!114 &1340708883044252619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164115589356454305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af14e636bee8d44d9efbe9d0f7ddae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamina: 0
 --- !u!1 &8188754140214786161
 GameObject:
   m_ObjectHideFlags: 0

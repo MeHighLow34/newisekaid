@@ -12,19 +12,32 @@ namespace LastIsekai
         InputManager inputManager;
         AnimationManager animationManager;
         public string lastAttack;
+        Stamina stamina;
+        WeaponManager weaponManager;
         private void Awake()
         {
             photonView = GetComponentInParent<PhotonView>();    
             inputManager = GetComponent<InputManager>();
             animationManager = GetComponent<AnimationManager>();
+            stamina = GetComponent<Stamina>();  
+            weaponManager = GetComponent<WeaponManager>();
         }
 
         public void HandleLightAttack()
         {
-            animationManager.animator.SetBool("attack", true);
-            animationManager.animator.SetBool("isInteracting", true);
-            animationManager.animator.applyRootMotion = true;
-            lastAttack = "Attack1";
+            bool enoughStamina = stamina.ReduceStamina(weaponManager.currentWeapon.attack1Cost);
+            if (enoughStamina)
+            {
+                animationManager.animator.SetBool("attack", true);
+                animationManager.animator.SetBool("isInteracting", true);
+                animationManager.animator.applyRootMotion = true;
+                lastAttack = "Attack1";
+            }
+            else
+            {
+                inputManager.lightAttack = false;
+                print("I can't attack dude");
+            }
         }
         public void HandleLightAttackCombo()
         {
@@ -32,17 +45,32 @@ namespace LastIsekai
             {
                 if(lastAttack == "Attack1")
                 {
-                    animationManager.animator.SetBool("doCombo", true);
-                    animationManager.animator.SetBool("isInteracting", true);
-                    animationManager.animator.applyRootMotion = true;
-                    lastAttack = "Attack2";
+                    bool enoughStamina = stamina.ReduceStamina(weaponManager.currentWeapon.attack2Cost);
+                    if (enoughStamina)
+                    {
+                        animationManager.animator.SetBool("doCombo", true);
+                        animationManager.animator.SetBool("isInteracting", true);
+                        animationManager.animator.applyRootMotion = true;
+                        lastAttack = "Attack2";
+                    }
+                    else
+                    {
+                        print("I  can't do combo since I don't have enough stamina");
+                    }
                 }
                 if (lastAttack == "Attack2")
                 {
-                    animationManager.animator.SetBool("doCombo", true);
-                    animationManager.animator.SetBool("isInteracting", true);
-                    animationManager.animator.applyRootMotion = true;
-                    //lastAttack = "Attack3";
+                    bool enoughStamina = stamina.ReduceStamina(weaponManager.currentWeapon.attack3Cost);
+                    if (enoughStamina)
+                    {
+                        animationManager.animator.SetBool("doCombo", true);
+                        animationManager.animator.SetBool("isInteracting", true);
+                        animationManager.animator.applyRootMotion = true;
+                    }
+                    else
+                    {
+                        print("I'M DEAD TIRED");
+                    }
                 }
             }
         }

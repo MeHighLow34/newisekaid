@@ -13,6 +13,7 @@ namespace LastIsekai
         WeaponManager weaponManager;
         WeaponManager[] allWeaponManagers;
         PhotonView photonView;
+        Stamina myStamina;
         [Header("Event Objects")]
         public GameObject testOrb;
         public Transform instantiationTransform;
@@ -33,6 +34,7 @@ namespace LastIsekai
             photonView = GetLocalPhotonView();
             FindLocalWeaponManager();
             playerBehaviour = GetPlayerBehaviour(); 
+            myStamina = FindObjectOfType<Stamina>();
         }
         public void EnableCombo()
         {
@@ -154,6 +156,7 @@ namespace LastIsekai
                 PhotonNetwork.Instantiate(aoeName, transform.position, Quaternion.identity);
             }
         }
+
 
         public void EffectGain()
         {
