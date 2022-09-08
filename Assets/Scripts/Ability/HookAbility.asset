@@ -16,3 +16,4 @@ MonoBehaviour:
   description: 'Hook your opponents baby '
   icon: {fileID: 21300000, guid: 6fd0b649401ca5b419a5ebf5df170c0f, type: 3}
   playerClass: 3
+  manaCost: 66

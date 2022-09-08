@@ -11,8 +11,16 @@ namespace LastIsekai
         PlayerAttacker playerAttacker;
         public override void UseAbility()
         {
-            playerAttacker = GetPlayerAttacker();
-            playerAttacker.HandleAOE("GroundSlash");
+            var enoughMana = FindObjectOfType<Mana>().ReduceMana(manaCost);
+            if (enoughMana == false)
+            {
+                Debug.Log("Not enough mana");
+            }
+            else
+            {
+                playerAttacker = GetPlayerAttacker();
+                playerAttacker.HandleAOE("GroundSlash");
+            }
         }
         private PlayerAttacker GetPlayerAttacker()
         {

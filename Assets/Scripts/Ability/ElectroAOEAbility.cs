@@ -10,8 +10,17 @@ namespace LastIsekai
         PlayerAttacker playerAttacker;
         public override void UseAbility()
         {
-            playerAttacker = GetPlayerAttacker();
-            playerAttacker.HandleAOE("electroAbilityVFX");
+            var enoughMana = FindObjectOfType<Mana>().ReduceMana(manaCost);
+            if (enoughMana == false)
+            {
+                Debug.Log("Holy sheet i don't have enough");
+
+            }
+            else
+            {
+                playerAttacker = GetPlayerAttacker();
+                playerAttacker.HandleAOE("electroAbilityVFX");
+            }
         }
         private PlayerAttacker GetPlayerAttacker()
         {

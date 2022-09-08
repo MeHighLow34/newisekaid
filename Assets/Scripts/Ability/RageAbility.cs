@@ -8,9 +8,17 @@ namespace LastIsekai
     {
         PlayerAttacker playerAttacker;
         public override void UseAbility()
-        { 
-            playerAttacker = GetPlayerAttacker();
-            playerAttacker.HandleGainEffects("rage");
+        {
+            var enoughMana = FindObjectOfType<Mana>().ReduceMana(manaCost);
+            if (enoughMana == false)
+            {
+                Debug.Log("Not enough mana");
+            }
+            else
+            {
+                playerAttacker = GetPlayerAttacker();
+                playerAttacker.HandleGainEffects("rage");
+            }
         }
         private PlayerAttacker GetPlayerAttacker()
         {

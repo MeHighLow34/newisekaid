@@ -11,8 +11,16 @@ namespace LastIsekai
 
         public override void UseAbility()
         {
-            playerAttacker = GetPlayerAttacker();
-            playerAttacker.HandleBeamEffects();
+            var enoughMana = FindObjectOfType<Mana>().ReduceMana(manaCost);
+            if (enoughMana == false)
+            {
+                Debug.Log("Not enough mana");
+            }
+            else
+            {
+                playerAttacker = GetPlayerAttacker();
+                playerAttacker.HandleBeamEffects();
+            }
         }
 
         private PlayerAttacker GetPlayerAttacker()

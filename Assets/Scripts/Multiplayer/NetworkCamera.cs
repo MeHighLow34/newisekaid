@@ -23,6 +23,8 @@ namespace LastIsekai
         public GameObject rageEffect;
         public GameObject playerBody;
         public PlayerBehaviour playerBehaviour;
+        public Mana mana;
+        public Stamina stamina;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
@@ -45,6 +47,8 @@ namespace LastIsekai
                 Destroy(aimCamera);
                 Destroy(rageEffect);
                 Destroy(playerBehaviour);
+                Destroy(mana);
+                Destroy(stamina);
             }
         }
 

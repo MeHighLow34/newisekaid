@@ -4579,6 +4579,7 @@ MonoBehaviour:
   rageEffect: {fileID: 3765992423397235815}
   playerBody: {fileID: 4666213895677441933}
   playerBehaviour: {fileID: 2572569581882745003}
+  mana: {fileID: 6460767275813908265}
 --- !u!114 &3496831554797455043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6336,6 +6337,7 @@ GameObject:
   - component: {fileID: 6296150274709639692}
   - component: {fileID: 3028116132304216446}
   - component: {fileID: 2572569581882745003}
+  - component: {fileID: 6460767275813908265}
   m_Layer: 8
   m_Name: PlayerStructure
   m_TagString: Player
@@ -6772,6 +6774,19 @@ MonoBehaviour:
   rageSprint: 8
   beamEnabled: 0
   beamDuration: 10
+--- !u!114 &6460767275813908265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164115589356454305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56812fc5b619fd84cac1379124460a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mana: 0
 --- !u!1 &8188754140214786161
 GameObject:
   m_ObjectHideFlags: 0

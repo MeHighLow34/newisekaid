@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Spinny spinny spinny
   icon: {fileID: 21300002, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   playerClass: 1
+  manaCost: 45

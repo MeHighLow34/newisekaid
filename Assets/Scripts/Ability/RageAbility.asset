@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Get that RAGE BABY
   icon: {fileID: 21300012, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   playerClass: 0
+  manaCost: 19

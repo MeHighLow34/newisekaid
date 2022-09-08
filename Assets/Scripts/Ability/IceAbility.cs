@@ -11,10 +11,16 @@ namespace LastIsekai
         PlayerAttacker playerAttacker;
         public override void UseAbility()
         {
-            playerAttacker = GetPlayerAttacker();
-            Debug.Log("Im gonna fucking freeze everyone");
-            base.UseAbility();
-            playerAttacker.HandleAOE("iceAbilityVFX");
+            var enoughMana = FindObjectOfType<Mana>().ReduceMana(manaCost);
+            if (enoughMana == false)
+            {
+                Debug.Log("Not enough mana");
+            }
+            else
+            {
+                playerAttacker = GetPlayerAttacker();
+                playerAttacker.HandleAOE("iceAbilityVFX");
+            }
         }
         private PlayerAttacker GetPlayerAttacker()
         {

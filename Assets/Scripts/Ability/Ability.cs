@@ -12,10 +12,12 @@ namespace LastIsekai
         public string description;
         public Sprite icon;
         public PlayerClass playerClass;
+        public float manaCost;
 
         public virtual void UseAbility()
         {
             Debug.Log("Using an ability " + name);
+
         }
     }
 }

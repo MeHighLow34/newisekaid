@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Oh yeah baby lone
   icon: {fileID: 21300000, guid: eb5037930d3bbe143a8a570722950901, type: 3}
   playerClass: 0
+  manaCost: 33

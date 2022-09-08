@@ -16,3 +16,4 @@ MonoBehaviour:
   description: 
   icon: {fileID: 21300000, guid: d25dd947d2a09a74ba9b1530d1db13cc, type: 3}
   playerClass: 1
+  manaCost: 44
