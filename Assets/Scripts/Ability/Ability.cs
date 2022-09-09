@@ -13,11 +13,19 @@ namespace LastIsekai
         public Sprite icon;
         public PlayerClass playerClass;
         public float manaCost;
+        [Header("Cooldown Props")]
+        public bool used;
+        public float coolDown = 10f;
 
         public virtual void UseAbility()
         {
             Debug.Log("Using an ability " + name);
 
+        }
+
+        public virtual void ChangeState()
+        {
+            used = !used;
         }
     }
 }

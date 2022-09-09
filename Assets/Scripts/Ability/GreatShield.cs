@@ -14,6 +14,8 @@ namespace LastIsekai
         public PhotonView playerPV;
         GameObject playerBody;
         public Vector3 normalPositionOffset;
+        public float lifeTime = 10f;
+        private float timeElapsed;
         private void Awake()
         {
             greatShieldPhotonView = GetComponent<PhotonView>();
@@ -55,6 +57,13 @@ namespace LastIsekai
             transform.rotation = playerBody.transform.rotation;
             blocking = true;
             abilityShield = true;
+
+
+            timeElapsed += Time.deltaTime;
+            if(timeElapsed >= lifeTime)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
         }
 
         private void LateUpdate()

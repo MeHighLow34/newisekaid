@@ -9,8 +9,16 @@ namespace LastIsekai
     public class GreatShieldAbility : Ability
     {
         PlayerAttacker playerAttacker;
+
         public override void UseAbility()
         {
+
+            if (used)
+            {
+                
+                Debug.Log("I'm on a fucking cooldown tebralino");
+                return;
+            }
             var enoughMana = FindObjectOfType<Mana>().ReduceMana(manaCost);
             if (enoughMana == false)
             {
@@ -18,10 +26,15 @@ namespace LastIsekai
             }
             else
             {
+                used = true;
                 playerAttacker = GetPlayerAttacker();
                 playerAttacker.HandleAOE("GreatShield");
             }
         }
+
+
+
+       
         private PlayerAttacker GetPlayerAttacker()
         {
 
