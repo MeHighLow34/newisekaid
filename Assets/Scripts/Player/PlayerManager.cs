@@ -6,6 +6,7 @@ namespace LastIsekai
 {
     public class PlayerManager : MonoBehaviour
     {
+        public GameObject playerBody;
         public Animator animator;
         InputManager inputManager;
         [Header("Bools")]
@@ -15,6 +16,7 @@ namespace LastIsekai
         public bool attack;
         public bool block;
         public bool stepBack;
+        public bool noMoving;
         [Header("Stats")]
         public PlayerClass playerClass;
         private void Awake()
@@ -35,6 +37,7 @@ namespace LastIsekai
             attack = animator.GetBool("attack");
             block = animator.GetBool("block");
             stepBack = animator.GetBool("stepBack");
+            noMoving = animator.GetBool("noMoving");
         }
     }
 }

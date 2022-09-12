@@ -48,17 +48,17 @@ namespace LastIsekai
                     }
                 }
             }
+
+            Vector3 rotatedOffset = playerBody.transform.rotation * normalPositionOffset;
+            transform.position = playerBody.transform.position + rotatedOffset;
+            transform.rotation = playerBody.transform.rotation;
+
         }
 
         private void Update()
         {
-            Vector3 rotatedOffset = playerBody.transform.rotation * normalPositionOffset;
-            transform.position = playerBody.transform.position + rotatedOffset;
-            transform.rotation = playerBody.transform.rotation;
             blocking = true;
             abilityShield = true;
-
-
             timeElapsed += Time.deltaTime;
             if(timeElapsed >= lifeTime)
             {

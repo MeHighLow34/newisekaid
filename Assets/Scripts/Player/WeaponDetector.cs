@@ -13,6 +13,7 @@ namespace LastIsekai
         [Header("VFX")]
         public MMFeedbacks hitFeedback;
         public bool blocked;
+        public int hitAnimation = 0;
 
         private void Start()
         {
@@ -36,6 +37,36 @@ namespace LastIsekai
             {
                 var victim = other.GetComponent<IDamageable>();
                 if (victim == null) return;
+                var enemyBody = other.GetComponent<Mediary>().playerBody;
+                if(enemyBody != null)
+                {
+                    float directionHit = (Vector3.SignedAngle(playerManager.playerBody.transform.forward, enemyBody.transform.forward, Vector3.up));
+                    if(directionHit >= 145 && directionHit <= 180)
+                    {
+                        hitAnimation = 0;
+                    }else if(directionHit <= -145 && directionHit >= -180)
+                    {
+                        hitAnimation = 0;
+                    }else if(directionHit >= -45 && directionHit <= 45)
+                    {
+                        hitAnimation = 1;
+                    }else if(directionHit >= -144 && directionHit <= -45)
+                    {
+                        hitAnimation = 2;
+                    }else if(directionHit >= 45 && directionHit <= 144)
+                    {
+                        hitAnimation = 3;
+                    }
+                    /*
+                    0 je hit from front
+                    1 je hit from back
+                    2 je hit from left
+                    3 je hit from right
+                    */
+                                        var enemyPV = other.GetComponent<PhotonView>();
+                    var enemyHealth = other.GetComponent<Mediary>().healther;
+                    enemyHealth.ChangeHitAnimation(hitAnimation, enemyPV.ViewID);
+                }
                 PhotonView victimPhotonView = other.GetComponent<PhotonView>();
                 if (victimPhotonView.IsMine == false)
                 {

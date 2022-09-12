@@ -33,12 +33,17 @@ namespace LastIsekai
         public Transform destinationPoint;
         private GameObject playerBody;
 
+
+        [Header("Hook across Network")]
+        public int collidedViewId;
+        public PhotonView myPhotonView;
         private void Awake()
         {
             hookPV = GetComponent<PhotonView>();
         }
         private void Start()
         {
+            myPhotonView = GetLocalPhotonView();
             line = GetComponentInChildren<LineRenderer>();
             playerPV = GameObject.Find("LocalBody").GetComponent<Mediary>().mainPhotonView;
             if (hookPV.IsMine == playerPV.IsMine)
@@ -56,7 +61,7 @@ namespace LastIsekai
             line.SetPosition(1, transform.position);
             if (hasCollided)
             {
-                playerDirection = -playerBody.transform.forward;
+                transform.position = Vector3.MoveTowards(transform.position, playerBody.transform.position, Time.deltaTime * speed);
                 if(distance < hookStopRange && canKill)
                 {
                     PhotonNetwork.Destroy(gameObject);
@@ -69,9 +74,14 @@ namespace LastIsekai
                     PhotonNetwork.Destroy(gameObject);
                 }
             }
-            transform.Translate(playerDirection * speed * Time.deltaTime);
+            if (hasCollided == false)
+            {
+                transform.Translate(playerDirection * speed * Time.deltaTime);
+            }
             if(collidedWith != null)
             {
+                #region Object Pull Code
+                #region Old Movement Code
 
                 /*                float distanceBetweenObjects = Vector3.Distance(collidedWith.transform.position, caster.transform.position);
                                 Vector3 finalPosition = new Vector3(destinationPoint.position.x, collidedWith.position.y, destinationPoint.position.z);             
@@ -82,7 +92,7 @@ namespace LastIsekai
                                 {
                                     collidedWith = null;
                                 }*/
-
+                #endregion
                 float distanceBetweenObjects = Vector3.Distance(collidedWith.transform.position, playerBody.transform.position);
                 Vector3 newPosition = playerBody.transform.TransformPoint(playerBody.transform.forward);
                 elapsedTime += Time.deltaTime;
@@ -97,16 +107,50 @@ namespace LastIsekai
                     canKill = true;
                     collidedWith = null;
                 }
-                print(distanceBetweenObjects + "I'm moving towards you");
+                #endregion
             }
         }
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == tagsCheck[0])
+/*            if (other.gameObject.tag == tagsCheck[0])
             {
+                print("I collided with you lmao" + other.transform.name);
                 collidedWith = other.transform;
                 hasCollided = true;
+            }*/
+             if(other.gameObject.tag == tagsCheck[1])
+             {
+                collidedViewId = other.gameObject.GetComponent<Mediary>().mainPhotonView.ViewID;
+                print("I collided with player " + collidedViewId);
+                GetComponent<PhotonView>().RPC("Pull", RpcTarget.All, collidedViewId, playerBody.transform.TransformPoint(playerBody.transform.forward));
+                hasCollided = true;
+                canKill = true;
+             }
+        }
+
+
+        [PunRPC]
+        public void Pull(int viewID, Vector3 hookedDestination)
+        {
+            if(myPhotonView.ViewID == viewID)
+            {
+                print("hooked");
+                var hookedOfhookedPlayer = myPhotonView.gameObject.GetComponent<Mediary>().hooked;
+                hookedOfhookedPlayer.GotHooked(hookedDestination, hookStopRange, speed);
             }
+
+        }
+        private PhotonView GetLocalPhotonView()
+        {
+            WeaponManager[] wholeWM = FindObjectsOfType<WeaponManager>();
+            foreach (var manager in wholeWM)
+            {
+                if (manager.gameObject.name == "LocalPlayerStructure")
+                {
+                    return manager.gameObject.GetComponentInParent<PhotonView>();
+                }
+            }
+            return null;
         }
     }
 }

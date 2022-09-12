@@ -63,6 +63,17 @@ namespace LastIsekai
             animator.SetBool("noInteracting", false);
         }
 
+        public void EnableMoving()
+        {
+            animator.SetBool("noMoving", false);
+        }
+
+        public void DisableMoving()
+        {
+            animator.SetBool("noMoving", true);
+        }
+
+
         public void EnableAttack()
         {
             animator.SetBool("attack", true);
@@ -168,8 +179,11 @@ namespace LastIsekai
 
         public void ThrowEffect()
         {
-            var hook =   PhotonNetwork.Instantiate("HookOBJ", tornadoInstantiationTransform.position + new Vector3(0, 1f, 0), Quaternion.identity);
-            hook.GetComponent<Hook>().caster = transform;
+            if (realPhotonView.IsMine)
+            {
+                var hook = PhotonNetwork.Instantiate("HookOBJ", tornadoInstantiationTransform.position + new Vector3(0, 1f, 0), Quaternion.identity);
+                hook.GetComponent<Hook>().caster = transform;
+            }
         }
 
         public void BeamEffect()

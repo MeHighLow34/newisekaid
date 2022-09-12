@@ -25,6 +25,7 @@ namespace LastIsekai
         public PlayerBehaviour playerBehaviour;
         public Mana mana;
         public Stamina stamina;
+        public GameObject hookDetector;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
@@ -36,8 +37,9 @@ namespace LastIsekai
                 damageDetector.gameObject.name = "LocalCharacterDamageDetector";
                 playerBody.gameObject.name = "LocalBody";
                 Destroy(worldSpaceUI);
+                Destroy(hookDetector.gameObject);
             }
-            if(view.IsMine == false)
+            if (view.IsMine == false)
             {
                 Destroy(mainCamera.gameObject);
                 Destroy(itemInfo);

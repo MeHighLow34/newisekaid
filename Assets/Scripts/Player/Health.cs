@@ -19,6 +19,7 @@ namespace LastIsekai
         public AnimationManager animationManager;
         private bool isDead;
         private float privateHealth;
+        public int hitAnimation;
         [Header("Visual Effects")]
         public Volume hurtVisual;
         public Transform bloodInstantiationPoint;
@@ -83,7 +84,7 @@ namespace LastIsekai
         }
         private void HitReaction()
         {
-            animationManager.animator.SetInteger("hitIndex", Random.Range(0, 6));
+            animationManager.animator.SetInteger("hitIndex", hitAnimation);
             animationManager.animator.SetBool("hit", true);
             animationManager.animator.SetBool("isInteracting", true);
             animationManager.animator.applyRootMotion = true;
@@ -115,6 +116,21 @@ namespace LastIsekai
             }
         }
         
+        public void ChangeHitAnimation(int change, int viewID)
+        {
+            hitAnimation = change;
+            view.RPC("HitAnimation", RpcTarget.All, change, viewID);
+        }
+
+        [PunRPC]
+        public void HitAnimation(int change, int viewID)
+        {
+            if(view.ViewID == viewID)
+            {
+                hitAnimation = change;
+            }
+        }
+
         private void BlockReaction()
         {
                 animationManager.animator.SetBool("blockImpact", true);

@@ -11,5 +11,6 @@ namespace LastIsekai
         public GameObject playerBody;
         public Health healther;
         public AnimationManager animMan;
+        public Hooked hooked;
     }
 }

@@ -163,10 +163,11 @@ namespace StarterAssets
 
         private void Update()
         {
-/*            if (playerManager.isInteracting) {
+            if (playerManager.noMoving)
+            {
                 _input.jump = false;
                 return;
-            }*/
+            }
             // when playing a root motion animation we cannot move
             // _hasAnimator = TryGetComponent(out _animator);
             if (view.IsMine)

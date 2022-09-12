@@ -45,6 +45,10 @@ MonoBehaviour:
   - ChangedWeapon
   - RPC_TakeDamage
   - RPC_BlockReaction
+  - <OnTriggerEnter>g__Pull|24_0
+  - <OnTriggerEnter>g__Pull|25_0
+  - Pull
+  - HitAnimation
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

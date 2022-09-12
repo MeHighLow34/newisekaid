@@ -52,6 +52,7 @@ namespace LastIsekai
                         animationManager.animator.SetBool("isInteracting", true);
                         animationManager.animator.applyRootMotion = true;
                         lastAttack = "Attack2";
+                        return;
                     }
                     else
                     {

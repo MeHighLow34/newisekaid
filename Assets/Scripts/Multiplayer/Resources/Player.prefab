@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 1167907647}
   - component: {fileID: 1167907646}
   - component: {fileID: 3359191548269879193}
+  - component: {fileID: 7003240011041076469}
   m_Layer: 6
   m_Name: Character Damage Detector
   m_TagString: Untagged
@@ -707,6 +708,7 @@ MonoBehaviour:
   view: {fileID: 0}
   hitFeedback: {fileID: 0}
   animationManager: {fileID: 0}
+  hitAnimation: 0
   hurtVisual: {fileID: 0}
   bloodInstantiationPoint: {fileID: 8804640016787378238}
 --- !u!136 &1167907646
@@ -746,6 +748,23 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &7003240011041076469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167907644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073cbc58be3f9264d96c62b08e041131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPhotonView: {fileID: 0}
+  playerBody: {fileID: 4666213895677441933}
+  healther: {fileID: 1167907647}
+  animMan: {fileID: 0}
+  hooked: {fileID: 0}
 --- !u!1 &1298409522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,9 +2068,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6316268077135130809}
   - component: {fileID: 6278054838138167336}
+  - component: {fileID: 7253425702217091358}
+  - component: {fileID: 8576782737278068789}
   m_Layer: 6
   m_Name: Hook Detector
-  m_TagString: hook
+  m_TagString: hookPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2084,6 +2105,45 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.4, y: 7.3, z: 1}
   m_Center: {x: 0, y: 3.74, z: 0}
+--- !u!114 &7253425702217091358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793988201985688066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073cbc58be3f9264d96c62b08e041131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPhotonView: {fileID: 5476606949924950512}
+  playerBody: {fileID: 4666213895677441933}
+  healther: {fileID: 0}
+  animMan: {fileID: 0}
+  hooked: {fileID: 0}
+--- !u!114 &8576782737278068789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793988201985688066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1796786301318143528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4162,6 +4222,12 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: beam
+  - Type: 4
+    SynchronizeType: 2
+    Name: hooked
+  - Type: 4
+    SynchronizeType: 0
+    Name: noMoving
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -4234,6 +4300,7 @@ MonoBehaviour:
   playerBody: {fileID: 0}
   healther: {fileID: 0}
   animMan: {fileID: 0}
+  hooked: {fileID: 0}
 --- !u!1 &4786974528224715689
 GameObject:
   m_ObjectHideFlags: 0
@@ -4581,6 +4648,7 @@ MonoBehaviour:
   playerBehaviour: {fileID: 2572569581882745003}
   mana: {fileID: 6460767275813908265}
   stamina: {fileID: 1340708883044252619}
+  hookDetector: {fileID: 1793988201985688066}
 --- !u!114 &3496831554797455043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4597,6 +4665,7 @@ MonoBehaviour:
   playerBody: {fileID: 4666213895677441933}
   healther: {fileID: 1167907647}
   animMan: {fileID: 3235624846316503394}
+  hooked: {fileID: 651553491293294155}
 --- !u!1 &5476606951108479378
 GameObject:
   m_ObjectHideFlags: 0
@@ -5151,7 +5220,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7763158, y: 1}
+    m_SensorSize: {x: 1.7775768, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -6340,6 +6409,7 @@ GameObject:
   - component: {fileID: 2572569581882745003}
   - component: {fileID: 6460767275813908265}
   - component: {fileID: 1340708883044252619}
+  - component: {fileID: 651553491293294155}
   m_Layer: 8
   m_Name: PlayerStructure
   m_TagString: Player
@@ -6561,6 +6631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97db346d46671b948b2a8082b3567ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBody: {fileID: 4666213895677441933}
   animator: {fileID: 5476606951104058847}
   isInteracting: 0
   canDoCombo: 0
@@ -6568,6 +6639,7 @@ MonoBehaviour:
   attack: 0
   block: 0
   stepBack: 0
+  noMoving: 0
   playerClass: 0
 --- !u!114 &3235624846316503392
 MonoBehaviour:
@@ -6803,6 +6875,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stamina: 0
+--- !u!114 &651553491293294155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164115589356454305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9786996d294fb894683e1892dda0942d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hooked: 0
+  playerBody: {fileID: 4666213895677441933}
+  destination: {x: 0, y: 0, z: 0}
+  stopRange: 0
+  speed: 0
+  characterController: {fileID: 5476606951104058844}
 --- !u!1 &8188754140214786161
 GameObject:
   m_ObjectHideFlags: 0
@@ -7154,7 +7244,7 @@ GameObject:
   - component: {fileID: 4453491810854996566}
   m_Layer: 6
   m_Name: Hook Destination Point
-  m_TagString: Untagged
+  m_TagString: hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

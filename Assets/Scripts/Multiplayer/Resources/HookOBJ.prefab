@@ -319,10 +319,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagsCheck:
   - hook
-  speed: 10
+  - hookPlayer
+  speed: 20
   returnSpeed: 5
   range: 20
-  stopRange: 4
+  stopRange: 2.5
   caster: {fileID: 0}
   collidedWith: {fileID: 0}
   playerDirection: {x: 0, y: 0, z: 0}
@@ -333,6 +334,8 @@ MonoBehaviour:
   hookStopRange: 2.5
   desiredDuration: 1
   destinationPoint: {fileID: 0}
+  collidedViewId: 0
+  myPhotonView: {fileID: 0}
 --- !u!135 &1235042092877045572
 SphereCollider:
   m_ObjectHideFlags: 0
