@@ -10,6 +10,7 @@ namespace LastIsekai
     {
         PhotonView thisPhotonView;
         SphereCollider sphereCollider;
+        Collider myCollider;
         public float damage = 15f;
         public float delay = 0.5f;
         public float duration = 3.5f;
@@ -18,9 +19,21 @@ namespace LastIsekai
         public GameObject bloodVFX;
         private void Awake()
         {
+            myCollider = GetComponent<Collider>();  
             thisPhotonView = GetComponent<PhotonView>();
+            if(thisPhotonView == null)
+            {
+                thisPhotonView = GetComponentInParent<PhotonView>();
+            }
             sphereCollider = GetComponent<SphereCollider>();
-            sphereCollider.enabled = false;
+            if (sphereCollider != null)
+            {
+                sphereCollider.enabled = false;
+            }
+            else
+            {
+                myCollider.enabled = false;
+            }
         }
 
 
@@ -29,7 +42,15 @@ namespace LastIsekai
             Timer();
             if (damageEnemies)
             {
-                sphereCollider.enabled = true;
+                if (sphereCollider != null)
+                {
+                    sphereCollider.enabled = true;
+                }
+                else
+                {
+                    myCollider.enabled = true;
+                }
+
             }
         }
 

@@ -36,7 +36,7 @@ namespace LastIsekai
         {
             if (GetDecimalValue() < 1)
             {
-                stamina += Time.deltaTime * 4;
+                stamina += Time.deltaTime * 7;
             }
         }
 

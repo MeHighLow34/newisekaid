@@ -26,7 +26,7 @@ namespace LastIsekai
             {
                 used = true;
                 playerAttacker = GetPlayerAttacker();
-                playerAttacker.HandleAOE("GroundSlash");
+                playerAttacker.HandleAOE("TestingGroundSlash");
             }
         }
         private PlayerAttacker GetPlayerAttacker()

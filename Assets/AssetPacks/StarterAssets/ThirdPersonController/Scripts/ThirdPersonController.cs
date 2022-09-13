@@ -166,6 +166,7 @@ namespace StarterAssets
             if (playerManager.noMoving)
             {
                 _input.jump = false;
+                _input.sprint = false;
                 return;
             }
             // when playing a root motion animation we cannot move

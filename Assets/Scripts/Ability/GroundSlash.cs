@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-
+using UnityEngine.AI;
 
 namespace LastIsekai
 {
     public class GroundSlash : MonoBehaviour
     {
-        public float speed = 15f;
+        NavMeshAgent navMeshAgent;
         public Vector3 playerDirection;
         public PhotonView groundSlashPhotonView;
         public PhotonView playerPV;
+        public float speed = 15;
 
         private void Awake()
         {
+            navMeshAgent = GetComponent<NavMeshAgent>();
             groundSlashPhotonView = GetComponent<PhotonView>();
         }
         private void Start()
@@ -30,7 +32,7 @@ namespace LastIsekai
 
         private void Update()
         {
-            transform.position += playerDirection * speed * Time.deltaTime;
+            navMeshAgent.Move(playerDirection * Time.deltaTime * speed);
         }
     }
 }

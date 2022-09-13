@@ -32,6 +32,13 @@ namespace LastIsekai
             }
         }
 
+        private void Update()
+        {
+            if (GetDecimalValue() < 1)
+            {
+                mana += Time.deltaTime * 4;
+            }
+        }
         public float GetDecimalValue()
         {
             return mana / maxMana;

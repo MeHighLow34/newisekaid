@@ -142,7 +142,11 @@ namespace LastIsekai
 
         public void AOEAttack()
         {
-            if(aoeName == "GreatShield")
+            if(aoeName == "SwordFall")
+            {
+                PhotonNetwork.Instantiate(aoeName, groundSlashInstantiationTransform.position, Quaternion.identity);
+            }
+            else if(aoeName == "GreatShield")
             {
                 if (realPhotonView.IsMine)
                 {
