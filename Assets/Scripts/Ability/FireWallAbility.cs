@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace LastIsekai
 {
-    [CreateAssetMenu(fileName = "New Ability", menuName = "Create a New Ability/GroundSlashAbility", order = 1)]
-    public class GroundSlashAbility : Ability
+    [CreateAssetMenu(fileName = "New Ability", menuName = "Create a New Ability/FireWallAbility", order = 1)]
+    public class FireWallAbility : Ability
     {
         PlayerAttacker playerAttacker;
         public override void UseAbility()
@@ -26,7 +26,7 @@ namespace LastIsekai
             {
                 used = true;
                 playerAttacker = GetPlayerAttacker();
-                playerAttacker.HandleAOE("GroundSlash");
+                playerAttacker.HandleAOE("FireWall");
             }
         }
         private PlayerAttacker GetPlayerAttacker()

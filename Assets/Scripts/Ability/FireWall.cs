@@ -6,26 +6,29 @@ using UnityEngine.AI;
 
 namespace LastIsekai
 {
-    public class Tornado : MonoBehaviour
+    public class FireWall : MonoBehaviour
     {
         NavMeshAgent navMeshAgent;
-        public float speed = 15f;
+        public float speed = 0.0001f;
         public Vector3 playerDirection;
-        public PhotonView tornadoPhotonView;
+        public PhotonView fireWallPhotonView;
         public PhotonView playerPV;
+        public GameObject child;
 
         private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
-            tornadoPhotonView = GetComponent<PhotonView>();
+            fireWallPhotonView = GetComponent<PhotonView>();
         }
         private void Start()
         {
             playerPV = GameObject.Find("LocalBody").GetComponent<Mediary>().mainPhotonView;
-            if (tornadoPhotonView.IsMine == playerPV.IsMine)
+            if (fireWallPhotonView.IsMine == playerPV.IsMine)
             {
                 var playerBody = playerPV.gameObject.GetComponent<Mediary>().playerBody;
                 playerDirection = playerBody.transform.forward;
+               // child.transform.rotation = Quaternion.LookRotation(playerDirection);    
+               transform.rotation = Quaternion.LookRotation(playerDirection);
             }
         }
 

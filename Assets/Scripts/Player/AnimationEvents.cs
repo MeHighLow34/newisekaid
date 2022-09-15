@@ -8,19 +8,24 @@ namespace LastIsekai
 {
     public class AnimationEvents : MonoBehaviour
     {
+        [Header("Event Objects")]
         public PhotonView realPhotonView;
         public Animator animator;
         WeaponManager weaponManager;
         WeaponManager[] allWeaponManagers;
         PhotonView photonView;
         Stamina myStamina;
-        [Header("Event Objects")]
         public GameObject testOrb;
-        public Transform instantiationTransform;
         public string aoeName;
         public PlayerBehaviour playerBehaviour;
+        [Header("Capsule - Properties")]
+        public CapsuleCollider damageCollider;
+        public float damageColliderDefaultValue;
+        public float damageColliderShrinkValue;
+
+        [Header("Instantiation Transforms")]
+        public Transform instantiationTransform;
         public Transform tornadoInstantiationTransform;
-        public GameObject knightAttack1Slash;
         public Transform beamInstantiationTransform;
         public Transform groundSlashInstantiationTransform;
         public Transform greatShieldInstantiationTransform;
@@ -83,6 +88,15 @@ namespace LastIsekai
             animator.SetBool("attack", false);
         }
 
+        public void EnableShrink() // shrink referst to shrinking of damage collider i.e. when rolling
+        {
+            damageCollider.center = new Vector3(-0.006078436f, damageColliderShrinkValue, -0.08601242f);
+        }
+
+        public void DisableShrink()
+        {
+            damageCollider.center = new Vector3(-0.006078436f, damageColliderDefaultValue, -0.08601242f);
+        }
 
         public void EnableWeaponCollider()
         {
@@ -103,15 +117,6 @@ namespace LastIsekai
             }
         }
 
-        public void Slash()
-        {
-            if (photonView.IsMine)
-            {
-                GameObject slash =  Instantiate(knightAttack1Slash, weaponManager.rightHandWeaponHolder.position, Quaternion.identity);
-                slash.transform.Rotate(new Vector3(knightAttack1Slash.transform.rotation.x, knightAttack1Slash.transform.rotation.y, knightAttack1Slash.transform.rotation.z));
-                slash.transform.rotation = Quaternion.Euler(52.344f, -42.043f, -43.774f);
-            }
-        }
         public void DisableBlocked() // this goes directly on the DisableWeaponCollider because when we detect the shield we turn on blocked but at some point we will have to turn it off so this is the moment when the collider is disabled
         {
             if (photonView.IsMine)
@@ -142,7 +147,11 @@ namespace LastIsekai
 
         public void AOEAttack()
         {
-            if(aoeName == "SwordFall")
+            if(aoeName == "FireWall")
+            {
+                PhotonNetwork.Instantiate(aoeName, groundSlashInstantiationTransform.position, Quaternion.identity);
+            }
+            else if(aoeName == "SwordFall")
             {
                 PhotonNetwork.Instantiate(aoeName, groundSlashInstantiationTransform.position, Quaternion.identity);
             }
@@ -161,10 +170,9 @@ namespace LastIsekai
             {
                 PhotonNetwork.Instantiate(aoeName, tornadoInstantiationTransform.position, Quaternion.identity);
             }
-            else if (aoeName == "electroAbilityVFX")
+            else if (aoeName == "TestingelectroAbilityVFX")
             {
-                PhotonNetwork.Instantiate(aoeName, transform.position + new Vector3(0, 3.5f, 0), Quaternion.identity);
-
+                PhotonNetwork.Instantiate(aoeName, transform.position + new Vector3(0, 12f, 0), Quaternion.identity);
             }
             else
             {

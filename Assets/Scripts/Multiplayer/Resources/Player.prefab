@@ -2359,7 +2359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2268709560252704575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 7.65}
+  m_LocalPosition: {x: 0, y: -0.02, z: 6.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4031,6 +4031,7 @@ GameObject:
   - component: {fileID: 5605579096388901574}
   - component: {fileID: 5476606949424971607}
   - component: {fileID: 296319620342249552}
+  - component: {fileID: 1808670889274482828}
   m_Layer: 6
   m_Name: PROBNI_MC
   m_TagString: Untagged
@@ -4122,12 +4123,13 @@ MonoBehaviour:
   realPhotonView: {fileID: 5476606949924950512}
   animator: {fileID: 0}
   testOrb: {fileID: 0}
-  instantiationTransform: {fileID: 7914526485551443114}
   aoeName: 
   playerBehaviour: {fileID: 0}
+  damageCollider: {fileID: 1167907646}
+  damageColliderDefaultValue: 3.823658
+  damageColliderShrinkValue: 0.9
+  instantiationTransform: {fileID: 7914526485551443114}
   tornadoInstantiationTransform: {fileID: 548101867770401136}
-  knightAttack1Slash: {fileID: 3886716532637236300, guid: f3512ad74bd3e6e41a6b6db3bf730e8b,
-    type: 3}
   beamInstantiationTransform: {fileID: 8925292068255256349}
   groundSlashInstantiationTransform: {fileID: 2618607131283110409}
   greatShieldInstantiationTransform: {fileID: 3960705597019062836}
@@ -4301,6 +4303,36 @@ MonoBehaviour:
   healther: {fileID: 0}
   animMan: {fileID: 0}
   hooked: {fileID: 0}
+--- !u!114 &1808670889274482828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666213895677441933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726325959c0cb064597e2f1bd5eb6b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lengthFromHeelToToes: 0.1
+  maxRotationAngle: 45
+  ankleHeightOffset: 0.0328
+  enableIKPositioning: 1
+  enableIKRotating: 1
+  globalWeight: 0
+  smoothTime: 0.075
+  raySphereRadius: 0.05
+  rayCastRange: 1
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  leftFootRayStartHeight: 0.5
+  rightFootRayStartHeight: 0.5
+  enableBodyPositioning: 0
+  crouchRange: 0.25
+  giveWorldHeightOffset: 0
+  worldHeightOffset: 0
 --- !u!1 &4786974528224715689
 GameObject:
   m_ObjectHideFlags: 0
@@ -6471,8 +6503,8 @@ MonoBehaviour:
   JumpTimeout: 0.3
   FallTimeout: 0.15
   Grounded: 1
-  GroundedOffset: 0.25
-  GroundedRadius: 0.28
+  GroundedOffset: 0.05
+  GroundedRadius: 0.05
   GroundLayers:
     serializedVersion: 2
     m_Bits: 513
