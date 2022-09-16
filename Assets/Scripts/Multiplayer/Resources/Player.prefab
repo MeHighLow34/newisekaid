@@ -131,6 +131,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPV: {fileID: 5476606949924950512}
   text: {fileID: 1151283255}
+--- !u!1 &368683262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368683263}
+  m_Layer: 6
+  m_Name: MeteorInstantiationPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &368683263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368683262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.02, z: 14.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5443277982949453111}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624116648
 GameObject:
   m_ObjectHideFlags: 0
@@ -4067,6 +4098,8 @@ Transform:
   - {fileID: 8925292068255256349}
   - {fileID: 2618607131283110409}
   - {fileID: 3960705597019062836}
+  - {fileID: 368683263}
+  - {fileID: 2550537878984920567}
   m_Father: {fileID: 2525692924086116297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4133,6 +4166,8 @@ MonoBehaviour:
   beamInstantiationTransform: {fileID: 8925292068255256349}
   groundSlashInstantiationTransform: {fileID: 2618607131283110409}
   greatShieldInstantiationTransform: {fileID: 3960705597019062836}
+  meteorInstantiationTransform: {fileID: 368683263}
+  knightUltimateInstantiationTransform: {fileID: 2550537878984920567}
 --- !u!114 &6096108452760279710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4607,7 +4642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5476606949924950513
 Transform:
   m_ObjectHideFlags: 0
@@ -5252,7 +5287,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775768, y: 1}
+    m_SensorSize: {x: 1.776886, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -5480,6 +5515,37 @@ Transform:
   - {fileID: 9218717402442625751}
   m_Father: {fileID: 6175980776664773908}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6186557070635011484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2550537878984920567}
+  m_Layer: 6
+  m_Name: KnightUltimativeInstantiationPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2550537878984920567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186557070635011484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 25.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5443277982949453111}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6294384981097864856
 GameObject:

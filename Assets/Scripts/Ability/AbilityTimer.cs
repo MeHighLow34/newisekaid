@@ -11,6 +11,10 @@ namespace LastIsekai
         public float coolDown = 10f;
         private float timeElapsed;
 
+        private void Start()
+        {
+            coolDown = ability.coolDown;
+        }
         private void Update()
         {
             if (ability.used)

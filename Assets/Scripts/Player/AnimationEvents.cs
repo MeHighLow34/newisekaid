@@ -29,6 +29,8 @@ namespace LastIsekai
         public Transform beamInstantiationTransform;
         public Transform groundSlashInstantiationTransform;
         public Transform greatShieldInstantiationTransform;
+        public Transform meteorInstantiationTransform;
+        public Transform knightUltimateInstantiationTransform;
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -147,7 +149,15 @@ namespace LastIsekai
 
         public void AOEAttack()
         {
-            if(aoeName == "FireWall")
+            if(aoeName == "KnightUltimate")
+            {
+                PhotonNetwork.Instantiate(aoeName, knightUltimateInstantiationTransform.position, Quaternion.identity);
+            }
+            else if (aoeName == "Meteor")
+            {
+                PhotonNetwork.Instantiate(aoeName, meteorInstantiationTransform.position, Quaternion.identity);
+            }
+            else if (aoeName == "FireWall")
             {
                 PhotonNetwork.Instantiate(aoeName, groundSlashInstantiationTransform.position, Quaternion.identity);
             }

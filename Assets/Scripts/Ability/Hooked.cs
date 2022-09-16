@@ -13,16 +13,19 @@ namespace LastIsekai
         public float stopRange;
         public float speed;
         AnimationManager animationManager;
+        PlayerBehaviour playerBehaviour;
         public CharacterController characterController;
 
         private void Awake()
         {
+            playerBehaviour = GetComponent<PlayerBehaviour>();
             animationManager = GetComponent<AnimationManager>();
         }
         private void Update()
         {
             if (hooked)
             {
+                playerBehaviour.DisableBeam();
                 characterController.enabled = false;
                 animationManager.animator.SetBool("hooked", true);
                 float distance = Vector3.Distance(playerBody.transform.position, destination);

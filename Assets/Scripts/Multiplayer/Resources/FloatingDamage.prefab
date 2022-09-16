@@ -142,7 +142,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 134
+  m_text: '177
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26f5c62283c9778439c79eb4fb3c0e92, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: cc1b99abb7594d14eaadb00eb70613ea, type: 2}
@@ -151,8 +153,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280087295
-  m_fontColor: {r: 1, g: 0.9502027, b: 0.10849059, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -237,7 +239,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4657084654749604967}
-  m_LocalRotation: {x: 0.022150522, y: -0.035858393, z: 0.0004820253, w: 0.99911124}
+  m_LocalRotation: {x: 0.022152152, y: -0.035860486, z: 0.00048091135, w: 0.9991112}
   m_LocalPosition: {x: 0.076388, y: 0.55182, z: -0.28459}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0

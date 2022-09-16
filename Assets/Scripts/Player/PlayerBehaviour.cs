@@ -134,7 +134,7 @@ namespace LastIsekai
             beamEnabled = true;
         }
 
-        private void DisableBeam()
+        public void DisableBeam()
         {
             beamEnabled = false;
             animationManager.animator.SetBool("beam", false);
