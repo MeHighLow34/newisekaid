@@ -47,7 +47,7 @@ namespace LastIsekai
             if (view.IsMine)
             {
                 
-                if (health != privateHealth)
+                if (health < privateHealth)
                 {
                     float damage = privateHealth - health;
                     if (damage == 0.5)

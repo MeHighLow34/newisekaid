@@ -12,5 +12,6 @@ namespace LastIsekai
         public Health healther;
         public AnimationManager animMan;
         public Hooked hooked;
+        public Choked choked;
     }
 }

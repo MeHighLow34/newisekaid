@@ -49,6 +49,10 @@ MonoBehaviour:
   - <OnTriggerEnter>g__Pull|25_0
   - Pull
   - HitAnimation
+  - Heal
+  - Choker
+  - ShowEffect
+  - HideEffect
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

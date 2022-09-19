@@ -18,7 +18,7 @@ namespace LastIsekai
             float zoomChangeAmount = 80f;
             if(Input.mouseScrollDelta.y > 0)
             {
-                mainCamera.m_Lens.FieldOfView -= zoomChangeAmount * Time.deltaTime * 10f;
+               mainCamera.m_Lens.FieldOfView -= zoomChangeAmount * Time.deltaTime * 10f;
             }
             if(Input.mouseScrollDelta.y < 0)
             {

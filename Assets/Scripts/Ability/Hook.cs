@@ -112,12 +112,6 @@ namespace LastIsekai
         }
         private void OnTriggerEnter(Collider other)
         {
-/*            if (other.gameObject.tag == tagsCheck[0])
-            {
-                print("I collided with you lmao" + other.transform.name);
-                collidedWith = other.transform;
-                hasCollided = true;
-            }*/
              if(other.gameObject.tag == tagsCheck[1])
              {
                 collidedViewId = other.gameObject.GetComponent<Mediary>().mainPhotonView.ViewID;
