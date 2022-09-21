@@ -13,6 +13,7 @@ namespace LastIsekai
         public float baseDamage;
         public BaseStats stats;
         [Header("VFX")]
+        public GameObject floatingDamageText;
         public MMFeedbacks hitFeedback;
         public bool blocked;
         public int hitAnimation = 0;
@@ -70,6 +71,8 @@ namespace LastIsekai
                     var enemyPV = other.GetComponent<PhotonView>();
                     var enemyHealth = other.GetComponent<Mediary>().healther;
                     enemyHealth.ChangeHitAnimation(hitAnimation, enemyPV.ViewID);
+                    var floatingDamage = Instantiate(floatingDamageText, enemyHealth.bloodInstantiationPoint.position, Quaternion.identity);
+                    floatingDamage.GetComponent<FloatingDamage>().SetText((baseDamage + damage).ToString());
                 }
                 PhotonView victimPhotonView = other.GetComponent<PhotonView>();
                 if (victimPhotonView.IsMine == false)

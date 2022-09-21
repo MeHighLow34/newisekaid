@@ -13,6 +13,7 @@ namespace LastIsekai
     {
         public float health;
         float maxHealth;
+        float damage;
         public BaseStats stats;
         public MMFeedbacks hitFeedback;
         public AnimationManager animationManager;
@@ -22,6 +23,7 @@ namespace LastIsekai
         [Header("Visual Effects")]
         public Volume hurtVisual;
         public Transform bloodInstantiationPoint;
+        public GameObject floatingText;
         [Header("Network")]
         public PhotonView view;
         public PhotonView damageDetectorPhotonView;
@@ -50,7 +52,7 @@ namespace LastIsekai
                 
                 if (health < privateHealth)
                 {
-                    float damage = privateHealth - health;
+                    damage = privateHealth - health;
                     if (damage == 0.5)
                     {
                         BlockReaction();
@@ -91,7 +93,8 @@ namespace LastIsekai
             animationManager.animator.applyRootMotion = true;
             PhotonNetwork.Instantiate("BloodVFX", bloodInstantiationPoint.position, Quaternion.identity);
             PhotonNetwork.Instantiate("Spark", bloodInstantiationPoint.position, Quaternion.identity);
-            PhotonNetwork.Instantiate("FloatingDamage", bloodInstantiationPoint.position, Quaternion.identity);
+            var floatingDamage = Instantiate(floatingText, bloodInstantiationPoint.position, Quaternion.identity);
+            floatingDamage.GetComponent<FloatingDamage>().SetText(damage.ToString());
         }
         public float GetDecimal()
         {
@@ -160,7 +163,6 @@ namespace LastIsekai
             {
                 if (manager.gameObject.name == "LocalPlayerStructure")
                 {
-                    print("I found it");
                     return manager.gameObject.GetComponent<AnimationManager>();
                 }
             }

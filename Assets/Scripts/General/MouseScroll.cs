@@ -10,12 +10,11 @@ namespace LastIsekai
         public float cameraDistance;
         private void Awake()
         {
-           // mainCamera = GetComponent<CinemachineVirtualCamera>();
-            //   var mameraDistance = mainCamera.GetCinemachineComponent<3rdPersonFollow>(); 
             cameraDistance = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance;
         }
         private void Update()
         {
+            cameraDistance = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance;
             float zoomChangeAmount = 55f;
             if(Input.mouseScrollDelta.y > 0)
             {

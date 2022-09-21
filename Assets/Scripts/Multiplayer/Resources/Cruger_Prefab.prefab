@@ -9829,8 +9829,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
+  baseDamage: 0
+  stats: {fileID: 0}
+  floatingDamageText: {fileID: 4657084654749604967, guid: 4b3e2900166b5484c99da7387da5a76e,
+    type: 3}
   hitFeedback: {fileID: 0}
   blocked: 0
+  hitAnimation: 0
 --- !u!1001 &5555615572937854302
 PrefabInstance:
   m_ObjectHideFlags: 0

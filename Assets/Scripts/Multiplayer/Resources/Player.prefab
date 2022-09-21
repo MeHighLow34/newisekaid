@@ -1159,6 +1159,8 @@ MonoBehaviour:
   hitAnimation: 0
   hurtVisual: {fileID: 0}
   bloodInstantiationPoint: {fileID: 8804640016787378238}
+  floatingText: {fileID: 4657084654749604967, guid: 4b3e2900166b5484c99da7387da5a76e,
+    type: 3}
   view: {fileID: 0}
   damageDetectorPhotonView: {fileID: 0}
 --- !u!136 &1167907646
@@ -6073,6 +6075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d45df74ce384ab4c8f47eb3054119b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraDistance: 0
 --- !u!1 &5848686182475799685
 GameObject:
   m_ObjectHideFlags: 0
