@@ -10,6 +10,8 @@ namespace LastIsekai
         // todo Actually we cannot since this is local instance which would defeat the whole purpose
         PlayerManager playerManager;
         public float damage = 1.5f;
+        public float baseDamage;
+        public BaseStats stats;
         [Header("VFX")]
         public MMFeedbacks hitFeedback;
         public bool blocked;
@@ -18,7 +20,9 @@ namespace LastIsekai
         private void Start()
         {
             hitFeedback = GameObject.FindGameObjectWithTag("HitFEEDBACK").GetComponent<MMFeedbacks>();
-            playerManager = GetLocalPlayerManager(); 
+            playerManager = GetLocalPlayerManager();
+            stats = GetComponentInParent<Mediary>().baseStats;
+            baseDamage = stats.GetStat(Stat.Damage);
         }
         private void OnTriggerEnter(Collider other)
         {
@@ -63,14 +67,14 @@ namespace LastIsekai
                     2 je hit from left
                     3 je hit from right
                     */
-                                        var enemyPV = other.GetComponent<PhotonView>();
+                    var enemyPV = other.GetComponent<PhotonView>();
                     var enemyHealth = other.GetComponent<Mediary>().healther;
                     enemyHealth.ChangeHitAnimation(hitAnimation, enemyPV.ViewID);
                 }
                 PhotonView victimPhotonView = other.GetComponent<PhotonView>();
                 if (victimPhotonView.IsMine == false)
                 {
-                    victim.TakeDamage(damage);
+                    victim.TakeDamage(baseDamage + damage);
                     hitFeedback.PlayFeedbacks();
                 }
             }

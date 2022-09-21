@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2218706770219860780}
   - component: {fileID: -6550453942817040034}
   - component: {fileID: 7734960300373129066}
+  - component: {fileID: 3065527920477878695}
   m_Layer: 0
   m_Name: Beam
   m_TagString: Untagged
@@ -215,3 +216,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
+--- !u!114 &3065527920477878695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864659432680841123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4df91f9e64b86842a33492698d89ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 9a863f71bb7a02746970afae998c6ea5, type: 2}

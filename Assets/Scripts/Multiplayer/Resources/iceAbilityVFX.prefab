@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5673066623718089849}
   - component: {fileID: 929319106751684381}
   - component: {fileID: 1422297517115611617}
+  - component: {fileID: 4956319349161813892}
   m_Layer: 0
   m_Name: iceAbilityVFX
   m_TagString: Untagged
@@ -166,3 +167,16 @@ MonoBehaviour:
   damageEnemies: 0
   bloodVFX: {fileID: 2355062433781806246, guid: 557a1f35926fc1e4891c5f9e0d914418,
     type: 3}
+--- !u!114 &4956319349161813892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654199791015036905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4df91f9e64b86842a33492698d89ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: e51c81ac906788042ab029b6f263ead2, type: 2}

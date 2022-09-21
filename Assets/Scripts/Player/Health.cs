@@ -14,7 +14,6 @@ namespace LastIsekai
         public float health;
         float maxHealth;
         public BaseStats stats;
-        public PhotonView view;
         public MMFeedbacks hitFeedback;
         public AnimationManager animationManager;
         private bool isDead;
@@ -23,7 +22,9 @@ namespace LastIsekai
         [Header("Visual Effects")]
         public Volume hurtVisual;
         public Transform bloodInstantiationPoint;
-
+        [Header("Network")]
+        public PhotonView view;
+        public PhotonView damageDetectorPhotonView;
         private void Awake()
         {
             hurtVisual = GameObject.FindGameObjectWithTag("HurtVISUAL").GetComponent<Volume>();
@@ -66,7 +67,7 @@ namespace LastIsekai
                   //  animationManager.animator.SetBool("isDead", true);
                   //  animationManager.animator.SetBool("isInteracting", true);
                     isDead = true;
-                }
+                } 
             }
         }
 
@@ -82,7 +83,7 @@ namespace LastIsekai
                 hurtVisual.weight = 0f;
             }
         }
-        private void HitReaction()
+        public void HitReaction()
         {
             animationManager.animator.SetInteger("hitIndex", hitAnimation);
             animationManager.animator.SetBool("hit", true);
@@ -116,6 +117,20 @@ namespace LastIsekai
             }
         }
         
+
+        [PunRPC]
+        void HealAfterBlock(int viewID)
+        {
+            if(view.ViewID == viewID)
+            {
+                if (view.IsMine)
+                {
+                    // HitReaction();
+                    health += 0.5f;
+                }
+            }
+        }
+
         public void ChangeHitAnimation(int change, int viewID)
         {
             hitAnimation = change;
@@ -131,8 +146,9 @@ namespace LastIsekai
             }
         }
 
-        private void BlockReaction()
+        public void BlockReaction()
         {
+                view.RPC("HealAfterBlock", RpcTarget.All, view.ViewID);
                 animationManager.animator.SetBool("blockImpact", true);
                 var blockedText = PhotonNetwork.Instantiate("FloatingText", bloodInstantiationPoint.position, Quaternion.identity);
                 blockedText.GetComponent<FloatingDamage>().SetText("Blocked!");

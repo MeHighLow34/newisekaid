@@ -13,5 +13,6 @@ namespace LastIsekai
         public AnimationManager animMan;
         public Hooked hooked;
         public Choked choked;
+        public BaseStats baseStats;
     }
 }

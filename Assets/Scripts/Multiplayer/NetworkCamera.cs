@@ -26,6 +26,7 @@ namespace LastIsekai
         public Mana mana;
         public Stamina stamina;
         public GameObject hookDetector;
+        public GameObject timers;
         private void Awake()
         {
             view = GetComponent<PhotonView>();
@@ -51,6 +52,7 @@ namespace LastIsekai
                 Destroy(playerBehaviour);
                 Destroy(mana);
                 Destroy(stamina);
+                Destroy(timers);
             }
         }
 

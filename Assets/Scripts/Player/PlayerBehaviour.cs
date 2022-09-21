@@ -92,7 +92,7 @@ namespace LastIsekai
                 }
                 else
                 {
-                    animationManager.animator.SetBool("block", false);
+               //     animationManager.animator.SetBool("block", false);
                 }
             }
             #endregion

@@ -26,7 +26,7 @@ namespace LastIsekai
             {
                 used = true;
                 playerAttacker = GetPlayerAttacker();
-                playerAttacker.HandleAOE("TestingelectroAbilityVFX");
+                playerAttacker.HandleAOE("electroAbilityVFX");
             }
         }
         private PlayerAttacker GetPlayerAttacker()

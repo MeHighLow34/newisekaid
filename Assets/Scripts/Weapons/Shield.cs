@@ -8,7 +8,7 @@ namespace LastIsekai
     public class Shield : MonoBehaviour
     {
         public Health myHealth;
-        PhotonView photonView;
+        public PhotonView photonView;
         public AnimationManager animationManager;
         public PlayerManager playerManager;
         public bool blocking;
@@ -29,6 +29,7 @@ namespace LastIsekai
         {
             myHealth.TakeDamage(0.5f);
         }
+
         private void OnCollisionEnter(Collision collision)
         {
             var weapon = collision.gameObject.GetComponent<WeaponDetector>();

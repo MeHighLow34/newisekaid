@@ -7,31 +7,32 @@ namespace LastIsekai
 {
     public class MouseScroll : MonoBehaviour
     {
-        CinemachineVirtualCamera mainCamera;
-
+        public float cameraDistance;
         private void Awake()
         {
-            mainCamera = GetComponent<CinemachineVirtualCamera>();
+           // mainCamera = GetComponent<CinemachineVirtualCamera>();
+            //   var mameraDistance = mainCamera.GetCinemachineComponent<3rdPersonFollow>(); 
+            cameraDistance = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance;
         }
         private void Update()
         {
-            float zoomChangeAmount = 80f;
+            float zoomChangeAmount = 55f;
             if(Input.mouseScrollDelta.y > 0)
             {
-               mainCamera.m_Lens.FieldOfView -= zoomChangeAmount * Time.deltaTime * 10f;
+              cameraDistance -= zoomChangeAmount * Time.deltaTime * 10f;
             }
             if(Input.mouseScrollDelta.y < 0)
             {
-                mainCamera.m_Lens.FieldOfView += zoomChangeAmount * Time.deltaTime * 10f;
+                cameraDistance += zoomChangeAmount * Time.deltaTime * 10f;
 
             }
-            if(mainCamera.m_Lens.FieldOfView <= 55)
+            if(cameraDistance <= 5)
             {
-                mainCamera.m_Lens.FieldOfView = 55;
+                cameraDistance = 5;
             }
-            if(mainCamera.m_Lens.FieldOfView >= 95)
+            if(cameraDistance >= 10)
             {
-                mainCamera.m_Lens.FieldOfView = 95;
+                cameraDistance = 10; 
             }
         }
     }

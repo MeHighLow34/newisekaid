@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1388141042380863437}
   - component: {fileID: 6749665127373922048}
   - component: {fileID: 6749665127373922051}
+  - component: {fileID: 902298341161251374}
   m_Layer: 0
   m_Name: Tornado
   m_TagString: Untagged
@@ -166,6 +167,19 @@ MonoBehaviour:
   playerDirection: {x: 0, y: 0, z: 0}
   tornadoPhotonView: {fileID: 0}
   playerPV: {fileID: 0}
+--- !u!114 &902298341161251374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388141042380863433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4df91f9e64b86842a33492698d89ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 115d14ef35a0259458b757e7c82035a8, type: 2}
 --- !u!1 &1388141042882699338
 GameObject:
   m_ObjectHideFlags: 0
