@@ -4775,6 +4775,7 @@ GameObject:
   - component: {fileID: 5476606949424971607}
   - component: {fileID: 296319620342249552}
   - component: {fileID: 1808670889274482828}
+  - component: {fileID: 9011625863411236920}
   m_Layer: 6
   m_Name: PROBNI_MC
   m_TagString: Untagged
@@ -4873,6 +4874,7 @@ MonoBehaviour:
   damageCollider: {fileID: 1167907646}
   damageColliderDefaultValue: 3.823658
   damageColliderShrinkValue: 0.9
+  footIK: {fileID: 1808670889274482828}
   instantiationTransform: {fileID: 7914526485551443114}
   tornadoInstantiationTransform: {fileID: 548101867770401136}
   beamInstantiationTransform: {fileID: 8925292068255256349}
@@ -5082,6 +5084,21 @@ MonoBehaviour:
   crouchRange: 0.25
   giveWorldHeightOffset: 0
   worldHeightOffset: 0
+--- !u!114 &9011625863411236920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666213895677441933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da10167e84b47374d9fb28b2983d1c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footIK: {fileID: 0}
+  feelSpeed: 10
+  idle_walk_threshold: 2
 --- !u!1 &4786974528224715689
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ namespace LastIsekai
         public CapsuleCollider damageCollider;
         public float damageColliderDefaultValue;
         public float damageColliderShrinkValue;
+        [Header("FootIK")]
+        public csHomebrewIK footIK;
 
         [Header("Instantiation Transforms")]
         public Transform instantiationTransform;
@@ -34,6 +36,7 @@ namespace LastIsekai
         private void Awake()
         {
             animator = GetComponent<Animator>();
+            footIK = GetComponent<csHomebrewIK>();
         }
 
         private void Start()
@@ -216,6 +219,18 @@ namespace LastIsekai
                 playerBehaviour.BeamEnabled();
             }
         }
+
+
+
+        public void FootIK(AnimationEvent info)
+        {
+            if (realPhotonView.IsMine)
+            {
+                footIK.globalWeight = info.floatParameter; 
+            }
+        }
+
+        
         private void FindLocalWeaponManager()
         {
             allWeaponManagers = FindObjectsOfType<WeaponManager>();

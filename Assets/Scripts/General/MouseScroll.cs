@@ -7,31 +7,35 @@ namespace LastIsekai
 {
     public class MouseScroll : MonoBehaviour
     {
+        CinemachineVirtualCamera cinemachineVirtualCamera;
         public float cameraDistance;
         private void Awake()
         {
-            cameraDistance = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance;
+            cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
+            cameraDistance = cinemachineVirtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance;
         }
         private void Update()
         {
-            cameraDistance = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance;
             float zoomChangeAmount = 55f;
             if(Input.mouseScrollDelta.y > 0)
             {
-              cameraDistance -= zoomChangeAmount * Time.deltaTime * 10f;
+                cameraDistance -= zoomChangeAmount * Time.deltaTime * 10f;
+                cinemachineVirtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance = cameraDistance;
             }
             if(Input.mouseScrollDelta.y < 0)
             {
-                cameraDistance += zoomChangeAmount * Time.deltaTime * 10f;
-
+               cameraDistance += zoomChangeAmount * Time.deltaTime * 10f;
+                cinemachineVirtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance = cameraDistance;
             }
-            if(cameraDistance <= 5)
+            if (cameraDistance <= 5)
             {
                 cameraDistance = 5;
+                cinemachineVirtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance = cameraDistance;
             }
-            if(cameraDistance >= 10)
+            if (cameraDistance >= 15)
             {
-                cameraDistance = 10; 
+                cameraDistance = 15;
+                cinemachineVirtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance = cameraDistance;
             }
         }
     }
