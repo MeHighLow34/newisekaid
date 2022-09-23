@@ -224,10 +224,22 @@ namespace LastIsekai
 
         public void FootIK(AnimationEvent info)
         {
-            if (realPhotonView.IsMine)
+            print("I got a fucking call babyyyy");
+            footIK.globalWeight = info.floatParameter;   
+            if(info.stringParameter != null)
             {
-                footIK.globalWeight = info.floatParameter; 
+                footIK.smoothTime = float.Parse(info.stringParameter);
             }
+
+            if(info.intParameter == 1)
+            {
+                footIK.enableBodyPositioning = true;
+            }
+            else
+            {
+                footIK.enableBodyPositioning = false;
+            }
+           
         }
 
         

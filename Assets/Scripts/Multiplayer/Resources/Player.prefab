@@ -5081,7 +5081,7 @@ MonoBehaviour:
   leftFootRayStartHeight: 0.5
   rightFootRayStartHeight: 0.5
   enableBodyPositioning: 0
-  crouchRange: 0.25
+  crouchRange: 0.85
   giveWorldHeightOffset: 0
   worldHeightOffset: 0
 --- !u!114 &9011625863411236920
@@ -5097,8 +5097,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footIK: {fileID: 0}
+  smoothSpeed: 0.075
   feelSpeed: 10
   idle_walk_threshold: 2
+  isInteracting: 0
+  grounded: 0
 --- !u!1 &4786974528224715689
 GameObject:
   m_ObjectHideFlags: 0

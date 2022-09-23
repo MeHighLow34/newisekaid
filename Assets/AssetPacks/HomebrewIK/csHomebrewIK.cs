@@ -149,7 +149,7 @@ using UnityEditor;  // Handles
         [BigHeader("Advanced")]
 
         [SerializeField]
-        private bool enableBodyPositioning = true;
+        public bool enableBodyPositioning = true;
         [ShowIf("enableBodyPositioning")]
         [SerializeField]
         private float crouchRange = 0.25f;
