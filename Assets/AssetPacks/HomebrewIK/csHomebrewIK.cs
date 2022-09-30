@@ -152,7 +152,7 @@ using UnityEditor;  // Handles
         public bool enableBodyPositioning = true;
         [ShowIf("enableBodyPositioning")]
         [SerializeField]
-        private float crouchRange = 0.25f;
+        public float crouchRange = 0.25f;
         [SerializeField]
         private bool giveWorldHeightOffset = false;
         [ShowIf("giveWorldHeightOffset")]

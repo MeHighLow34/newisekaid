@@ -24,7 +24,7 @@ namespace LastIsekai
                 rootMotion += animator.deltaPosition;
             }
         }
-
+        
         private void LateUpdate()
         {
             if (animator.applyRootMotion == true)

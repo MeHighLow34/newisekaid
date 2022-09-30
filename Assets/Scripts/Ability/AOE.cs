@@ -17,6 +17,7 @@ namespace LastIsekai
         public bool damageEnemies = false;
         [Header("VFX")]
         public GameObject bloodVFX;
+        public GameObject floatingDamageText;
         private void Awake()
         {
             myCollider = GetComponent<Collider>();  
@@ -68,6 +69,9 @@ namespace LastIsekai
             {
                 var damageVictim = other.GetComponent<IDamageable>();
                 damageVictim.TakeDamage(damage);
+                var enemyHealth = other.GetComponent<Mediary>().healther;
+                var floatingDamage = Instantiate(floatingDamageText, enemyHealth.bloodInstantiationPoint.position, Quaternion.identity);
+                floatingDamage.GetComponent<FloatingDamage>().SetText(damage.ToString());
                 if (bloodVFX != null)
                 {
                     print("Instantiating");

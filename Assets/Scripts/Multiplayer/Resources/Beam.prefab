@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 4840356944404582209}
   - component: {fileID: 7800751148140412530}
   - component: {fileID: 2218706770219860780}
-  - component: {fileID: -6550453942817040034}
   - component: {fileID: 7734960300373129066}
   - component: {fileID: 3065527920477878695}
+  - component: {fileID: 6185403444206590586}
   m_Layer: 0
   m_Name: Beam
   m_TagString: Untagged
@@ -186,23 +186,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 9.26}
   m_Center: {x: 0.06, y: 0.21, z: 4.8}
---- !u!114 &-6550453942817040034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8864659432680841123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7def064e80460542991a08279904df2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  delay: 0.5
-  duration: 10.5
-  damageEnemies: 0
-  bloodVFX: {fileID: 0}
 --- !u!114 &7734960300373129066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +212,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 9a863f71bb7a02746970afae998c6ea5, type: 2}
+--- !u!114 &6185403444206590586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864659432680841123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7f972fe2919c24cb3a2a56fb69d304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  delayTime: 0.5
+  canAttack: 0

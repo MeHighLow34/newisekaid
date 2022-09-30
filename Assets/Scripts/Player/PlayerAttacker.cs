@@ -107,6 +107,7 @@ namespace LastIsekai
         {
             if (photonView.IsMine)
             {
+                animationEvents.effectName = effectName;
                 animationManager.animator.SetBool("effectGain", true);
                 animationManager.animator.SetBool("isInteracting", true);
                 animationManager.animator.applyRootMotion = true;

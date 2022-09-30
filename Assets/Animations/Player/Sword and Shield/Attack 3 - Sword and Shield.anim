@@ -83360,6 +83360,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: FootIK
+    data: 0.005
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 1
+    messageOptions: 0
   - time: 1.7666667
     functionName: DisableNoInteracting
     data: 

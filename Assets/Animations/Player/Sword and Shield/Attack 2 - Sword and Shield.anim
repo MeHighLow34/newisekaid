@@ -57514,6 +57514,34 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: FootIK
+    data: 0.0075
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 1
+    messageOptions: 0
+  - time: 0.06666667
+    functionName: ExtraFootIK
+    data: 10
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.55
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: EnableWeaponCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: DisableMoving
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.25261945
     functionName: SendEvent
     data: toStrike
@@ -57521,8 +57549,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.56666666
-    functionName: EnableCombo
+  - time: 0.36666667
+    functionName: DisableWeaponCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

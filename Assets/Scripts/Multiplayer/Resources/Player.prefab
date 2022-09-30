@@ -1509,6 +1509,7 @@ Transform:
   - {fileID: 413856057}
   - {fileID: 504722224}
   - {fileID: 320505280}
+  - {fileID: 699508038074834969}
   m_Father: {fileID: 5476606949924950513}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4870,11 +4871,13 @@ MonoBehaviour:
   animator: {fileID: 0}
   testOrb: {fileID: 0}
   aoeName: 
+  effectName: 
   playerBehaviour: {fileID: 0}
   damageCollider: {fileID: 1167907646}
   damageColliderDefaultValue: 3.823658
   damageColliderShrinkValue: 0.9
   footIK: {fileID: 1808670889274482828}
+  controller: {fileID: 8164115589356454314}
   instantiationTransform: {fileID: 7914526485551443114}
   tornadoInstantiationTransform: {fileID: 548101867770401136}
   beamInstantiationTransform: {fileID: 8925292068255256349}
@@ -5096,6 +5099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da10167e84b47374d9fb28b2983d1c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 8164115589356454314}
   footIK: {fileID: 0}
   smoothSpeed: 0.075
   feelSpeed: 10
@@ -7173,6 +7177,51 @@ Transform:
   m_Father: {fileID: 9158354826187091126}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8036752443347504789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699508038074834969}
+  - component: {fileID: 1432398005359758634}
+  m_Layer: 0
+  m_Name: TankSword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &699508038074834969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8036752443347504789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1577709643}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1432398005359758634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8036752443347504789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4df91f9e64b86842a33492698d89ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 9281d1810dcdd13448a406b525acd6cf, type: 2}
 --- !u!1 &8062389272991711522
 GameObject:
   m_ObjectHideFlags: 0
@@ -7329,8 +7378,8 @@ MonoBehaviour:
   JumpTimeout: 0.3
   FallTimeout: 0.15
   Grounded: 1
-  GroundedOffset: 0.05
-  GroundedRadius: 0.05
+  GroundedOffset: 0.1
+  GroundedRadius: 0.1
   GroundLayers:
     serializedVersion: 2
     m_Bits: 513
@@ -7624,6 +7673,7 @@ MonoBehaviour:
   networkCruger: {fileID: 11400000, guid: f59fbc712ac43794c9638b73c3ae416c, type: 2}
   networkNuno: {fileID: 11400000, guid: 08bd3678c2212994e995d58dcb83a322, type: 2}
   networkHolySet: {fileID: 11400000, guid: 0183d0a7a6e350e4c812619262527448, type: 2}
+  networkClinge: {fileID: 11400000, guid: f8fd229500c1b6c449ee6f6ceca34bfd, type: 2}
   rightHandWeaponHolder: {fileID: 6175980776664773908}
   leftHandWeaponHolder: {fileID: 1602355500613623583}
   dropPosition: {fileID: 1932049638}
@@ -7699,7 +7749,7 @@ MonoBehaviour:
   aimCamera: {fileID: 1298409522}
   crosshair: {fileID: 0}
   rageVisuals: {fileID: 0}
-  rageVFX: {fileID: 0}
+  rageVFX: {fileID: 3502202345847874730}
   maxRageDuration: 5
   rageDuration: 10
   rageEnabled: 0
@@ -7707,6 +7757,12 @@ MonoBehaviour:
   rageSprint: 8
   beamEnabled: 0
   beamDuration: 10
+  tankSwordEnabled: 0
+  tankSwordWeapon: {fileID: 11400000, guid: f8fd229500c1b6c449ee6f6ceca34bfd, type: 2}
+  defaultWeapon: {fileID: 11400000, guid: 179a125706353044ebcda3f25ad06196, type: 2}
+  weaponManager: {fileID: 0}
+  uIManager: {fileID: 0}
+  tankSwordDuration: 15
 --- !u!114 &6460767275813908265
 MonoBehaviour:
   m_ObjectHideFlags: 0

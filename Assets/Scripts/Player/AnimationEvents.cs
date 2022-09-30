@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.Rendering;
+using StarterAssets;
 
 namespace LastIsekai
 {
@@ -17,6 +18,7 @@ namespace LastIsekai
         Stamina myStamina;
         public GameObject testOrb;
         public string aoeName;
+        public string effectName;
         public PlayerBehaviour playerBehaviour;
         [Header("Capsule - Properties")]
         public CapsuleCollider damageCollider;
@@ -24,6 +26,7 @@ namespace LastIsekai
         public float damageColliderShrinkValue;
         [Header("FootIK")]
         public csHomebrewIK footIK;
+        public ThirdPersonController controller;
 
         [Header("Instantiation Transforms")]
         public Transform instantiationTransform;
@@ -198,7 +201,13 @@ namespace LastIsekai
         {
             if (realPhotonView.IsMine)
             {
-                playerBehaviour.RageEnabled();
+                if (effectName == "rage")
+                {
+                    playerBehaviour.RageEnabled();
+                }else if(effectName == "TankSword")
+                {
+                    playerBehaviour.TankSwordEnabled();
+                }
             }
         }
 
@@ -239,9 +248,15 @@ namespace LastIsekai
             {
                 footIK.enableBodyPositioning = false;
             }
-           
         }
 
+        public void ExtraFootIK(AnimationEvent info)
+        {
+            footIK.crouchRange = info.floatParameter;
+            float groundedValue = float.Parse(info.stringParameter);
+            controller.GroundedRadius = groundedValue;
+            controller.GroundedOffset = groundedValue;
+        }
         
         private void FindLocalWeaponManager()
         {

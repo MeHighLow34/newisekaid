@@ -12,11 +12,13 @@ namespace LastIsekai
         public CanvasGroup inventory;
         [Header("Bools")]
         public bool inventoryEnabled;
+        public bool inventoryShutDown;
         private void Update()
         {
             #region Input
             if (Input.GetKeyDown(KeyCode.Tab))
             {
+                if (inventoryShutDown) return;
                 inventoryEnabled = !inventoryEnabled;
             }
             #endregion // Will update everything later when we are finishing the game

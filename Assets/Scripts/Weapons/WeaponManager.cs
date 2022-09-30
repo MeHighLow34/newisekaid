@@ -22,6 +22,7 @@ namespace LastIsekai
         public Weapon networkCruger;
         public Weapon networkNuno;
         public Weapon networkHolySet;
+        public Weapon networkClinge;
         [Header("Transform")]
         public Transform rightHandWeaponHolder;
         public Transform leftHandWeaponHolder;
@@ -93,6 +94,10 @@ namespace LastIsekai
                 if(weaponName == networkHolySet.name)
                 {
                     EquipWeapon(networkHolySet);
+                }
+                if(weaponName == networkClinge.name)
+                {
+                    EquipWeapon(networkClinge);
                 }
             }
         }

@@ -33,6 +33,14 @@ namespace LastIsekai
         public bool beamEnabled;
         public float beamDuration;
         private float beamTimeElapsed;
+        [Header("TankSword - Properties")]
+        public bool tankSwordEnabled;
+        public Weapon tankSwordWeapon;
+        public Weapon defaultWeapon;
+        public WeaponManager weaponManager;
+        public UIManager uIManager;
+        public float tankSwordDuration;
+        private float tankSwordTimeElapsed;
         private void Awake()
         {
             myLocalPhotonView = GetComponentInParent<PhotonView>();
@@ -40,13 +48,28 @@ namespace LastIsekai
             inputManager = GetComponent<InputManager>();
             crosshair = GameObject.FindGameObjectWithTag("Crosshair");
             rageVisuals = GameObject.FindGameObjectWithTag("RageVISUAL").GetComponent<Volume>();
-            rageVFX = GameObject.FindGameObjectWithTag("RageVFX").GetComponent<VisualEffect>();
+           // rageVFX = GameObject.FindGameObjectWithTag("RageVFX").GetComponent<VisualEffect>();
             playerManager = GetComponent<PlayerManager>();
             animationManager = GetComponent<AnimationManager>();
+            weaponManager = GetComponent<WeaponManager>();
+            uIManager = FindObjectOfType<UIManager>();
         }
 
         private void Update()
         {
+
+            if(tankSwordEnabled)
+            {
+                beamEnabled = false;
+                //  uIManager.inventoryEnabled = false;
+                tankSwordTimeElapsed += Time.deltaTime;
+                if(tankSwordTimeElapsed > tankSwordDuration)
+                {
+                    tankSwordTimeElapsed = 0f;
+                    DisableTankSword(); 
+                }
+            }
+
             if (beamEnabled)
             {
                 EnableAim();
@@ -92,7 +115,7 @@ namespace LastIsekai
                 }
                 else
                 {
-               //     animationManager.animator.SetBool("block", false);
+                    animationManager.animator.SetBool("block", false);
                 }
             }
             #endregion
@@ -123,10 +146,28 @@ namespace LastIsekai
 
         private void DisableRage()
         {
-            rageVFX.enabled = false;
             thirdPersonController.MoveSpeed = defaultMove;
             thirdPersonController.SprintSpeed = defaultSprint;  
             rageVisuals.weight = 0f;
+            rageVFX.enabled = false;
+        }
+
+        public void TankSwordEnabled()
+        {
+            tankSwordEnabled = true;
+            beamEnabled = false;
+            weaponManager.EquipWeapon(tankSwordWeapon);
+            uIManager.inventoryEnabled = false;
+            uIManager.inventoryShutDown = true;
+        }
+
+        public void DisableTankSword()
+        {
+            tankSwordEnabled = false;
+            weaponManager.EquipWeapon(defaultWeapon);
+            Inventory.instance.Remove(tankSwordWeapon);
+            Inventory.instance.Remove(defaultWeapon);
+            uIManager.inventoryShutDown = false;
         }
 
         public void BeamEnabled()

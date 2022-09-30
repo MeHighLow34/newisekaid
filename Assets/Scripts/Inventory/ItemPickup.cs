@@ -32,6 +32,10 @@ namespace LastIsekai
 
         private void Update()
         {
+            if (wasPickedUp)
+            {
+                photonView.RequestOwnership();
+            }
             if (photonView.IsMine && wasPickedUp)
             {
                 PhotonNetwork.Destroy(gameObject);

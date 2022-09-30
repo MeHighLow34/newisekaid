@@ -87,12 +87,15 @@ namespace LastIsekai
         }
         public void HitReaction()
         {
-            animationManager.animator.SetInteger("hitIndex", hitAnimation);
-            animationManager.animator.SetBool("hit", true);
-            animationManager.animator.SetBool("isInteracting", true);
-            animationManager.animator.applyRootMotion = true;
-            PhotonNetwork.Instantiate("BloodVFX", bloodInstantiationPoint.position, Quaternion.identity);
-            PhotonNetwork.Instantiate("Spark", bloodInstantiationPoint.position, Quaternion.identity);
+            if (hitAnimation != 99) // Hold Damage
+            {
+                animationManager.animator.SetInteger("hitIndex", hitAnimation);
+                animationManager.animator.SetBool("hit", true);
+                animationManager.animator.SetBool("isInteracting", true);
+                animationManager.animator.applyRootMotion = true;
+                PhotonNetwork.Instantiate("BloodVFX", bloodInstantiationPoint.position, Quaternion.identity);
+                PhotonNetwork.Instantiate("Spark", bloodInstantiationPoint.position, Quaternion.identity);
+            }
             var floatingDamage = Instantiate(floatingText, bloodInstantiationPoint.position, Quaternion.identity);
             floatingDamage.GetComponent<FloatingDamage>().SetText(damage.ToString());
         }

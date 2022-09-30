@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
 namespace LastIsekai
 {
@@ -8,6 +9,7 @@ namespace LastIsekai
     {
         Animator animator;
         [Header("Properties")]
+        public ThirdPersonController controller;
         public csHomebrewIK footIK;
         public float smoothSpeed = 0.075f;
         public float feelSpeed = 10f;
@@ -31,13 +33,34 @@ namespace LastIsekai
                 {
                     footIK.globalWeight = Mathf.Lerp(footIK.globalWeight, 1, feelSpeed * Time.deltaTime);
                     footIK.smoothTime = smoothSpeed;
-                    footIK.enableBodyPositioning = false;
+                    // footIK.enableBodyPositioning = false;
+
+                    if (footIK.crouchRange != 0.85f)
+                    {
+                        footIK.crouchRange = Mathf.Lerp(footIK.crouchRange, 0.85f, feelSpeed * Time.deltaTime);
+                        if (footIK.crouchRange == 0.85f)
+                        {
+                            footIK.enableBodyPositioning = false;
+                        }
+                    }
+                    controller.GroundedOffset = 0.1f;
+                    controller.GroundedRadius = 0.1f;
                 }
                 else if (footIK.globalWeight >= 0.1)
                 {
                     footIK.globalWeight = Mathf.Lerp(footIK.globalWeight, 0, feelSpeed * Time.deltaTime);
                     footIK.smoothTime = smoothSpeed;
                     footIK.enableBodyPositioning = false;
+                    if (footIK.crouchRange != 0.85f)
+                    {
+                        footIK.crouchRange = Mathf.Lerp(footIK.crouchRange, 0.85f, feelSpeed * Time.deltaTime);
+                        if (footIK.crouchRange == 0.85f)
+                        {
+                            footIK.enableBodyPositioning = false;
+                        }
+                    }
+                    controller.GroundedOffset = 0.1f;
+                    controller.GroundedRadius = 0.1f;
                 }
             }
             if(grounded == false && isInteracting == false) // Only when we are falling 
