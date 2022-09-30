@@ -13,6 +13,7 @@ namespace LastIsekai
         public bool canAttack;
         float passedTime = 0;
         PhotonView photonView;
+        public GameObject floatingDamageText;
         private void Awake()
         {
             photonView = GetComponent<PhotonView>();
@@ -39,6 +40,8 @@ namespace LastIsekai
                     enemyHealth.ChangeHitAnimation(99, enemyPV.ViewID);
                     var damageVictim = other.GetComponent<IDamageable>();
                     damageVictim.TakeDamage(damage);
+                    var floatingDamage = Instantiate(floatingDamageText, enemyHealth.bloodInstantiationPoint.position, Quaternion.identity);
+                    floatingDamage.GetComponent<FloatingDamage>().SetText(damage.ToString());
                     /*                if (bloodVFX != null)
                                     {
                                         print("Instantiating");

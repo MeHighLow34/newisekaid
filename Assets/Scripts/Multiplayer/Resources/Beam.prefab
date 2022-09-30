@@ -227,3 +227,5 @@ MonoBehaviour:
   damage: 10
   delayTime: 0.5
   canAttack: 0
+  floatingDamageText: {fileID: 4657084654749604967, guid: 4b3e2900166b5484c99da7387da5a76e,
+    type: 3}
