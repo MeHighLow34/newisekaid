@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Clinge is the sword you get with Tank Ability!!
   isEssential: 0
   playerClass: 3
-  prefab: {fileID: 4715188315615855683, guid: eb0b9c1a6deb05b4a8b6a576e14145b6, type: 3}
+  prefab: {fileID: 8331205241863921449, guid: 6821d654ae415e94fab56487eafa61c4, type: 3}
   secondaryPrefab: {fileID: 0}
   pickUpPrefab: {fileID: 8691095560998936926, guid: 53b13d1271b12a94fb4382ca7212a39a,
     type: 3}
