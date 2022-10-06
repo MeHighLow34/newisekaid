@@ -1283,7 +1283,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7770035, y: 1}
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -4777,9 +4777,11 @@ GameObject:
   - component: {fileID: 296319620342249552}
   - component: {fileID: 1808670889274482828}
   - component: {fileID: 9011625863411236920}
+  - component: {fileID: 6436339679318415512}
+  - component: {fileID: 2209138057572459239}
   m_Layer: 6
   m_Name: PROBNI_MC
-  m_TagString: Untagged
+  m_TagString: PlayerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5106,6 +5108,32 @@ MonoBehaviour:
   idle_walk_threshold: 2
   isInteracting: 0
   grounded: 0
+--- !u!136 &6436339679318415512
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666213895677441933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2209138057572459239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666213895677441933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41abfebf4dbffad41a2df65c90ae7c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4786974528224715689
 GameObject:
   m_ObjectHideFlags: 0
@@ -5380,7 +5408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5476606949924950513
 Transform:
   m_ObjectHideFlags: 0
@@ -6029,7 +6057,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7771739, y: 1}
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -7653,6 +7681,7 @@ MonoBehaviour:
   hud: {fileID: 0}
   inventory: {fileID: 0}
   inventoryEnabled: 0
+  inventoryShutDown: 0
 --- !u!114 &964672893961259246
 MonoBehaviour:
   m_ObjectHideFlags: 0

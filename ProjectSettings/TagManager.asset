@@ -13,6 +13,8 @@ TagManager:
   - HitFEEDBACK
   - hook
   - hookPlayer
+  - PlayerBody
+  - Enemy
   layers:
   - Default
   - TransparentFX
