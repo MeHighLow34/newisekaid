@@ -310,6 +310,7 @@ MonoBehaviour:
   duration: 3.5
   damageEnemies: 0
   bloodVFX: {fileID: 0}
+  floatingDamageText: {fileID: 0}
 --- !u!114 &8499219269193445051
 MonoBehaviour:
   m_ObjectHideFlags: 0

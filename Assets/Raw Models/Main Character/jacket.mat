@@ -44,7 +44,6 @@ Material:
   stringTagMap:
     IgnoreProjection: False
     MotionVector: User
-    RenderType: Opaque
   disabledShaderPasses:
   - RayTracingPrepass
   - MOTIONVECTORS
@@ -454,10 +453,10 @@ Material:
     - _StencilNo: 1
     - _StencilOpFail: 0
     - _StencilOpPass: 0
-    - _StencilRef: 4
+    - _StencilRef: 0
     - _StencilRefDepth: 8
     - _StencilRefDistortionVec: 4
-    - _StencilRefGBuffer: 14
+    - _StencilRefGBuffer: 10
     - _StencilRefMV: 40
     - _StencilWriteMask: 6
     - _StencilWriteMaskDepth: 8

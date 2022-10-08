@@ -44,7 +44,6 @@ Material:
   stringTagMap:
     IgnoreProjection: False
     MotionVector: User
-    RenderType: TransparentCutout
   disabledShaderPasses:
   - MOTIONVECTORS
   - TransparentDepthPrepass
