@@ -36,7 +36,6 @@ Material:
   - _TESSELLATION_PHONG
   m_InvalidKeywords:
   - _DISABLE_SSR_TRANSPARENT
-  - _MatCap
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -44,6 +43,7 @@ Material:
   stringTagMap:
     IgnoreProjection: False
     MotionVector: User
+    RenderType: Opaque
   disabledShaderPasses:
   - RayTracingPrepass
   - MOTIONVECTORS
@@ -285,7 +285,7 @@ Material:
     - _ColorShift_Speed: 0
     - _ComposerMaskMode: 0
     - _ConservativeDepthOffsetEnable: 0
-    - _CullMode: 0
+    - _CullMode: 2
     - _CullModeForward: 0
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
@@ -367,12 +367,12 @@ Material:
     - _Is_LightColor_1st_Shade: 1
     - _Is_LightColor_2nd_Shade: 1
     - _Is_LightColor_AR: 1
-    - _Is_LightColor_Ap_RimLight: 1
+    - _Is_LightColor_Ap_RimLight: 0
     - _Is_LightColor_Base: 1
-    - _Is_LightColor_HighColor: 1
+    - _Is_LightColor_HighColor: 0
     - _Is_LightColor_MatCap: 1
     - _Is_LightColor_Outline: 1
-    - _Is_LightColor_RimLight: 1
+    - _Is_LightColor_RimLight: 0
     - _Is_NormalMapForMatCap: 0
     - _Is_NormalMapToBase: 0
     - _Is_NormalMapToHighColor: 0
@@ -387,7 +387,7 @@ Material:
     - _Is_ViewShift: 0
     - _LightDirection_MaskOn: 0
     - _LinkDetailsWithBase: 1
-    - _MatCap: 1
+    - _MatCap: 0
     - _MaterialID: 1
     - _Metallic: 0
     - _MetallicRemapMax: 1
@@ -435,7 +435,7 @@ Material:
     - _Scroll_EmissiveV: 0
     - _SecondShadeOverridden: 0
     - _SecondShadeVisible: 1
-    - _Set_SystemShadowsToBase: 1
+    - _Set_SystemShadowsToBase: 0
     - _ShadeColor_Step: 0
     - _Smoothness: 0
     - _SmoothnessMax: 1

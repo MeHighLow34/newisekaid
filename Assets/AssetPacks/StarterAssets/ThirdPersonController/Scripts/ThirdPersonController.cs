@@ -177,6 +177,10 @@ namespace StarterAssets
                 GroundedCheck();
                 Move();
             }
+            else
+            {
+                Destroy(this);
+            }
         }
 
         private void LateUpdate()

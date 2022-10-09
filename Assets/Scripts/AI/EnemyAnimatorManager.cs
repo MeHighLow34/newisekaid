@@ -23,14 +23,14 @@ namespace LastIsekai
             animator.CrossFade(Animation, 0.2f);
         }
 
-        private void OnAnimatorMove()
+/*        private void OnAnimatorMove()
         {
-/*            float delta = Time.deltaTime;
+*//*            float delta = Time.deltaTime;
             enemyLocomotionManager.enemyRigidBody.drag = 0;
             Vector3 deltaPosition = animator.deltaPosition;
             deltaPosition.y = 0;
             Vector3 velocity = deltaPosition / delta;
-            enemyLocomotionManager.enemyRigidBody.velocity = velocity * speed;*/
-        }
+            enemyLocomotionManager.enemyRigidBody.velocity = velocity * speed;*//*
+        }*/
     }
 }
