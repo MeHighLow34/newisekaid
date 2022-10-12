@@ -23,7 +23,7 @@ namespace LastIsekai
         private void Awake()
         {
             enemyManager = GetComponent<EnemyManager>();    
-            enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();  
+            enemyAnimatorManager = GetComponent<EnemyAnimatorManager>();  
             navMeshAgent = GetComponent<NavMeshAgent>();
             enemyRigidBody = GetComponent<Rigidbody>(); 
         }
@@ -97,8 +97,7 @@ namespace LastIsekai
 
         public void UpdateLocomotionAnimation()
         {
-            enemyRigidBody.velocity = navMeshAgent.velocity;
-            enemyAnimatorManager.animator.SetFloat("Vertical", enemyRigidBody.velocity.magnitude);
+            enemyAnimatorManager.animator.SetFloat("Vertical", navMeshAgent.velocity.magnitude);
         }
 
         private void HandleRotateTowardsTarget()

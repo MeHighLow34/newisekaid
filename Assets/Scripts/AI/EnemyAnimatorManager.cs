@@ -14,7 +14,7 @@ namespace LastIsekai
         private void Awake()
         {
             animator = GetComponent<Animator>();    
-            enemyLocomotionManager = GetComponentInParent<EnemyLocomotionManager>();
+            enemyLocomotionManager = GetComponent<EnemyLocomotionManager>();
         }
         public void PlayTargetAnimation(string Animation, bool isInteracting) 
         {

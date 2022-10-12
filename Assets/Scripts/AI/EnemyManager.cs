@@ -19,7 +19,7 @@ namespace LastIsekai
         public float recoveryTime = 3f;
         private void Awake()
         {
-           enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
+           enemyAnimatorManager = GetComponent<EnemyAnimatorManager>();
            enemyLocomotionManager = GetComponent<EnemyLocomotionManager>();
         }
 

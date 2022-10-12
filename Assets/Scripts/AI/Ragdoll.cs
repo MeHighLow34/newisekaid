@@ -12,6 +12,9 @@ namespace LastIsekai
         private Animator animator;
         public Transform ragdollHolder;
         public bool ragdollEnabled;
+        [Header("Exceptions")]
+        public Collider exception1;
+        public Collider exception2;
 
         private void Start()
         {
@@ -19,18 +22,15 @@ namespace LastIsekai
             ragdollBodies = ragdollHolder.GetComponentsInChildren<Rigidbody>();
             ragdollColliders = ragdollHolder.GetComponentsInChildren<Collider>();
             ragdollJoints = ragdollHolder.GetComponentsInChildren<CharacterJoint>();
+            DisableRagdoll();
+            HandleExceptions();
+            GetComponent<CharacterCollison>().IgnoreCollision();
         }
 
-        private void Update()
+        private void HandleExceptions()
         {
-            if (ragdollEnabled)
-            {
-                EnableRagdoll();
-            }
-            else
-            {
-                DisableRagdoll();
-            }
+            if (exception1 != null) exception1.enabled = true;
+            if(exception2 != null) exception2.enabled = true;
         }
         public void EnableRagdoll()
         {
