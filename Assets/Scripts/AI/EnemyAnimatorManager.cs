@@ -23,6 +23,13 @@ namespace LastIsekai
             animator.CrossFade(Animation, 0.2f);
         }
 
+        public void PlayAnimation(string transitionName,  bool isInteracting)
+        {
+            animator.SetBool("isInteracting", isInteracting);
+            animator.SetBool(transitionName, true);
+            animator.applyRootMotion = isInteracting;
+        }
+
 /*        private void OnAnimatorMove()
         {
 *//*            float delta = Time.deltaTime;

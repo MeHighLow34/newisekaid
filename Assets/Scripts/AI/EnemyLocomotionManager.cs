@@ -10,7 +10,7 @@ namespace LastIsekai
     {
         EnemyAnimatorManager enemyAnimatorManager;
         EnemyManager enemyManager;
-        NavMeshAgent navMeshAgent;
+        public NavMeshAgent navMeshAgent;
         public Rigidbody enemyRigidBody;
 
         public LayerMask detectionLayer;
@@ -100,7 +100,7 @@ namespace LastIsekai
             enemyAnimatorManager.animator.SetFloat("Vertical", navMeshAgent.velocity.magnitude);
         }
 
-        private void HandleRotateTowardsTarget()
+        public void HandleRotateTowardsTarget()
         {
             if(enemyManager.isPerformingAction)
             {
@@ -114,6 +114,14 @@ namespace LastIsekai
                 }
 
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
+/*                if (transform.rotation != Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed / Time.deltaTime))
+                {
+                    enemyAnimatorManager.animator.SetLayerWeight(1, 0.5f);
+                }
+                else
+                {
+                    enemyAnimatorManager.animator.SetLayerWeight(1, 0f);
+                }*/
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed / Time.deltaTime);
             }
             else // rotate with pathfindg (navmesh)

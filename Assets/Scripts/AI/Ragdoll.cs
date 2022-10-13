@@ -15,6 +15,9 @@ namespace LastIsekai
         [Header("Exceptions")]
         public Collider exception1;
         public Collider exception2;
+        public Collider exception3;
+        public Collider exception4;
+
 
         private void Start()
         {
@@ -31,6 +34,8 @@ namespace LastIsekai
         {
             if (exception1 != null) exception1.enabled = true;
             if(exception2 != null) exception2.enabled = true;
+            if(exception3 != null) exception3.enabled = true;
+            if (exception4 != null) exception4.enabled = true;
         }
         public void EnableRagdoll()
         {

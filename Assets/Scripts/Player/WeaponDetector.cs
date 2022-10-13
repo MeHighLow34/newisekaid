@@ -7,7 +7,6 @@ namespace LastIsekai
 {
     public class WeaponDetector : MonoBehaviour
     {
-        // todo Actually we cannot since this is local instance which would defeat the whole purpose
         PlayerManager playerManager;
         public float damage = 1.5f;
         public float baseDamage;
@@ -37,52 +36,60 @@ namespace LastIsekai
                     blocked = true;
                     return;
                 }
-            }
+            }  // if we detect a shield we won't do any damage
             if (blocked == false)
             {
                 var victim = other.GetComponent<IDamageable>();
                 if (victim == null) return;
-                var enemyBody = other.GetComponent<Mediary>().playerBody;
-                if(enemyBody != null)
+                if (other.gameObject.tag == "PlayerHealth")
                 {
-                    float directionHit = (Vector3.SignedAngle(playerManager.playerBody.transform.forward, enemyBody.transform.forward, Vector3.up));
-                    if(directionHit >= 145 && directionHit <= 180)
+                    var enemyBody = other.GetComponent<Mediary>().playerBody;
+                    if (enemyBody != null)
                     {
-                        hitAnimation = 0;
-                    }else if(directionHit <= -145 && directionHit >= -180)
-                    {
-                        hitAnimation = 0;
-                    }else if(directionHit >= -45 && directionHit <= 45)
-                    {
-                        hitAnimation = 1;
-                    }else if(directionHit >= -144 && directionHit <= -45)
-                    {
-                        hitAnimation = 2;
-                    }else if(directionHit >= 45 && directionHit <= 144)
-                    {
-                        hitAnimation = 3;
+                        float directionHit = (Vector3.SignedAngle(playerManager.playerBody.transform.forward, enemyBody.transform.forward, Vector3.up));
+                        if (directionHit >= 145 && directionHit <= 180)
+                        {
+                            hitAnimation = 0;
+                        } else if (directionHit <= -145 && directionHit >= -180)
+                        {
+                            hitAnimation = 0;
+                        } else if (directionHit >= -45 && directionHit <= 45)
+                        {
+                            hitAnimation = 1;
+                        } else if (directionHit >= -144 && directionHit <= -45)
+                        {
+                            hitAnimation = 2;
+                        } else if (directionHit >= 45 && directionHit <= 144)
+                        {
+                            hitAnimation = 3;
+                        }
+                        /*
+                        0 je hit from front
+                        1 je hit from back
+                        2 je hit from left
+                        3 je hit from right
+                        */
+                        var enemyPV = other.GetComponent<PhotonView>();
+                        var enemyHealth = other.GetComponent<Mediary>().healther;
+                        enemyHealth.ChangeHitAnimation(hitAnimation, enemyPV.ViewID);
+                        var floatingDamage = Instantiate(floatingDamageText, enemyHealth.bloodInstantiationPoint.position, Quaternion.identity);
+                        floatingDamage.GetComponent<FloatingDamage>().SetText((baseDamage + damage).ToString());
                     }
-                    /*
-                    0 je hit from front
-                    1 je hit from back
-                    2 je hit from left
-                    3 je hit from right
-                    */
-                    var enemyPV = other.GetComponent<PhotonView>();
-                    var enemyHealth = other.GetComponent<Mediary>().healther;
-                    enemyHealth.ChangeHitAnimation(hitAnimation, enemyPV.ViewID);
-                    var floatingDamage = Instantiate(floatingDamageText, enemyHealth.bloodInstantiationPoint.position, Quaternion.identity);
-                    floatingDamage.GetComponent<FloatingDamage>().SetText((baseDamage + damage).ToString());
-                }
-                PhotonView victimPhotonView = other.GetComponent<PhotonView>();
-                if (victimPhotonView.IsMine == false)
+                    PhotonView victimPhotonView = other.GetComponent<PhotonView>();
+                    if (victimPhotonView.IsMine == false)
+                    {
+                        victim.TakeDamage(baseDamage + damage);
+                        hitFeedback.PlayFeedbacks();
+                    }
+                } // if we detect other player
+                if(other.gameObject.tag == "EnemyHealth")
                 {
-                    victim.TakeDamage(baseDamage + damage);
-                    hitFeedback.PlayFeedbacks();
-                }
+                    victim.TakeDamage(damage);
+                }  // if we detect enemy ai
             }
         }
 
+        #region Misc
         private PlayerManager GetLocalPlayerManager()
         {
             WeaponManager[] wholeWM = FindObjectsOfType<WeaponManager>();
@@ -96,5 +103,6 @@ namespace LastIsekai
             return null;
         }
 
+        #endregion
     }
 }

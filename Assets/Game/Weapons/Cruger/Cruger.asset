@@ -25,6 +25,6 @@ MonoBehaviour:
     type: 3}
   animatorOverrideController: {fileID: 22100000, guid: ffedd7243cdd9a64e8e3582a7576ae3e,
     type: 2}
-  attack1Cost: 15
+  attack1Cost: 30
   attack2Cost: 25
-  attack3Cost: 13
+  attack3Cost: 20
