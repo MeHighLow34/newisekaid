@@ -6697,6 +6697,7 @@ MonoBehaviour:
   baseStats: {fileID: 8919661347033706263}
   enemyManager: {fileID: 8919661347033706262}
   ragdoll: {fileID: 1990376705}
+  myPhotonView: {fileID: 474804441}
   worldUI: {fileID: 1729270062}
   health: 0
   effectInstantionPoint: {fileID: 1630345975}
@@ -28677,6 +28678,7 @@ GameObject:
   - component: {fileID: 9018958955807193166}
   - component: {fileID: 9157671925756683828}
   - component: {fileID: 6419023752963149991}
+  - component: {fileID: 9157671925756683829}
   m_Layer: 0
   m_Name: MaceGoblinWeapon
   m_TagString: Untagged
@@ -29883,6 +29885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   myHealth: {fileID: 474804440}
+  photonView: {fileID: 0}
 --- !u!4 &6452705233479873065
 Transform:
   m_ObjectHideFlags: 0
@@ -32066,3 +32069,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.167729, y: 18.935558, z: 5.12039}
   m_Center: {x: -1.1147006, y: 9.61052, z: -0.05559349}
+--- !u!114 &9157671925756683829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501294870035339422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 1
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 37
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

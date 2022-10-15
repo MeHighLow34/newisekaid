@@ -143,6 +143,7 @@ MonoBehaviour:
   duration: 3.5
   damageEnemies: 0
   bloodVFX: {fileID: 0}
+  floatingDamageText: {fileID: 0}
 --- !u!114 &1259575343657415138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: a1453c6d508f71f409dd7c39f2047142, type: 2}
-  coolDown: 10
 --- !u!114 &9197549947143169010
 MonoBehaviour:
   m_ObjectHideFlags: 0

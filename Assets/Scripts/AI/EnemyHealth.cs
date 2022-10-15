@@ -14,6 +14,7 @@ namespace LastIsekai
         public BaseStats baseStats;
         public EnemyManager enemyManager;
         public Ragdoll ragdoll;
+        public PhotonView myPhotonView;
         public GameObject worldUI;
         [Header("Properties")]
         public float health;
@@ -23,16 +24,19 @@ namespace LastIsekai
 
         void Awake()
         {
+            myPhotonView = GetComponent<PhotonView>();
             maxHealth = baseStats.GetStat(Stat.Health);
             health = maxHealth;
         }
         public void TakeDamage(float damage)
         {
+            enemyAnimationEvents.DisableWeapon();
             health -= damage;
             HitReaction();
             if(health <= 0)
             {
-                HandleDeath();
+               // HandleDeath();
+               Death();
             }
 
         }
@@ -46,6 +50,12 @@ namespace LastIsekai
             enemyManager.currentRecoveryTime = 1.25f;
         }
 
+        public void Death()
+        {
+            myPhotonView.RPC("HandleDeath", RpcTarget.All);
+        }
+
+        [PunRPC]
         private void HandleDeath()
         {
             enemyAnimationEvents.DisableWeapon();

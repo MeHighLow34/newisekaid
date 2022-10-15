@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 namespace LastIsekai
 {
     public class Ragdoll : MonoBehaviour
     {
+        private PhotonView photonView;
         private Rigidbody[] ragdollBodies;
         private Collider[] ragdollColliders;
         private CharacterJoint[] ragdollJoints;
@@ -21,6 +23,7 @@ namespace LastIsekai
 
         private void Start()
         {
+            photonView = GetComponent<PhotonView>();
             animator = GetComponent<Animator>();
             ragdollBodies = ragdollHolder.GetComponentsInChildren<Rigidbody>();
             ragdollColliders = ragdollHolder.GetComponentsInChildren<Collider>();
@@ -53,6 +56,7 @@ namespace LastIsekai
                 characterJoint.enableProjection = true;
             }
         }
+
 
 
         public void DisableRagdoll()
