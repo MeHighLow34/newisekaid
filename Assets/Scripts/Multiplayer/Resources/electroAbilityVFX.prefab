@@ -168,3 +168,4 @@ MonoBehaviour:
   duration: 5
   damageEnemies: 0
   bloodVFX: {fileID: 0}
+  floatingDamageText: {fileID: 0}

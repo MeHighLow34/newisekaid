@@ -17,6 +17,7 @@ namespace LastIsekai
         public BaseStats stats;
         public MMFeedbacks hitFeedback;
         public AnimationManager animationManager;
+        public AnimationEvents animationEvents;
         private bool isDead;
         private float privateHealth;
         public int hitAnimation;
@@ -87,6 +88,7 @@ namespace LastIsekai
         }
         public void HitReaction()
         {
+         //   if(animationEvents != null) animationEvents.DisableWeaponCollider(); // when we are hit we don't damage anyone
             if (hitAnimation != 99) // Hold Damage
             {
                 animationManager.animator.SetInteger("hitIndex", hitAnimation);

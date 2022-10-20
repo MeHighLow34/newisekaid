@@ -1156,6 +1156,7 @@ MonoBehaviour:
   stats: {fileID: 3955115513185800306}
   hitFeedback: {fileID: 0}
   animationManager: {fileID: 0}
+  animationEvents: {fileID: 3955115514510447326}
   hitAnimation: 0
   hurtVisual: {fileID: 0}
   bloodInstantiationPoint: {fileID: 8804640016787378238}

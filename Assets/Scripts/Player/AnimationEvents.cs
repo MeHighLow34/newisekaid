@@ -270,8 +270,18 @@ namespace LastIsekai
             }
         }
 
-  
- 
+        
+        public void GreatReset()
+        {
+            animator.applyRootMotion = false;
+            animator.SetBool("isInteracting", false);
+            animator.SetBool("noInteracting", false);
+            animator.SetBool("noMoving", false);
+            animator.SetBool("canDoCombo", false);
+            animator.SetBool("doCombo", false);
+            animator.SetBool("attack", false);
+        }
+
         private PhotonView GetLocalPhotonView()
         {
             WeaponManager[] wholeWM = FindObjectsOfType<WeaponManager>();

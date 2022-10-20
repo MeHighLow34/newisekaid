@@ -35,7 +35,6 @@ namespace LastIsekai
             HitReaction();
             if(health <= 0)
             {
-               // HandleDeath();
                Death();
             }
 
@@ -58,8 +57,8 @@ namespace LastIsekai
         [PunRPC]
         private void HandleDeath()
         {
-            enemyAnimationEvents.DisableWeapon();
             ragdoll.EnableRagdoll();
+            enemyAnimationEvents.DisableWeapon();
             enemyManager.enabled = false;
             enemyManager.enemyLocomotionManager.navMeshAgent.enabled = false;
             worldUI.SetActive(false);

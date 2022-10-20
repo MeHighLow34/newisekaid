@@ -9,6 +9,7 @@ namespace LastIsekai
     {
         public float damage = 25f;
         public EnemyHealth myHealth;
+        public Animator animator;
         private Collider weaponCollider;
         public PhotonView photonView;
 
@@ -24,7 +25,7 @@ namespace LastIsekai
             if (photonView.IsMine == false) return;
             IDamageable victim = other.gameObject.GetComponent<IDamageable>();
             print(other.gameObject.name + " goblincik je udario");
-            if (victim != null && myHealth != victim)
+            if (victim != null && myHealth != victim && other.gameObject.tag != "EnemyHealth")
             {
                 victim.TakeDamage(damage);
             }

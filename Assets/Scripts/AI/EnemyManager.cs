@@ -13,6 +13,8 @@ namespace LastIsekai
         public EnemyAttackAction[] enemyAttacks;
         public EnemyAttackAction currentAttack;
 
+        private Rigidbody rb;
+
         [Header("A.I Settings")]
         public float detectionRadius = 20;
         public float minimumDetectionAngle = -50f;
@@ -20,19 +22,41 @@ namespace LastIsekai
 
         public float currentRecoveryTime = 0;
         public float recoveryTime = 3f;
+
+        public float rediscoverTimer = 5f;
+        private float timeElapsed;
+
+        [Header("//References//")]
+        public bool oldAI;
+        public EnemyHealth myHealth;
+        public Transform runAwayPlace;
+
+        // Test
+
+        List<CharacterDetector> characters = new List<CharacterDetector>();
+        CharacterDetector closestCharacter;
+
         private void Awake()
         {
            enemyAnimatorManager = GetComponent<EnemyAnimatorManager>();
            enemyLocomotionManager = GetComponent<EnemyLocomotionManager>();
+           rb = GetComponent<Rigidbody>();  
         }
+
 
         private void Update()
         {
             HandleRecoveryTimer();
+         //   HandleRepeatDetection();
         }
         private void FixedUpdate()
         {
-            HandleCurrentAction();
+            if (oldAI)
+            {
+              HandleCurrentAction();
+            }
+            rb.isKinematic = false;
+            enemyLocomotionManager.navMeshAgent.enabled = true;
         }
 
         private void LateUpdate()
@@ -58,6 +82,45 @@ namespace LastIsekai
             }
         }
 
+        private void HandleRepeatDetection()
+        {
+            timeElapsed += Time.deltaTime;
+            if(timeElapsed >= rediscoverTimer)
+            {
+                timeElapsed = 0;
+                RepeatDetection();
+            }
+        }
+
+        public void RepeatDetection()
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius, enemyLocomotionManager.detectionLayer);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                CharacterDetector characterDetector = colliders[i].GetComponent<CharacterDetector>();
+                
+                if (characterDetector != null)
+                {
+                    //CHECK FOR TEAM ID
+                    characters.Add(characterDetector);
+                }
+            }
+            float minDist = Mathf.Infinity;
+            foreach(CharacterDetector character in characters)
+            {
+                float dist = Vector3.Distance(transform.position, character.transform.position);
+                if(dist < minDist)
+                {
+                    closestCharacter = character;
+                    minDist = dist;
+                }
+            }
+            if(closestCharacter != enemyLocomotionManager.currentTarget)
+            {
+                enemyLocomotionManager.currentTarget = closestCharacter;
+            }
+        }
+
         private void HandleRecoveryTimer()
         {
             if(currentRecoveryTime > 0)
@@ -75,7 +138,7 @@ namespace LastIsekai
             }
         }
 
-        private void GetNewAttack()
+        public void GetNewAttack()
         {
             Vector3 targetsDirection = enemyLocomotionManager.currentTarget.transform.position - transform.position;
             float viewableAngle = Vector3.Angle(targetsDirection, transform.forward);
@@ -125,7 +188,7 @@ namespace LastIsekai
 
         }
 
-        private void NewAttackTarget()
+        public void NewAttackTarget()
         {
             if (isPerformingAction) return;
             if(currentAttack == null)

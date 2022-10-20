@@ -70,6 +70,8 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours:
   - {fileID: -3802146711763252666}
+  - {fileID: -7897194388922527447}
+  - {fileID: 7175960154017356046}
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
@@ -136,6 +138,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boolName: isInteracting
   boolValue: 0
+--- !u!114 &-7897194388922527447
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da15ef302c8ef3e4c8a7048c52f162d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolName: doCombo
+  state: 0
 --- !u!1109 &-7888506447652029082
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -740,6 +756,7 @@ AnimatorState:
   - {fileID: -7196878182284653828}
   - {fileID: 5102262227731510873}
   - {fileID: -8961906814604549119}
+  - {fileID: 5710865969936266745}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2122,6 +2139,20 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &5710865969936266745
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da15ef302c8ef3e4c8a7048c52f162d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolName: noInteracting
+  state: 0
 --- !u!1102 &5715546414879234764
 AnimatorState:
   serializedVersion: 6
@@ -2370,6 +2401,20 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &7175960154017356046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da15ef302c8ef3e4c8a7048c52f162d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolName: attack
+  state: 0
 --- !u!114 &7276583265763104377
 MonoBehaviour:
   m_ObjectHideFlags: 1
